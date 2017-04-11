@@ -68,29 +68,32 @@ function _makerspaces_setup() {
 endif; // _makerspaces_setup
 add_action( 'after_setup_theme', '_makerspaces_setup' );
 
+
+// Define our current version number using the stylesheet version
+function my_wp_default_styles($styles) {
+  $my_theme = wp_get_theme();
+  $my_version = $my_theme->get('Version');
+  $styles->default_version = $my_version;
+}
+add_action('wp_default_styles', 'my_wp_default_styles');
+
+
 /**
  * Enqueue scripts and styles
  */
 function _makerspaces_scripts() {
-
-	// Import the necessary Bootstrap WP CSS additions
-	wp_enqueue_style( '_makerspaces-bootstrap-wp', THEME_DIR_URI . '/includes/css/bootstrap-wp.css' );
-
-	// load bootstrap css
+	// Load styles
 	wp_enqueue_style( '_makerspaces-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
-
-	// load Font Awesome css
 	wp_enqueue_style( '_makerspaces-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, '4.7.0' );
-
-	// load _makerspaces styles
+  wp_enqueue_style( '_makerspaces-font-body', 'https://fonts.googleapis.com/css?family=Roboto:400,300,700,500', array(), null, 'all' );
+  wp_enqueue_style( '_makerspaces-font-heading', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700', array(), null, 'all' );
+  wp_enqueue_style( '_makerspaces-fancybox-css', '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css', array(), null, 'all' );
 	wp_enqueue_style( '_makerspaces-style', get_stylesheet_uri() );
 
-	// load bootstrap js
-	wp_enqueue_script('_makerspaces-bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery') );
-
-	// load bootstrap wp js
+	// load scripts
+	wp_enqueue_script( '_makerspaces-bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery') );
+	wp_enqueue_script( '_makerspaces-fancyboxjs', '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( '_makerspaces-bootstrapwp', THEME_DIR_URI . '/includes/js/bootstrap-wp.js', array('jquery') );
-
 	wp_enqueue_script( '_makerspaces-skip-link-focus-fix', THEME_DIR_URI . '/includes/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

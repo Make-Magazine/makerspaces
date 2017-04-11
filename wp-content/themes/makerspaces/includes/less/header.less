@@ -1,0 +1,349 @@
+/*=========================
+  TOP BRAND BAR
+ ======================= */
+.top-header-bar-brand {
+  background-color: #F0F0F0;
+  z-index: 4;
+  position: relative;
+  p {
+    margin-bottom: 0;
+    line-height: 1.3em;
+    a {
+      font-size: 12px;
+      padding: 7px 5px;
+      display: inline-block;
+    }
+    a:hover, a:focus {
+      text-decoration: none;
+    }
+  }
+  a {
+    color: #242424;
+  }
+  .header-make-img img {
+    height: 12px;
+    padding-left: 2px;
+    vertical-align: baseline;
+  }
+}
+
+
+/*=========================
+  HEDADER
+ ======================= */
+#site-header {
+  background: #fff;
+  z-index: 4;
+  position: relative;
+  >.container {
+    padding-top: 15px;
+    position: relative;
+  }
+  >.row {
+    position: relative;
+  }
+}
+.red {
+  color: #ff0000;
+}
+.header-top-nav {
+  a {
+    color: #4F4F4F;
+  }
+  @media (max-width: 767px) {
+    z-index: 3;
+    background-color: #fff;
+  }
+}
+.logo-container {
+  margin-top: 3px;
+  @media (min-width: 992px) and (max-width : 1199px){
+    margin-top: 5px;
+    padding-right: 0;
+  }
+  @media (min-width: 768px) and (max-width : 991px){
+    margin-top: 2px;
+    padding-right: 0;
+  }
+}
+.header-logo {
+  z-index: 10;
+  position: relative;
+}
+#menu-header-main-menu {
+  li a {
+    border-bottom: 3px solid transparent;
+    padding-bottom: 12px;
+    transition: border-color 0.2s ease;
+    text-transform: uppercase;
+  }
+}
+#menu-header-main-menu li a:hover,
+#menu-header-main-menu li a:focus {
+  background-color: transparent;
+  border-bottom: 3px solid #14bcfb;
+  transition: border-color 0.2s ease;
+}
+#menu-header-main-menu li a:focus {
+  border-bottom: 3px solid #079cd3;
+}
+
+.nav .calendar-button {
+  display: none;
+}
+.nav-calendar-icon {
+  background-color: #3ec075;
+  background-image: url("../../assets/img/calendar_icon.png");
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  position: relative;
+  top: -37px;
+  border-radius: 50%;
+  margin: 0 0 0 25px;
+}
+.single-camp_day {
+  .nav .calendar-button {
+    display: block;
+  }
+  .nav .calendar-button:before {
+    content:url("../../assets/img/calendar-icon.png");
+    position: absolute;
+    left: -17px;
+    top: 12px;
+  }
+  .navbar-default .navbar-collapse .main-nav li {
+      margin: 6px 5px 6px 0;
+  }
+}
+
+
+/* MOBILE NAV */
+header .navbar-toggle {
+  .icon-bar {
+    background-color: #333;
+    position: relative;
+    transition: all 500ms ease-in-out;
+  }
+  &.active-bar {
+    .icon-bar:nth-of-type(2) {
+      top: 7px;
+      transform: rotate(45deg);
+    }
+    .icon-bar:nth-of-type(3) {
+      background-color: transparent;
+    }
+    .icon-bar:nth-of-type(4) {
+      top: -5px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+header .menu-bar {
+  position: absolute;
+  right: 20px;
+  height: auto;
+  padding: 10px 10px 20px 10px;
+  margin-top: 8px;
+  margin-right: 0;
+  margin-bottom: 0;
+  z-index: 4;
+}
+
+/*=========================
+  Icons
+ ======================= */
+.social-network-container {
+  margin-top: 8px;
+}
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left:0 !important;
+  padding: 0;
+  float: right;
+}
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+.social-network a.icoRss:hover {
+  background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+  background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+  background-color:#33ccff;
+}
+.social-network a.icoInstagram:hover {
+  background-color:#3f729b;
+}
+.social-network a.icoGoogle-plus:hover {
+  background-color:#DC4E41;
+}
+.social-network a.icoLinkedin:hover {
+  background-color:#007bb7;
+}
+.social-network a.icoInstagram:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoPinterest:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+  color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+  color:#44BCDD;
+}
+.social-circle i {
+  color: #fff;
+  margin:0;
+  line-height:30px;
+  text-align: center;
+}
+.social-circle li a {
+  display:inline-block;
+  position:relative;
+  margin:0 auto 0 auto;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+  border-radius:50%;
+  text-align:center;
+  width: 30px;
+  height: 30px;
+  font-size:20px;
+  background-color: #D3D3D3;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.social-circle li a:hover {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+
+/*=========================
+  New Subscribe stuff
+ ======================= */
+#mz-header-subscribe {
+  z-index: 10;
+  margin-bottom: -6px;
+  margin-top: -15px;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @media (max-width: 991px) { 
+    margin-right: -7px;
+  }
+  div {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    img {
+      width: 115px;
+      @media (max-width: 991px) { 
+        width: 100px;
+      }
+    }
+    .subscribe-red-btn {
+      background: #f40b0b;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+      &:hover {
+        background: #ea002a;
+        transition: background 0.2s;
+      }
+      @media (max-width: 991px) { 
+        position: absolute;
+        bottom: 0;
+        right: 8px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+.mobile-subscribe-link {
+  position: relative;
+  margin: 3px 0 22px;
+  margin-right: -15px;
+  margin-left: -15px;
+  a {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 1em;
+    color: red;
+    font-size: 14px;
+    display: block;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width : 1199px){
+  .social-network-container {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 767px) {
+  #site-header {
+    height: 55px;
+    margin-top: 0;
+    border-bottom: 1px solid #999;
+    > .container {
+      padding-top: 0;
+      > .row {
+        text-align: center;
+      }
+    }
+  }
+  .logo-container {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    left: 0;
+    img {
+      display: inline-block;
+    }
+  }
+  #menu-header-main-menu {
+    li {
+      a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        line-height: 1em;
+      }
+    }
+  }
+  .navbar-nav {
+    margin-bottom: 0;
+    margin-top: 55px;
+  }
+  #mc-menu {
+    width: 100%;
+    .nav>li>a {
+      display: inline-block;
+      margin-bottom: 8px;
+      margin-top: 8px;
+    }
+    &.in {
+      border-bottom: 1px solid #999;
+    }
+  }
+  .header-logo {
+    max-height: 40px;
+  }
+}
