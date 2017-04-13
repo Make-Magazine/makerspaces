@@ -86,7 +86,21 @@ function initialize() {
     infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
     infowindow.open(map);
   });    
-  map.data.loadGeoJson('/wp-content/themes/makerspaces/example-map-points.json');  
+  map.data.loadGeoJson('/wp-content/themes/makerspaces/example-map-points.json');
+
+  // If browser geolocation is enabled then center map to user location
+  if (navigator && navigator.geolocation) {
+    locateMe();
+  }
+}
+
+// Geolocation and map center if browser location enabled
+function locateMe () {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    map.setCenter(latlng);
+    map.setZoom(4);
+  });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
