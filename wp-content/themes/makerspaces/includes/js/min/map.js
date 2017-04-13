@@ -2,7 +2,7 @@
     /**
      * Storage objects
      */
-    var map, layer;
+    var map, layer, infowindow;
     var infowindow = new google.maps.InfoWindow();
 
 
@@ -36,8 +36,6 @@
             infowindow.close();
         });
 
-        var featureId = 0;
-
         var style = [
             {
                 elementType: 'geometry',
@@ -68,15 +66,9 @@
 
         map.mapTypes.set('map-style', styledMapType);
         map.setMapTypeId('map-style');
-
-        layer = new google.maps.Data();
-
-        layer.loadGeoJson('/wp-content/themes/makerspaces/example-map-points.json');
-
-        layer.setMap(map);
-
-        // global infowindow
+ 
         // When the user clicks, open an infowindow
+        var featureId = 0;
         map.data.addListener('click', function(event) {
             var myHTML = event.feature.getProperty("Description");
             infowindow.setContent("<div class='map-infowindow' style='width:150px; text-align: center;'>"+myHTML+"</div>");
@@ -84,6 +76,12 @@
             infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
             infowindow.open(map);
         });
+
+        layer = new google.maps.Data();
+
+        layer.loadGeoJson('/wp-content/themes/makerspaces/example-map-points.json');
+
+        layer.setMap(map);
 
 
         if (navigator && navigator.geolocation) {
