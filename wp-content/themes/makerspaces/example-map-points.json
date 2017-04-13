@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 0,
+      "properties": {
+        "Name": "Makerspace 1",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "URL": "http://www.nyan.cat/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.084917,
+          37.423156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "Name": "makerspace 2",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "URL": "http://www.nyan.cat/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.74379,
+          42.280119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "Name": "Makerspace 3",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "URL": "http://www.nyan.cat/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.387392,
+          33.781484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "Name": "Makerspace 4",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "URL": "http://www.nyan.cat/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.736708,
+          30.386272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "Name": "Makerspace 5",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "URL": "http://www.nyan.cat/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.261166,
+          40.021563
+        ]
+      }
+    }
+  ]
+}

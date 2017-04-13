@@ -163,7 +163,7 @@ object {
 .dropdown-submenu{position:relative;}
 .dropdown-submenu>.dropdown-menu{top:0;left:100%;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
 .dropdown-submenu:active>.dropdown-menu, .dropdown-submenu:hover>.dropdown-menu {
-display: block;
+  display: block;
 }
 .dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
 .dropdown-submenu:active>a:after{border-left-color:#ffffff;}
@@ -186,9 +186,10 @@ display: block;
 
 /* Nested comments? They are threaded and nested already, you just need to add your own styling to finalize!
  * For example with some margin, like the line below ;) Delete, modify, change classes in HTML if you desire another style */
- .comment .children { 
+.comment .children { 
   margin-left: 1.5em;
- }
+  list-style-type: none;
+}
 
 .entry-meta {
   clear: both;

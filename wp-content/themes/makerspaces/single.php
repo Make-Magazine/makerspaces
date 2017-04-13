@@ -7,19 +7,31 @@
 
 get_header(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+  <div class="container">
 
-		<?php get_template_part( 'content', 'single' ); ?>
+    <div class="row">
 
-		<?php // _makerspaces_content_nav( 'nav-below' ); ?>
-		<?php _makerspaces_pagination(); ?>
+      <div class="col-xs-12">
 
-		<?php
-			// If comments are open or we have at least one comment, load up the comment template
-			if ( comments_open() || '0' != get_comments_number() )
-				comments_template();
-		?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php endwhile; // end of the loop. ?>
+					<?php get_template_part( 'content', 'single' ); ?>
+
+					<?php // _makerspaces_content_nav( 'nav-below' ); ?>
+					<?php _makerspaces_pagination(); ?>
+
+					<?php
+						// If comments are open or we have at least one comment, load up the comment template
+						if ( comments_open() || '0' != get_comments_number() )
+							comments_template();
+					?>
+
+				<?php endwhile; // end of the loop. ?>
+
+      </div>
+
+    </div>
+
+  </div>
 
 <?php get_footer(); ?>

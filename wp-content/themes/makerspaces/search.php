@@ -7,25 +7,37 @@
 
 get_header(); ?>
 
-	<?php if ( have_posts() ) : ?>
+  <div class="container">
 
-		<header>
-			<h2 class="page-title"><?php printf( __( 'Search Results for: %s', '_makerspaces' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
-		</header><!-- .page-header -->
+    <div class="row">
 
-		<?php // start the loop. ?>
-		<?php while ( have_posts() ) : the_post(); ?>
+      <div class="col-xs-12">
 
-			<?php get_template_part( 'content', 'search' ); ?>
+				<?php if ( have_posts() ) : ?>
 
-		<?php endwhile; ?>
+					<header>
+						<h2 class="page-title"><?php printf( __( 'Search Results for: %s', '_makerspaces' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
+					</header><!-- .page-header -->
 
-		<?php _makerspaces_pagination(); ?>
+					<?php // start the loop. ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php else : ?>
+						<?php get_template_part( 'content', 'search' ); ?>
 
-		<?php get_template_part( 'no-results', 'search' ); ?>
+					<?php endwhile; ?>
 
-	<?php endif; // end of loop. ?>
+					<?php _makerspaces_pagination(); ?>
+
+				<?php else : ?>
+
+					<?php get_template_part( 'no-results', 'search' ); ?>
+
+				<?php endif; // end of loop. ?>
+
+      </div>
+
+    </div>
+
+  </div>
 
 <?php get_footer(); ?>
