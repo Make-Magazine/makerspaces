@@ -7,7 +7,7 @@
       "properties": {
         "Name": "Makerspace 1",
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "URL": "http://www.nyan.cat/"
+        "URL": "http://thecrucible.org/"
       },
       "geometry": {
         "type": "Point",
@@ -23,7 +23,7 @@
       "properties": {
         "Name": "makerspace 2",
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "URL": "http://www.nyan.cat/"
+        "URL": "http://thecrucible.org/"
       },
       "geometry": {
         "type": "Point",
@@ -39,7 +39,7 @@
       "properties": {
         "Name": "Makerspace 3",
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "URL": "http://www.nyan.cat/"
+        "URL": "http://thecrucible.org/"
       },
       "geometry": {
         "type": "Point",
@@ -55,7 +55,7 @@
       "properties": {
         "Name": "Makerspace 4",
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "URL": "http://www.nyan.cat/"
+        "URL": "http://thecrucible.org/"
       },
       "geometry": {
         "type": "Point",
@@ -71,7 +71,7 @@
       "properties": {
         "Name": "Makerspace 5",
         "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-        "URL": "http://www.nyan.cat/"
+        "URL": "http://thecrucible.org/"
       },
       "geometry": {
         "type": "Point",

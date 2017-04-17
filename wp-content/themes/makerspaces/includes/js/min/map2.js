@@ -85,7 +85,9 @@ function initialize() {
     infowindow.setPosition(event.feature.getGeometry().get());
     infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
     infowindow.open(map);
-  });    
+  });
+
+  // map data points file
   map.data.loadGeoJson('/wp-content/themes/makerspaces/example-map-points.json');
 
   // If browser geolocation is enabled then center map to user location
