@@ -29,7 +29,7 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-6 text-center">
-          <p class="header-make-img"><a href="http://makezine.com/?utm_source=makercamp.com&utm_medium=brand+bar&utm_campaign=explore+all+of+make" target="_blank">Explore all of <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make_logo.png" alt="Make: Magazine Logo" /></a></p>
+          <p class="header-make-img"><a href="https://makezine.com/?utm_source=spaces.makerspace.com/&utm_medium=brand+bar&utm_campaign=explore+all+of+make" target="_blank">Explore all of <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make_logo.png" alt="Make: Magazine Logo" /></a></p>
         </div>
       </div>
     </div>   
