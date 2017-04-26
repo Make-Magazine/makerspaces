@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   var watchFiles = [
     'includes/less/*.less',
     'includes/js/*.js',
+    'includes/js/angular/global-faires-map-app/*.js'
   ];
   var lessSrcFiles = {
     'includes/css/style.css': 'includes/less/style.less',
@@ -40,6 +41,10 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'includes/js/min/scripts.js': ['includes/js/*.js'],
+          'includes/js/angular/global-faires-map-app.js': [
+            'includes/js/angular/global-faires-map-app/faireMapsApp.js',
+            'includes/js/angular/global-faires-map-app/*.js'
+          ],
         }
       },
     },

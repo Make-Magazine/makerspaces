@@ -11,11 +11,6 @@
  define('THEME_DIR_PATH', get_template_directory());
  define('THEME_DIR_URI', get_template_directory_uri());
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 750; /* pixels */
 
 if ( ! function_exists( '_makerspaces_setup' ) ) :
 /**
@@ -26,9 +21,7 @@ if ( ! function_exists( '_makerspaces_setup' ) ) :
  * support post thumbnails.
  */
 function _makerspaces_setup() {
-	global $cap, $content_width;
-
-	// Add html5 behavior for some theme elements
+	// Add html 5 behavior for some theme elements
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
   // This theme styles the visual editor with editor-style.css to match the theme style.
@@ -95,11 +88,26 @@ function _makerspaces_scripts() {
 	wp_enqueue_script( '_makerspaces-fancyboxjs', '//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( '_makerspaces-scripts', THEME_DIR_URI . '/includes/js/min/scripts.min.js', array('jquery') );
 
+	// Map page only
+  if (is_page_template('page-map-angular.php')) {
+    wp_enqueue_script( 'faires-global-map-scripts', get_stylesheet_directory_uri() . '/includes/js/angular/global-faires-map-app.js',
+      array('angularjs', 'ordinal-filter', 'angular-utils-pagination')
+    );
+    wp_enqueue_script( 'angular-utils-pagination', get_stylesheet_directory_uri() . '/bower_components/angularUtils-pagination/dirPagination.js',
+      array('angularjs')
+    );
+    wp_enqueue_script( 'ordinal-filter', get_stylesheet_directory_uri() . '/bower_components/angularjs-ordinal-filter/ordinal-browser.js',
+      array('angularjs')
+    );
+    wp_enqueue_script( 'angularjs', get_stylesheet_directory_uri() . '/bower_components/angular/angular.min.js'
+    );
+  }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// only load on the image attachemnt pages
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( '_makerspaces-keyboard-image-navigation', THEME_DIR_URI . '/includes/js/min/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
