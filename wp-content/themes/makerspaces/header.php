@@ -41,57 +41,50 @@
       <div class="row">
 
         <!-- LOGO & TAG LINE -->
-        <div class="col-md-2 col-sm-3 logo-container">
+        <div class="col-sm-7 col-md-8 col-lg-9 logo-container">
           <a href="/">
-            <img src="<?php echo get_template_directory_uri() . '/img/logo-makerspace.png' ?>" class="header-logo img-responsive" alt="Makerspaces logo" />
+            <img src="<?php echo get_template_directory_uri() . '/img/Make_logo.svg' ?>" class="img-responsive" alt="Make: magazine logo" />
+            <span>makerspaces</span>
           </a>
+
+          <p>Stay in the loop with our newsletter</p>
+        </div>
+
+        <!-- Newlsetter signup -->
+        <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="YOUR EMAIL">
+            </div>
+            <button type="submit" class="btn btn-default">SIGN UP</button>
+          </form>
         </div>
 
         <!-- MENUS -->
-        <nav class="header-top-nav col-md-7 col-sm-9">
-          <div class="row">
-            <button type="button" class="menu-bar visible-xs-block navbar-toggle" data-target="#mc-menu" data-toggle="collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <div id="mc-menu" class="collapse navbar-collapse">
-
-              <!-- Main Menu -->
-              <?php
-                wp_nav_menu( array(
-                  'menu'              => 'Header main menu',
-                  'theme_location'    => 'primary_menu',
-                  'depth'             => 1,
-                  'container'         => 'div',
-                  'menu_class'        => 'nav navbar-nav',
-                  'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                  'walker'            => new wp_bootstrap_navwalker())
-                );
-              ?>
-
-              <div class="mobile-subscribe-link hidden-sm hidden-md hidden-lg">
-                <a href="https://readerservices.makezine.com/mk/default.aspx?pc=MK&pk=M6GMKZ">SUBSCRIBE to Make: and save</a>
-              </div>
-
-            </div>
-
-          </div>
-        </nav>
-
-        <!-- New Header Subscribe stuff -->
-        <div id="mz-header-subscribe" class="hidden-xs">
-          <div>
-            <a id="trigger-overlay" href="https://readerservices.makezine.com/mk/default.aspx?pc=MK&pk=M6GMKZ" target="_blank">
-              <img src="<?php echo get_template_directory_uri() . '/img/Subscribe_CTA_2x.png'; ?>" alt="Make: Magazine latest magazine cover, subscribe here" />
-            </a>
-            <a class="subscribe-red-btn" href="https://readerservices.makezine.com/mk/default.aspx?pc=MK&pk=M6GMKZ" target="_blank">SUBSCRIBE</a>
-          </div>
+        <div class="header-nav">
+          <button type="button" class="visible-xs-block navbar-toggle" data-target="#menu-container" data-toggle="collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
 
       </div>
+    </div>
+
+    <div id="menu-container" class="collapse navbar-collapse">
+      <?php
+        wp_nav_menu( array(
+          'menu'              => 'Header main menu',
+          'theme_location'    => 'primary_menu',
+          'depth'             => 1,
+          'container'         => 'nav',
+          'menu_class'        => 'nav navbar-nav',
+          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+          'walker'            => new wp_bootstrap_navwalker())
+        );
+      ?>
     </div>
   </header>
 
