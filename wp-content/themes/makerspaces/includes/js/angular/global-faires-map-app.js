@@ -28,7 +28,7 @@
     function($window, $q) {
       // &key=AIzaSyBITa21JMkxsELmGoDKQ3owasOW48113w4
       var asyncUrl = 'https://maps.googleapis.com/maps/api/js??v=3.exp&callback=googleMapsInitialized',
-        mapsDefer = $q.defer();
+          mapsDefer = $q.defer();
       //Callback function - resolving promise after maps successfully loaded
       $window.googleMapsInitialized = mapsDefer.resolve;
       //Async loader
@@ -53,10 +53,8 @@
       var ctrl = this;
       var faireFilters = {
         filters: ['Flagship', 'Featured', 'Mini'],
-        search: '',
-        pastEvents: false
+        search: ''
       };
-      ctrl.pastEvents = false;
 
       $rootScope.$on('toggleMapFilter', function(event, args) {
         var index = faireFilters.filters.indexOf(args.filter);
@@ -89,16 +87,12 @@
 
         ctrl.applyMapFilters();
       }
+
       ctrl.applyMapFilters = function() {
         FaireMapsSharedData.infowindow.close();
-        ctrl.pastPresent = {
-          past: 0,
-          present: 0
-        };
         faireFilters.search = ctrl.filterText;
-        faireFilters.pastEvents = ctrl.pastEvents;
         var newModel = [];
-        var todaysDate = new Date();
+
         // check if "sorting.search" string exists in marker object:
         function containsString(marker) {
           if (!faireFilters.search) {
@@ -122,41 +116,13 @@
         function isTypeToggled(marker) {
           return (faireFilters.filters.indexOf(marker.category) > -1);
         }
-        // check if date is ok:
-        function isDateOk(marker) {
-          var eventDate;
 
-          if (Object.prototype.toString.call(marker.event_end_dt) === "[object Date]" &&
-              !isNaN(marker.event_end_dt.getTime()) ) { // is end date valid and not set to 0's
-            eventDate = marker.event_end_dt; // use end date
-          } else if (Object.prototype.toString.call(marker.event_start_dt) === "[object Date]" &&
-              !isNaN(marker.event_start_dt.getTime()) ) { // is start date valid and not set to 0's
-            eventDate = marker.event_start_dt; // use start date
-          } else {
-            ctrl.pastPresent.present++;
-            return true;
-          }
-
-          //set event_date to midnight on the following day so we don't display a faire as being passed until the following day
-          var event_date = new Date(eventDate);
-          event_date.setDate(event_date.getDate() + 1); //END DATE + 1 day
-          event_date.setHours(0,0,0,0);  //event ends at midnight
-          var isInPast = event_date.getTime() < todaysDate.getTime();
-
-          if (isInPast) {
-            ctrl.pastPresent.past++;
-          } else {
-            ctrl.pastPresent.present++;
-          }
-          return (faireFilters.pastEvents == isInPast);
-        }
         FaireMapsSharedData.gmarkers1.map(function(marker) {
           var rowData = marker.dataRowSrc;
-          if (containsString(rowData) && isTypeToggled(rowData) && isDateOk(rowData)) {
+          if (containsString(rowData) && isTypeToggled(rowData)) {
             newModel.push(rowData);
             marker.setVisible(true);
           } else {
-            ctrl.pastPresent.past++;
             marker.setVisible(false);
           }
         });
@@ -386,18 +352,18 @@
           function displayMarkerInfo() {
             var marker_map = this.getMap();
             FaireMapsSharedData.infowindow.setContent('<div id="content"><h3 class="firstHeading">' +
-                    this.title + '</h3>' +
-                    '<div id="bodyContent"><p>' +
-                    (this.dataRowSrc.venue_address_city || '') +
-                    (this.dataRowSrc.venue_address_state && ', ' + this.dataRowSrc.venue_address_state || '') +
-                    (this.dataRowSrc.venue_address_country && ', ' + this.dataRowSrc.venue_address_country + ' ' || '') +
-                    (this.dataRowSrc.event_dt || '') +
-                    '</p><p>' +
-                    (this.dataRowSrc.faire_url &&
-                            '<a href="' + this.dataRowSrc.faire_url + '" target="_blank">' + this.dataRowSrc.faire_url + '</a>' || '') +
-                    '</p></div>' +
-                    '</div>'
-                    );
+            this.title + '</h3>' +
+            '<div id="bodyContent"><p>' +
+            (this.dataRowSrc.venue_address_city || '') +
+            (this.dataRowSrc.venue_address_state && ', ' + this.dataRowSrc.venue_address_state || '') +
+            (this.dataRowSrc.venue_address_country && ', ' + this.dataRowSrc.venue_address_country + ' ' || '') +
+            (this.dataRowSrc.event_dt || '') +
+            '</p><p>' +
+            (this.dataRowSrc.faire_url &&
+            '<a href="' + this.dataRowSrc.faire_url + '" target="_blank">' + this.dataRowSrc.faire_url + '</a>' || '') +
+            '</p></div>' +
+            '</div>'
+            );
             FaireMapsSharedData.infowindow.open(marker_map, this);
           }
           setMarkers(ctrl.mapData);

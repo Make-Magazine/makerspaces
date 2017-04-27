@@ -4,7 +4,7 @@
     function($window, $q) {
       // &key=AIzaSyBITa21JMkxsELmGoDKQ3owasOW48113w4
       var asyncUrl = 'https://maps.googleapis.com/maps/api/js??v=3.exp&callback=googleMapsInitialized',
-        mapsDefer = $q.defer();
+          mapsDefer = $q.defer();
       //Callback function - resolving promise after maps successfully loaded
       $window.googleMapsInitialized = mapsDefer.resolve;
       //Async loader

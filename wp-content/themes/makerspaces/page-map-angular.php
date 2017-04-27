@@ -11,17 +11,17 @@ get_header(); ?>
   <div ng-controller="MapCtrl as $ctrl">
     <div class="container">
       <div class="col-md-12">
-        <h1>Faires around the world</h1>
+        <h1>Makerspace Directory</h1>
       </div>
     </div>
     <nav class="map-filters-wrp affix-bottom" data-spy="affix" data-offset-top="210">
       <div class="container">
         <div class="col-md-12">
           <div class="searchbox">
-            <h2>Explore Maker Faires</h2>
+            <h2>Find a Makerspace</h2>
             <input type="text"
               class="form-control input-sm"
-              placeholder="Location, Name, Type, Date"
+              placeholder="Location, Name"
               ng-model="$ctrl.filterText"
               ng-model-options="{debounce: 500}"
               ng-change="$ctrl.applyMapFilters()" />
@@ -29,7 +29,8 @@ get_header(); ?>
               ng-click="$ctrl.filterText = ''; $ctrl.applyMapFilters();">
             </div>
           </div>
-          <div class="filters ng-cloak" ng-if="$ctrl.faireMarkers">
+          <!-- Commenting out checkboxes till we need them again -->
+<!--           <div class="filters ng-cloak" ng-if="$ctrl.faireMarkers">
             <faires-map-filter default-state="false" filter="School">
               School <span class="hidden-sm hidden-xs">Maker Faires</span>
             </faires-map-filter>
@@ -42,7 +43,7 @@ get_header(); ?>
             <faires-map-filter default-state="true" filter="Flagship">
               Flagship <span class="hidden-sm hidden-xs">Faires</span>
             </faires-map-filter>
-          </div>
+          </div> -->
         </div>
       </div>
     </nav>
@@ -57,8 +58,10 @@ get_header(); ?>
           map-data="::$ctrl.faireMarkers"
           ng-if="$ctrl.faireMarkers">
         </faires-google-map>
+
+        <!-- COmmenting out the filter button till we need them again -->
         <!-- Color Key -->
-        <div class="faire-key-boxes">
+<!--         <div class="faire-key-boxes">
           <div class="flagship-key" ng-click="$ctrl.toggleBox('Flagship')">
             Flagship Maker Faires
             <p>Faires curated and produced by the Maker Media team</p>
@@ -75,66 +78,47 @@ get_header(); ?>
             School Maker Faires
             <p>K-12 Faires (closed to general public)</p>
           </div>
-        </div>
+        </div> -->
+
         <!-- List of Faires -->
-        <div class="faire-date-toggle"
-          ng-class="{'active': !$ctrl.pastEvents}"
-          ng-click="$ctrl.pastEvents = false;$ctrl.applyMapFilters();">
-          Upcoming
-        </div>
-        <div class="faire-date-toggle"
-          ng-class="{'active': $ctrl.pastEvents}"
-          ng-click="$ctrl.pastEvents = true;$ctrl.applyMapFilters();">
-          Past
-        </div>
         <div class="faire-list-table table-responsive">
           <table class="table table-striped table-condensed">
             <tr></tr>
             <tr ng-init="sort='event_start_dt';reverse=false">
               <th class="cursor-pointer" ng-click="sort='annual';reverse=!reverse">
-                ANNUAL
-               <span ng-show="sort == 'annual'">
-                 <span ng-show="!reverse">^</span>
-                 <span ng-show="reverse">v</span>
-               </span>
+                <span ng-show="sort == 'annual'">
+                  <span ng-show="!reverse">^</span>
+                  <span ng-show="reverse">v</span>
+                </span>
               </th>
-              <th class="cursor-pointer" ng-click="sort='category';reverse=!reverse">FAIRE TYPE
-              <span ng-show="sort == 'category'">
-                 <span ng-show="!reverse">^</span>
-                 <span ng-show="reverse">v</span>
-               </span>
+              <th class="cursor-pointer" ng-click="sort='category';reverse=!reverse">TYPE
+                <span ng-show="sort == 'category'">
+                  <span ng-show="!reverse">^</span>
+                  <span ng-show="reverse">v</span>
+                </span>
               </th>
-              <th class="cursor-pointer" ng-click="sort='event_start_dt';reverse=!reverse">DATE
-              <span ng-show="sort == 'event_start_dt'">
-                 <span ng-show="!reverse">^</span>
-                 <span ng-show="reverse">v</span>
-               </span>
-              </th>
-              <th class="cursor-pointer" ng-click="sort='name';reverse=!reverse">EVENT NAME
-              <span ng-show="sort == 'name'">
-                 <span ng-show="!reverse">^</span>
-                 <span ng-show="reverse">v</span>
-               </span>
+              <th class="cursor-pointer" ng-click="sort='name';reverse=!reverse">NAME
+                <span ng-show="sort == 'name'">
+                  <span ng-show="!reverse">^</span>
+                  <span ng-show="reverse">v</span>
+                </span>
               </th>
               <th>LOCATION</th>
               <th class="cursor-pointer" ng-click="sort='venue_address_country';reverse=!reverse">COUNTRY
-              <span ng-show="sort == 'venue_address_country'">
-                 <span ng-show="!reverse">^</span>
-                 <span ng-show="reverse">v</span>
-               </span>
+                <span ng-show="sort == 'venue_address_country'">
+                  <span ng-show="!reverse">^</span>
+                  <span ng-show="reverse">v</span>
+                </span>
               </th>
             </tr>
             <tr dir-paginate="(index, row) in $ctrl.faireMarkers | orderBy:sort:reverse | itemsPerPage: 20">
-              <td>{{row.annual | ordinal}}</td>
+              <td></td>
               <td>{{row.category}}</td>
-              <td>{{row.event_dt}}</td>
               <td>
                 <a target="_blank" ng-if="row.faire_url" href="{{row.faire_url}}">{{row.name}}</a>
                 <span ng-if="!row.faire_url">{{row.name}}</span>
               </td>
-              <td>
-                {{row.venue_address_city}}{{row.venue_address_state && ', '+row.venue_address_state || ''}}
-              </td>
+              <td>{{row.venue_address_city}}{{row.venue_address_state && ', '+row.venue_address_state || ''}}</td>
               <td>{{row.venue_address_country}}</td>
             </tr>
           </table>
