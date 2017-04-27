@@ -32,30 +32,58 @@
   HEDADER
  ======================= */
 #site-header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 25px;
   background: #fff;
   z-index: 4;
   position: relative;
+  @media screen and (max-width: 767px) {
+    padding-top: 0;
+    .container {
+      background-color: #f8f8f8;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+  }
   .logo-container {
+    padding-right: 0;
     img {
       max-width: 86px;
       display: inline-block;
+      @media screen and (max-width: 500px) {
+        max-width: 53px;
+      }
     }
     span {
       font-size: 30px;
       color: #ccc;
       line-height: .8em;
+      @media screen and (max-width: 500px) {
+        font-size: 17px;
+      }
     }
     a {
       display: flex;
       align-items: flex-end;
+      float: left;
       &:hover, &:hover span {
         text-decoration: none;
       }
+      @media screen and (max-width: 767px) {
+        justify-content: center;
+        float: none;
+        padding-right: 15px;
+        margin-top: 9px;
+      }
+      @media screen and (max-width: 500px) {
+        margin-top: 16px;
+      }
     }
     p {
-
+      float: right;
+      margin-bottom: 0;
+      line-height: 1.3em;
+      font-size: 13px;
+      width: 112px;
     }
   }
   .header-newsletter {
@@ -65,10 +93,17 @@
 
   }
   #menu-container {
-    margin-top: 15px;
     background-color: #3FAFED;
     a {
       color: #fff;
+    }
+    @media screen and (max-width: 767px) {
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #e7e7e7;
+      text-align: center;
+      a {
+        color: #4a4a4a;
+      }
     }
   }
 }
@@ -76,9 +111,9 @@
 /* MOBILE NAV */
 .navbar-toggle {
   position: absolute;
+  top: 0;
   right: 20px;
   height: auto;
-  padding: 10px 10px 20px 10px;
   margin-top: 8px;
   margin-right: 0;
   margin-bottom: 0;

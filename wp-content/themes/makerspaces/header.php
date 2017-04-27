@@ -47,7 +47,7 @@
             <span>makerspaces</span>
           </a>
 
-          <p>Stay in the loop with our newsletter</p>
+          <p class="hidden-xs">Stay in the loop with our newsletter</p>
         </div>
 
         <!-- Newlsetter signup -->
@@ -61,14 +61,12 @@
         </div>
 
         <!-- MENUS -->
-        <div class="header-nav">
-          <button type="button" class="visible-xs-block navbar-toggle" data-target="#menu-container" data-toggle="collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
+        <button type="button" class="visible-xs-block navbar-toggle" data-target="#menu-container" data-toggle="collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
       </div>
     </div>
