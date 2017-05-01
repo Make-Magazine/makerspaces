@@ -56,7 +56,7 @@
             <div class="form-group">
               <input type="email" class="form-control" placeholder="YOUR EMAIL">
             </div>
-            <button type="submit" class="btn btn-default">SIGN UP</button>
+            <button type="submit" class="btn btn-lt-blue">SIGN UP</button>
           </form>
         </div>
 

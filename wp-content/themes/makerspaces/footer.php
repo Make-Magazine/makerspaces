@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="row social-foot-desktop hidden-xs">
 			<div class="col-sm-6 col-md-3">
-				<a href="/"><img class="footer_logo" src="<?php echo get_template_directory_uri() . '/img/logo-makerspace.png' ?>"  alt="Makerspaces logo"></a>
+				<a href="/"><img class="footer_logo img-responsive" src="<?php echo get_template_directory_uri() . '/img/Make_logo.svg' ?>"  alt="Makerspaces logo"></a>
 				<ul class="list-unstyled">
 					<li><a href="//makezine.com/projects">Make: Projects</a></li>
 					<li><a href="//makezine.com/category/workshop/3d-printing-workshop/?post_type=projects">3D Printing Projects</a></li>
