@@ -1,6 +1,185 @@
+// Compiled file - any changes will be overwritten by grunt task
+//!!
+//!! includes/js/angular/makerspaces-map-app/makerSpacesApp.js
+(function(angular) {
+  'use strict';
+  angular.module('makerSpacesApp', ['angularUtils.directives.dirPagination', 'ordinal']);
+
+  angular.module('makerSpacesApp').factory('FaireMapsSharedData', ['$q', function($q) {
+      var defer = $q.defer();
+      var FaireMapsSharedData = {
+        gmarkers1: [],
+        infowindow: undefined,
+        mapDone: function() {
+          return defer.promise;
+        },
+        setMapDone: function() {
+          defer.notify(true);
+        }
+      };
+      return FaireMapsSharedData;
+    }]);
+})(window.angular);
+;//!!
+//!! includes/js/angular/makerspaces-map-app/GMapsInitializer.factory.js
+(function(angular) {
+  'use strict';
+  angular.module('makerSpacesApp').factory('GMapsInitializer', ['$window', '$q',
+    function($window, $q) {
+      // &key=AIzaSyBITa21JMkxsELmGoDKQ3owasOW48113w4
+      var asyncUrl = 'https://maps.googleapis.com/maps/api/js??v=3.exp&callback=googleMapsInitialized',
+          mapsDefer = $q.defer();
+      //Callback function - resolving promise after maps successfully loaded
+      $window.googleMapsInitialized = mapsDefer.resolve;
+      //Async loader
+      var asyncLoad = function(asyncUrl) {
+        var script = document.createElement('script');
+        script.src = asyncUrl;
+        document.body.appendChild(script);
+      };
+      //Start loading google maps
+      asyncLoad(asyncUrl);
+      //Usage: GMapsInitializer.then(callback)
+      return mapsDefer.promise;
+    }
+  ]);
+})(window.angular);
+;//!!
+//!! includes/js/angular/makerspaces-map-app/MapCtrl.controller.js
+(function(angular) {
+  'use strict';
+  angular.module('makerSpacesApp').controller('MapCtrl', ['$http', '$rootScope', '$filter', 'FaireMapsSharedData',
+    function($http, $rootScope, $filter, FaireMapsSharedData) {
+      var ctrl = this;
+      var faireFilters = {
+        filters: ['Flagship', 'Featured', 'Mini'],
+        search: ''
+      };
+
+      $rootScope.$on('toggleMapFilter', function(event, args) {
+        var index = faireFilters.filters.indexOf(args.filter);
+        if (args.state && index < 0) {
+          faireFilters.filters.push(args.filter);
+        } else if (!args.state && index > -1) {
+          faireFilters.filters.splice(index, 1);
+        }
+        ctrl.applyMapFilters();
+      });
+      ctrl.toggleBox = function(type) {
+        jQuery('.filters faires-map-filter').each(function(index,obj){
+          var filter = jQuery(obj).attr( "filter");
+          var index = faireFilters.filters.indexOf(filter);
+          //if the filter is not the same as the selected type
+          if(filter!==type){
+            //uncheck and remove from the faireFilters Object
+            jQuery(obj).find('input').prop( "checked", false );
+            if (index > -1) {
+              faireFilters.filters.splice(index, 1);
+            }
+          }else{
+            //make sure it is checked and add to the faireFilters Object if it's not there
+            jQuery(obj).find('input').prop( "checked", true );
+            if (index < 0) {
+              faireFilters.filters.push(filter);
+            }
+          }
+        });
+
+        ctrl.applyMapFilters();
+      }
+
+      ctrl.applyMapFilters = function() {
+        FaireMapsSharedData.infowindow.close();
+        faireFilters.search = ctrl.filterText;
+        var newModel = [];
+
+        // check if "sorting.search" string exists in marker object:
+        function containsString(marker) {
+          if (!faireFilters.search) {
+            return true;
+          }
+          function checkForValue(json, value) {
+            for (var key in json) {
+              if (typeof(json[key]) === 'object') {
+                checkForValue(json[key], value);
+              } else if (typeof(json[key]) === 'string' && json[key].toLowerCase().match(value)) {
+                return true;
+              }
+
+            }
+            return false;
+
+          }
+          return checkForValue(marker, faireFilters.search.toLowerCase());
+        }
+        // check if type matches ok:
+        function isTypeToggled(marker) {
+          return (faireFilters.filters.indexOf(marker.category) > -1);
+        }
+
+        FaireMapsSharedData.gmarkers1.map(function(marker) {
+          var rowData = marker.dataRowSrc;
+          if (containsString(rowData) && isTypeToggled(rowData)) {
+            newModel.push(rowData);
+            marker.setVisible(true);
+          } else {
+            marker.setVisible(false);
+          }
+        });
+        ctrl.faireMarkers = newModel;
+      };
+
+      $http.get('/wp-content/themes/makerspaces/demo-map-data-from-makerfaire.json')
+        .then(function successCallback(response) {
+          ctrl.faireMarkers = response && response.data && response.data.Locations;
+          FaireMapsSharedData.mapDone().then(null, null, function() {
+            ctrl.applyMapFilters();
+          });
+        }, function errorCallback() {
+          // error
+        });
+    }
+  ]);
+})(window.angular);
+;//!!
+//!! includes/js/angular/makerspaces-map-app/faireMapsFilter.component.js
+(function(angular) {
+  'use strict';
+  angular.module('makerSpacesApp').component('fairesMapFilter', {
+    template: '<div class="checkbox">\
+        <label>\
+          <input type="checkbox" class="checkbox-fa-icon" ng-model="$ctrl.defaultState" ng-click="$ctrl.toggleFilter()">\
+          <i class="fa fa-square-o"></i>\
+          <i class="fa fa-check-square-o"></i>\
+          <ng-transclude></ng-transclude>\
+        </label>\
+      </div>',
+    transclude: true,
+    bindings: {
+      filter: '@',
+      defaultState: '='
+    },
+    replace: true,
+    controller: ['$rootScope', function($rootScope) {
+      var ctrl = this;
+      $rootScope.$on('toggleMapSearch', function() {
+        ctrl.defaultState = true;
+      });
+      ctrl.toggleFilter = function() {
+        var toggleState = {
+          filter: ctrl.filter,
+          state: ctrl.defaultState
+        };
+        $rootScope.$emit('toggleMapFilter', toggleState);
+      };
+    }]
+  });
+})(window.angular);
+;//!!
+//!! includes/js/angular/makerspaces-map-app/fairesGoogleMap.component.js
 (function (angular) {
   'use strict';
-  angular.module('faireMapsApp').component('fairesGoogleMap', {
+  angular.module('makerSpacesApp').component('fairesGoogleMap', {
     bindings: {
       mapId: '@id',
       mapData: '='

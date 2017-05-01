@@ -6,17 +6,22 @@
  */
 
 get_header(); ?>
-
-<div class="faire-global-map-wrp" ng-app="faireMapsApp" ng-strict-di>
-  <div ng-controller="MapCtrl as $ctrl">
-    <div class="container">
-      <div class="col-md-12">
-        <h1>Makerspace Directory</h1>
+<div class="makerspaces-map-wrp" ng-app="makerSpacesApp" ng-strict-di>
+  <div class="container">
+    <div class="row map-header">
+      <div class="col-xs-12 col-md-9 col-lg-9">
+        <h1>Makerspaces represent the democratization of design, engineering, fabrication, and education.</h1>
+        <h2>We put together a world-wide directory for Makers to connect:</h2>
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-3">
+        <a href="" class="btn btn-info btn-block">ADD YOUR OWN MAKERSPACE! <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        <p>By adding your makerspace to this listing, you not only become part of our searchable database for Makers seeking like-minded people in their area but you also contribute to our study of the Makers Movement as a whole.</p>
       </div>
     </div>
-    <nav class="map-filters-wrp affix-bottom" data-spy="affix" data-offset-top="210">
-      <div class="container">
-        <div class="col-md-12">
+
+    <div class="row">
+      <div ng-controller="MapCtrl as $ctrl" class="col-xs-12 col-md-9 col-lg-9">
+        <nav class="map-filters-wrp">
           <div class="searchbox">
             <h2>Find a Makerspace</h2>
             <input type="text"
@@ -25,9 +30,6 @@ get_header(); ?>
               ng-model="$ctrl.filterText"
               ng-model-options="{debounce: 500}"
               ng-change="$ctrl.applyMapFilters()" />
-            <div class="fa fa-times-circle cursor-pointer"
-              ng-click="$ctrl.filterText = ''; $ctrl.applyMapFilters();">
-            </div>
           </div>
           <!-- Commenting out checkboxes till we need them again -->
 <!--           <div class="filters ng-cloak" ng-if="$ctrl.faireMarkers">
@@ -44,17 +46,14 @@ get_header(); ?>
               Flagship <span class="hidden-sm hidden-xs">Faires</span>
             </faires-map-filter>
           </div> -->
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="col-md-12">
+        </nav>
+
         <div class="loading-spinner" ng-if="!$ctrl.faireMarkers">
           <i class="fa fa-circle-o-notch fa-spin"></i>
         </div>
         <!-- Map Angular Component -->
         <faires-google-map
-          id="faire-global-map"
+          id="makerspaces-map"
           map-data="::$ctrl.faireMarkers"
           ng-if="$ctrl.faireMarkers">
         </faires-google-map>
@@ -129,6 +128,10 @@ get_header(); ?>
             </dir-pagination-controls>
           </div>
         </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+
       </div>
     </div>
   </div>

@@ -57,6 +57,7 @@
       font-size: 30px;
       color: #ccc;
       line-height: .8em;
+      font-weight: 300;
       @media screen and (max-width: 500px) {
         font-size: 17px;
       }
@@ -86,12 +87,11 @@
       width: 112px;
     }
   }
+
   .header-newsletter {
 
   }
-  .header-nav {
 
-  }
   #menu-container {
     background-color: #3FAFED;
     a {
@@ -103,6 +103,22 @@
       text-align: center;
       a {
         color: #4a4a4a;
+      }
+    }
+    #menu-header-main-menu {
+      text-transform: uppercase;
+      a {
+        transition: background-color .2s;
+        &:hover {
+          background-color: #1490d4;
+          transition: background-color .2s;
+        }
+      }
+      @media (min-width: 768px) {
+        > li > a {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
       }
     }
   }

@@ -72,17 +72,20 @@
     </div>
 
     <div id="menu-container" class="collapse navbar-collapse">
-      <?php
-        wp_nav_menu( array(
-          'menu'              => 'Header main menu',
-          'theme_location'    => 'primary_menu',
-          'depth'             => 1,
-          'container'         => 'nav',
-          'menu_class'        => 'nav navbar-nav',
-          'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-          'walker'            => new wp_bootstrap_navwalker())
-        );
-      ?>
+      <div class="container">
+        <?php
+          wp_nav_menu( array(
+            'menu'              => 'Header main menu',
+            'theme_location'    => 'primary_menu',
+            'depth'             => 1,
+            'container'         => 'nav',
+            'container_class'   => 'row',
+            'menu_class'        => 'nav navbar-nav',
+            'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+            'walker'            => new wp_bootstrap_navwalker())
+          );
+        ?>
+      </div>
     </div>
   </header>
 

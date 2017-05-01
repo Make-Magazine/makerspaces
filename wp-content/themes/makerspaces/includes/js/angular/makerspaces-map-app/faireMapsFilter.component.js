@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-  angular.module('faireMapsApp').component('fairesMapFilter', {
+  angular.module('makerSpacesApp').component('fairesMapFilter', {
     template: '<div class="checkbox">\
         <label>\
           <input type="checkbox" class="checkbox-fa-icon" ng-model="$ctrl.defaultState" ng-click="$ctrl.toggleFilter()">\

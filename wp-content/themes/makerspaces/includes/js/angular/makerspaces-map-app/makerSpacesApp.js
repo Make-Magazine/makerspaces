@@ -1,8 +1,8 @@
 (function(angular) {
   'use strict';
-  angular.module('faireMapsApp', ['angularUtils.directives.dirPagination', 'ordinal']);
+  angular.module('makerSpacesApp', ['angularUtils.directives.dirPagination', 'ordinal']);
 
-  angular.module('faireMapsApp').factory('FaireMapsSharedData', ['$q', function($q) {
+  angular.module('makerSpacesApp').factory('FaireMapsSharedData', ['$q', function($q) {
       var defer = $q.defer();
       var FaireMapsSharedData = {
         gmarkers1: [],

@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-  angular.module('faireMapsApp').controller('MapCtrl', ['$http', '$rootScope', '$filter', 'FaireMapsSharedData',
+  angular.module('makerSpacesApp').controller('MapCtrl', ['$http', '$rootScope', '$filter', 'FaireMapsSharedData',
     function($http, $rootScope, $filter, FaireMapsSharedData) {
       var ctrl = this;
       var faireFilters = {

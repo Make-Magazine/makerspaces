@@ -90,7 +90,7 @@ function _makerspaces_scripts() {
 
 	// Map page only
   if (is_page_template('page-map-angular.php')) {
-    wp_enqueue_script( 'faires-global-map-scripts', get_stylesheet_directory_uri() . '/includes/js/angular/global-faires-map-app.js',
+    wp_enqueue_script( 'faires-global-map-scripts', get_stylesheet_directory_uri() . '/includes/js/angular/makerspaces-map-app.js',
       array('angularjs', 'ordinal-filter', 'angular-utils-pagination')
     );
     wp_enqueue_script( 'angular-utils-pagination', get_stylesheet_directory_uri() . '/bower_components/angularUtils-pagination/dirPagination.js',
