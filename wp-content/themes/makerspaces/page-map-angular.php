@@ -130,7 +130,7 @@ get_header(); ?>
         </div>
       </div>
 
-      <aside class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+      <aside class="col-xs-12 col-md-3 col-lg-3">
 
         <div class="posts-feeds-wrapper">
           <?php

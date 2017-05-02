@@ -3,13 +3,17 @@
     margin-top: 40px;
     margin-bottom: 30px;
     h1, h2 {
-      font-size: 34px;
+      font-size: 32px;
       line-height: 1.1em;
       font-weight: 300;
       margin-top: 0;
       padding-right: 210px;
       @media all and (min-width: 992px) and (max-width: 1199px) {
         padding-right: 80px;
+      }
+      @media all and (max-width: 767px) {
+        font-size: 22px;
+        padding-right: 0;
       }
     }
     .btn {
@@ -180,6 +184,11 @@
 .posts-feeds-wrapper {
   margin-bottom: 50px;
   text-align: left;
+  max-width: 265px;
+  @media all and (max-width: 991px) {
+    float: left;
+    margin-right: 15px;
+  }
   .feed-title {
     margin-top: 0;
     margin-bottom: 0;
