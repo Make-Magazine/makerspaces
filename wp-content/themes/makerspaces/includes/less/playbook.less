@@ -1,0 +1,69 @@
+.playbook-page {
+  h1 {
+    color: #ea002a;
+    font-size: 30px;
+    line-height: 1.1em;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    max-width: 560px;
+    font-weight: 300;
+  }
+  .playbook-page-hero {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    height: 25vw;
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      height: 25vw;
+    }
+    @media screen and (max-width: 767px) {
+      height: 50vw;
+      background: url(/wp-content/themes/makerspaces/img/home-header-m.png) no-repeat center center;
+    }
+  }
+  .playbook-page-body {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    @media screen and (max-width: 767px) {
+      padding-top: 20px;
+    }
+    .playbook-cover {
+      position: relative;
+      margin-bottom: 30px;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 15px;
+      }
+    }
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      max-width: 275px;
+      -webkit-box-shadow: 4px 4px 7px 0px rgba(51,50,51,0.5);
+      -moz-box-shadow: 4px 4px 7px 0px rgba(51,50,51,0.5);
+      box-shadow: 4px 4px 7px 0px rgba(51,50,51,0.5);
+      @media screen and (max-width: 767px) {
+        max-width: 35vw;
+      }
+    }
+    .playbook-page-body-l {
+      .playbook-cyan {
+        color: #67d0f7;
+      }
+      .playbook-sub-form {
+        margin-top: 30px;
+        @media screen and (min-width: 768px) {
+          margin-right: 10vw;
+        }
+      }
+    }
+    .playbook-page-body-r {
+      p {
+        line-height: 1.2em;
+      }
+      .small {
+        margin-top: 40px;
+      }
+    }
+  }
+}
