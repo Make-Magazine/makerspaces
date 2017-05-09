@@ -141,3 +141,8 @@ require THEME_DIR_PATH . '/includes/jetpack.php';
  * Load custom WordPress nav walker.
  */
 require THEME_DIR_PATH . '/includes/bootstrap-wp-navwalker.php';
+
+/**
+ * Load the Makerspace entry page rules.
+ */
+require THEME_DIR_PATH . '/includes/entry-rules.php';
