@@ -219,7 +219,7 @@ get_header(); ?>
   $associated_co = (isset($entry['60']) ? $entry['60']:''); //checkboxes
   $funding = (isset($entry['61']) ? $entry['61']:''); //checkboxes ?>
 
-          <?php if ($=='Yes'){?><div class="m-entry-4col-item"></div><?php } ?>
+          <?php if ($space_type=='Yes'){?><div class="m-entry-4col-item"></div><?php } ?>
           <?php if ($space_size != ''){?><div class="m-entry-4col-item"><?php echo $space_size; ?></div><?php } ?>
           <?php if ($offer_tours != ''){?><div class="m-entry-4col-item"><?php echo $offer_tours; ?></div><?php } ?>
           <?php if ($open_hours != ''){?><div class="m-entry-4col-item"><?php echo $open_hours; ?></div><?php } ?>
