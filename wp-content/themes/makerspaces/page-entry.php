@@ -67,25 +67,31 @@
   $associated = (isset($entry['59']) ? $entry['59']:''); //checkboxes
   $associated_co = (isset($entry['60']) ? $entry['60']:''); //checkboxes
   $funding = (isset($entry['61']) ? $entry['61']:''); //checkboxes
+
+  //Basic tools
   $hand_tools = (isset($entry['63']) ? $entry['63']:''); //checkboxes
   $power_tools = (isset($entry['64']) ? $entry['64']:''); //checkboxes
   $elec_tools = (isset($entry['65']) ? $entry['65']:''); //checkboxes
   $computers = (isset($entry['66']) ? $entry['66']:''); //checkboxes
-  $metalworking = (isset($entry['67']) ? $entry['67']:''); //checkboxes
-  $woodworking = (isset($entry['68']) ? $entry['68']:''); //checkboxes
   $cnc = (isset($entry['69']) ? $entry['69']:''); //checkboxes
   $printing3d = (isset($entry['70']) ? $entry['70']:''); //checkboxes
   $lasercutter = (isset($entry['71']) ? $entry['71']:''); //checkboxes
-  $vunylcutter = (isset($entry['72']) ? $entry['72']:''); //checkboxes
+  $vinylcutter = (isset($entry['72']) ? $entry['72']:''); //checkboxes
   $waterjet = (isset($entry['73']) ? $entry['73']:''); //checkboxes
+  $pcrtools = (isset($entry['77']) ? $entry['77']:''); //checkboxes
+
+  //Activity Ares
+  $woodworking = (isset($entry['68']) ? $entry['68']:''); //checkboxes
+  $metalworking = (isset($entry['67']) ? $entry['67']:''); //checkboxes
   $textiles = (isset($entry['74']) ? $entry['74']:''); //checkboxes
   $silkscreening = (isset($entry['75']) ? $entry['75']:''); //checkboxes
   $autoshop = (isset($entry['76']) ? $entry['76']:''); //checkboxes
-  $pcrtools = (isset($entry['77']) ? $entry['77']:''); //checkboxes
   $blacksmithing = (isset($entry['78']) ? $entry['78']:''); //checkboxes
   $ceramics = (isset($entry['79']) ? $entry['79']:''); //checkboxes
   $audio_visual = (isset($entry['80']) ? $entry['80']:''); //checkboxes
   $others_facilities = (isset($entry['81']) ? $entry['81']:''); //checkboxes
+
+
   $sell_consumables = (isset($entry['82']) ? $entry['82']:''); //checkboxes
   $contact_name = (isset($entry['84']) ? $entry['84']:''); //checkboxes
   $contact_role = (isset($entry['85']) ? $entry['85']:''); //checkboxes
@@ -110,7 +116,7 @@ get_header(); ?>
 
     </div> -->
 
-    <div class="row">
+    <div class="row m-enty-header">
 
       <div class="col-xs-12 col-sm-5 col-md-6">
 
@@ -118,7 +124,7 @@ get_header(); ?>
 
       </div>
 
-      <div class="col-xs-12 col-sm-7 col-md-6 m-enty-header">
+      <div class="col-xs-12 col-sm-7 col-md-6 m-enty-header-r">
 
         <div class="m-entry-headertop">
 
@@ -149,8 +155,8 @@ get_header(); ?>
 
               <!-- <h2><strong>Community Center Work</strong></h2> -->
               <p><strong>Address:</strong> ?street address?</br><?php echo $city; ?>, <?php echo $state; ?> <?php echo $zip; ?></p>
-              <p><strong>Phone:</strong> <?php echo $contact_phone; ?></p>
-              <p><strong>Email</strong> <?php echo $contact_email; ?></p>
+              <?php if ($contact_phone != ''){?><p><strong>Phone:</strong> <?php echo $contact_phone; ?></p><?php } ?>
+              <?php if ($contact_email != ''){?><p><strong>Email:</strong> <?php echo $contact_email; ?></p><?php } ?>
 
             </div>
 
@@ -198,15 +204,16 @@ get_header(); ?>
 
         <div class="m-entry-4col-alt-bg">
 
-          <div class="m-entry-4col-item">info 1</div>
-          <div class="m-entry-4col-item">info 2</div>
-          <div class="m-entry-4col-item">info 3</div>
-          <div class="m-entry-4col-item">info 4</div>
-          <div class="m-entry-4col-item">info 5</div>
-          <div class="m-entry-4col-item">info 6</div>
-          <div class="m-entry-4col-item">info 7</div>
-          <div class="m-entry-4col-item">info 8</div>
-          <div class="m-entry-4col-item">info 9</div>
+          <?php if ($hand_tools != ''){?><div class="m-entry-4col-item"><?php echo $hand_tools; ?></div><?php } ?>
+          <?php if ($power_tools != ''){?><div class="m-entry-4col-item"><?php echo $power_tools; ?></div><?php } ?>
+          <?php if ($elec_tools != ''){?><div class="m-entry-4col-item"><?php echo $elec_tools; ?></div><?php } ?>
+          <?php if ($computers != ''){?><div class="m-entry-4col-item"><?php echo $computers; ?></div><?php } ?>
+          <?php if ($cnc != ''){?><div class="m-entry-4col-item"><?php echo $cnc; ?></div><?php } ?>
+          <?php if ($printing3d != ''){?><div class="m-entry-4col-item"><?php echo $printing3d; ?></div><?php } ?>
+          <?php if ($lasercutter != ''){?><div class="m-entry-4col-item"><?php echo $lasercutter; ?></div><?php } ?>
+          <?php if ($vinylcutter != ''){?><div class="m-entry-4col-item"><?php echo $vinylcutter; ?></div><?php } ?>
+          <?php if ($waterjet != ''){?><div class="m-entry-4col-item"><?php echo $waterjet; ?></div><?php } ?>
+          <?php if ($pcrtools != ''){?><div class="m-entry-4col-item"><?php echo $pcrtools; ?></div><?php } ?>
 
         </div>
 
@@ -222,15 +229,15 @@ get_header(); ?>
 
         <div class="m-entry-4col-alt-bg">
 
-          <div class="m-entry-4col-item">info 1</div>
-          <div class="m-entry-4col-item">info 2</div>
-          <div class="m-entry-4col-item">info 3</div>
-          <div class="m-entry-4col-item">info 4</div>
-          <div class="m-entry-4col-item">info 5</div>
-          <div class="m-entry-4col-item">info 6</div>
-          <div class="m-entry-4col-item">info 7</div>
-          <div class="m-entry-4col-item">info 8</div>
-          <div class="m-entry-4col-item">info 9</div>
+          <?php if ($woodworking != ''){?><div class="m-entry-4col-item"><?php echo $woodworking; ?></div><?php } ?>
+          <?php if ($metalworking != ''){?><div class="m-entry-4col-item"><?php echo $metalworking; ?></div><?php } ?>
+          <?php if ($textiles != ''){?><div class="m-entry-4col-item"><?php echo $textiles; ?></div><?php } ?>
+          <?php if ($silkscreening != ''){?><div class="m-entry-4col-item"><?php echo $silkscreening; ?></div><?php } ?>
+          <?php if ($autoshop != ''){?><div class="m-entry-4col-item"><?php echo $autoshop; ?></div><?php } ?>
+          <?php if ($blacksmithing != ''){?><div class="m-entry-4col-item"><?php echo $blacksmithing; ?></div><?php } ?>
+          <?php if ($ceramics != ''){?><div class="m-entry-4col-item"><?php echo $ceramics; ?></div><?php } ?>
+          <?php if ($audio_visual != ''){?><div class="m-entry-4col-item"><?php echo $audio_visual; ?></div><?php } ?>
+          <?php if ($others_facilities != ''){?><div class="m-entry-4col-item"><?php echo $others_facilities; ?></div><?php } ?>
 
         </div>
 
