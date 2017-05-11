@@ -34,6 +34,8 @@
   $offer_tours = (isset($entry['18']) ? $entry['18']:'');
   $under_18 = (isset($entry['19']) ? $entry['19']:''); //checkbox
   $sell_consumables = (isset($entry['82']) ? $entry['82']:''); //checkboxes
+
+  //Members and Community
   $members = (isset($entry['37']) ? $entry['37']:''); //checkboxes
   $busiest = (isset($entry['38']) ? $entry['38']:''); //checkboxes
   $non_members = (isset($entry['39']) ? $entry['39']:''); //checkboxes
@@ -88,7 +90,7 @@
   $waterjet = (isset($entry['73']) ? $entry['73']:''); //checkboxes
   $pcrtools = (isset($entry['77']) ? $entry['77']:''); //checkboxes
 
-  //Activity Ares
+  //Activity Areas
   $woodworking = (isset($entry['68']) ? $entry['68']:''); //checkboxes
   $metalworking = (isset($entry['67']) ? $entry['67']:''); //checkboxes
   $textiles = (isset($entry['74']) ? $entry['74']:''); //checkboxes
@@ -187,37 +189,37 @@ get_header(); ?>
 
         <div class="m-entry-4col-no-bg">
 
-          <?php if ($space_type != ''){?><div class="m-entry-4col-item"><?php echo $space_type; ?></div><?php } ?>
-          <?php if ($days_open != ''){?><div class="m-entry-4col-item"><?php echo $days_open; ?></div><?php } ?>
+          <?php if ($space_type != ''){?><div class="m-entry-4col-item">How would you best classify the physical context of the Makerspace?<br /><span><?php echo $space_type; ?></span></div><?php } ?>
+          <?php if ($days_open != ''){?><div class="m-entry-4col-item">What days is the Makerspace open?<br /><span><?php echo $days_open; ?></span></div><?php } ?>
           <?php if ($open_hours != ''){?><div class="m-entry-4col-item"><?php echo $open_hours; ?></div><?php } ?>
           <?php if ($membership != ''){?><div class="m-entry-4col-item"><?php echo $membership; ?></div><?php } ?>
-          <?php if ($offer_tours != ''){?><div class="m-entry-4col-item"><?php echo $offer_tours; ?></div><?php } ?>
+          <?php if ($offer_tours != ''){?><div class="m-entry-4col-item">Do you offer tours or host any regular "open to the public" events<br /><span><?php echo $offer_tours; ?></span></div><?php } ?>
           <?php if ($under_18 != ''){?><div class="m-entry-4col-item">Under 18 allowed?<br /><span><?php echo $under_18; ?></span></div><?php } ?>
           <?php if ($sell_consumables != ''){?><div class="m-entry-4col-item"><?php echo $sell_consumables; ?></div><?php } ?>
-          <?php if ($members != ''){?><div class="m-entry-4col-item"><?php echo $members; ?></div><?php } ?>
-          <?php if ($busiest != ''){?><div class="m-entry-4col-item"><?php echo $busiest; ?></div><?php } ?>
-          <?php if ($non_members != ''){?><div class="m-entry-4col-item"><?php echo $non_members; ?></div><?php } ?>
-          <?php if ($recruit != ''){?><div class="m-entry-4col-item"><?php echo $recruit; ?></div><?php } ?>
-          <?php if ($minor_members != ''){?><div class="m-entry-4col-item"><?php echo $minor_members; ?></div><?php } ?>
-          <?php if ($membership_packages != ''){?><div class="m-entry-4col-item"><?php echo $membership_packages; ?></div><?php } ?>
-          <?php if ($student_discount != ''){?><div class="m-entry-4col-item"><?php echo $student_discount; ?></div><?php } ?>
-          <?php if ($member_spaces != ''){?><div class="m-entry-4col-item"><?php echo $member_spaces; ?></div><?php } ?>
-          <?php if ($member_events != ''){?><div class="m-entry-4col-item"><?php echo $member_events; ?></div><?php } ?>
-          <?php if ($kitchen != ''){?><div class="m-entry-4col-item"><?php echo $kitchen; ?></div><?php } ?>
-          <?php if ($event_space != ''){?><div class="m-entry-4col-item"><?php echo $event_space; ?></div><?php } ?>
-          <?php if ($community_engagement != ''){?><div class="m-entry-4col-item"><?php echo $community_engagement; ?></div><?php } ?>
-          <?php if ($community_building != ''){?><div class="m-entry-4col-item"><?php echo $community_building; ?></div><?php } ?>
-          <?php if ($space_age != ''){?><div class="m-entry-4col-item"><?php echo $space_age; ?></div><?php } ?>
-          <?php if ($area_type != ''){?><div class="m-entry-4col-item"><?php echo $area_type; ?></div><?php } ?>
-          <?php if ($zoned != ''){?><div class="m-entry-4col-item"><?php echo $zoned; ?></div><?php } ?>
-          <?php if ($space_size != ''){?><div class="m-entry-4col-item"><?php echo $space_size; ?></div><?php } ?>
-          <?php if ($management != ''){?><div class="m-entry-4col-item"><?php echo $space_size; ?></div><?php } ?>
-          <?php if ($board != ''){?><div class="m-entry-4col-item"><?php echo $management; ?></div><?php } ?>
-          <?php if ($incorporated != ''){?><div class="m-entry-4col-item"><?php echo $incorporated; ?></div><?php } ?>
-          <?php if ($nonprofit != ''){?><div class="m-entry-4col-item"><?php echo $nonprofit; ?></div><?php } ?>
-          <?php if ($associated != ''){?><div class="m-entry-4col-item"><?php echo $associated; ?></div><?php } ?>
-          <?php if ($associated_co != ''){?><div class="m-entry-4col-item"><?php echo $associated_co; ?></div><?php } ?>
-          <?php if ($funding != ''){?><div class="m-entry-4col-item"><?php echo $funding; ?></div><?php } ?>
+          <?php if ($members != ''){?><div class="m-entry-4col-item">How many members or users do you have at this time?<br /><span><?php echo $members; ?></span></div><?php } ?>
+          <?php if ($busiest != ''){?><div class="m-entry-4col-item">When is your Makerspace the busiest?<br /><span><?php echo $busiest; ?></span></div><?php } ?>
+          <?php if ($non_members != ''){?><div class="m-entry-4col-item">Is your space ever open to non-members?<br /><span><?php echo $non_members; ?></span></div><?php } ?>
+          <?php if ($recruit != ''){?><div class="m-entry-4col-item">Do you actively recruit new members?<br /><span><?php echo $recruit; ?></span></div><?php } ?>
+          <?php if ($minor_members != ''){?><div class="m-entry-4col-item">Can a member be under the age of 18?<br /><span><?php echo $minor_members; ?></span></div><?php } ?>
+          <?php if ($membership_packages != ''){?><div class="m-entry-4col-item">Do you have different membership packages or only one level of membership?<br /><span><?php echo $membership_packages; ?></span></div><?php } ?>
+          <?php if ($student_discount != ''){?><div class="m-entry-4col-item">Do you offer a discounted student membership?<br /><span><?php echo $student_discount; ?></span></div><?php } ?>
+          <?php if ($member_spaces != ''){?><div class="m-entry-4col-item">Can members rent office or work space within the Makerspace to run a small business?<br /><span><?php echo $member_spaces; ?></span></div><?php } ?>
+          <?php if ($member_events != ''){?><div class="m-entry-4col-item">Can members use the space to host an event?<br /><span><?php echo $member_events; ?></span></div><?php } ?>
+          <?php if ($kitchen != ''){?><div class="m-entry-4col-item">Does the Makerspace have a kitchen?<br /><span><?php echo $kitchen; ?></span></div><?php } ?>
+          <?php if ($event_space != ''){?><div class="m-entry-4col-item">Does the Makerspace have any kind of designated event space?<br /><span><?php echo $event_space; ?></span></div><?php } ?>
+          <?php if ($community_engagement != ''){?><div class="m-entry-4col-item">Do you have any kind of outreach program to encourage growth in membership and community engagement?<br /><span><?php echo $community_engagement; ?></span></div><?php } ?>
+          <?php if ($community_building != ''){?><div class="m-entry-4col-item">What kind of community building events (if any) do you offer?<br /><span><?php echo $community_building; ?></span></div><?php } ?>
+          <?php if ($space_age != ''){?><div class="m-entry-4col-item">How long has your Makerspace been in operation?<br /><span><?php echo $space_age; ?></div><?php } ?>
+          <?php if ($area_type != ''){?><div class="m-entry-4col-item">Is the location of your shop urban, suburban or rural?<br /><span><?php echo $area_type; ?></span></div><?php } ?>
+          <?php if ($zoned != ''){?><div class="m-entry-4col-item">How is your Makerspace location zoned?<br /><span><?php echo $zoned; ?></span></div><?php } ?>
+          <?php if ($space_size != ''){?><div class="m-entry-4col-item">How big is your current space?<br /><span><?php echo $space_size; ?></span></div><?php } ?>
+          <?php if ($management != ''){?><div class="m-entry-4col-item">Who controls the management and maintenance of the space?<br /><span><?php echo $management; ?></span></div><?php } ?>
+          <?php if ($board != ''){?><div class="m-entry-4col-item">If you have a board of directors, how many directors do you have?<br /><span><?php echo $board; ?></span></div><?php } ?>
+          <?php if ($incorporated != ''){?><div class="m-entry-4col-item">Is your Makerspace incorporated?<br /><span><?php echo $incorporated; ?></span></div><?php } ?>
+          <?php if ($nonprofit != ''){?><div class="m-entry-4col-item">If your Makerspace is a non-profit, are you a separate 501(c)3 or do you have a fiscal sponsor?<br /><span><?php echo $nonprofit; ?></span></div><?php } ?>
+          <?php if ($associated != ''){?><div class="m-entry-4col-item">Is the makerspace associated with or hosted by a separate organization?<br /><span><?php echo $associated; ?></span></div><?php } ?>
+          <?php if ($associated_co != ''){?><div class="m-entry-4col-item">If yes, what type of organization?<br /><span><?php echo $associated_co; ?></span></div><?php } ?>
+          <?php if ($funding != ''){?><div class="m-entry-4col-item">Do you have sources of funding for the makerspace in addition to member or usage fees?<br /><span><?php echo $funding; ?></span></div><?php } ?>
 
         </div>
 
@@ -258,15 +260,15 @@ get_header(); ?>
 
         <div class="m-entry-4col-alt-bg">
 
-          <?php if ($woodworking=='Yes'){?><div class="m-entry-4col-item">Woodworking</div><?php } ?>
-          <?php if ($metalworking=='Yes'){?><div class="m-entry-4col-item">Metalworking</div><?php } ?>
-          <?php if ($textiles=='Yes'){?><div class="m-entry-4col-item">Textiles</div><?php } ?>
-          <?php if ($silkscreening=='Yes'){?><div class="m-entry-4col-item">Silkscreening</div><?php } ?>
-          <?php if ($autoshop=='Yes'){?><div class="m-entry-4col-item">Autoshop</div><?php } ?>
-          <?php if ($blacksmithing=='Yes'){?><div class="m-entry-4col-item">Blacksmithing</div><?php } ?>
-          <?php if ($ceramics=='Yes'){?><div class="m-entry-4col-item">Ceramics/Glass</div><?php } ?>
-          <?php if ($audio_visual=='Yes'){?><div class="m-entry-4col-item">Audio/Visual </div><?php } ?>
-          <?php if ($others_facilities != ''){?><div class="m-entry-4col-item"><?php echo $others_facilities; ?></div><?php } ?>
+          <div class="m-entry-4col-item <?php if($woodworking=='Yes'){echo 'col4-item-check';} ?>">Woodworking</div>
+          <div class="m-entry-4col-item <?php if($metalworking=='Yes'){echo 'col4-item-check';} ?>">Metalworking</div>
+          <div class="m-entry-4col-item <?php if($textiles=='Yes'){echo 'col4-item-check';} ?>">Textiles</div>
+          <div class="m-entry-4col-item <?php if($silkscreening=='Yes'){echo 'col4-item-check';} ?>">Silkscreening</div>
+          <div class="m-entry-4col-item <?php if($autoshop=='Yes'){echo 'col4-item-check';} ?>">Autoshop</div>
+          <div class="m-entry-4col-item <?php if($blacksmithing=='Yes'){echo 'col4-item-check';} ?>">Blacksmithing</div>
+          <div class="m-entry-4col-item <?php if($ceramics=='Yes'){echo 'col4-item-check';} ?>">Ceramics/Glass</div>
+          <div class="m-entry-4col-item <?php if($audio_visual=='Yes'){echo 'col4-item-check';} ?>">Audio/Visual </div>
+          <?php if ($others_facilities != ''){?><div class="m-entry-4col-item col4-item-none"><?php echo $others_facilities; ?></div><?php } ?>
 
         </div>
 
@@ -282,15 +284,10 @@ get_header(); ?>
 
         <div class="m-entry-2col-alt-bg">
 
-          <div class="m-entry-2col-item">info 1</div>
-          <div class="m-entry-2col-item">info 2</div>
-          <div class="m-entry-2col-item">info 3</div>
-          <div class="m-entry-2col-item">info 4</div>
-          <div class="m-entry-2col-item">info 5</div>
-          <div class="m-entry-2col-item">info 6</div>
-          <div class="m-entry-2col-item">info 7</div>
-          <div class="m-entry-2col-item">info 8</div>
-          <div class="m-entry-2col-item">info 9</div>
+          <div class="m-entry-2col-item">
+            <span class="col2-item-l"></span>
+            <span class="col2-item-r"></span>
+          </div>
 
         </div>
 

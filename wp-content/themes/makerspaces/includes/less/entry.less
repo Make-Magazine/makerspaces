@@ -46,8 +46,10 @@
 
     .m-entry-4col-item {
       flex: 1 1 25%;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
       color: #4a4a4a;
+      padding-right: 10px;
+      line-height: 1.2em;
       @media screen and (min-width: 768px) and (max-width: 991px) {
         flex: 1 1 33.33%;
       }
@@ -95,6 +97,9 @@
         font-family: FontAwesome;
         content: "\f00c";
         color: forestgreen;
+      }
+      &.col4-item-none:after {
+        content: "";
       }
       @media screen and (min-width: 992px) {
         &:nth-child(8n-7),
