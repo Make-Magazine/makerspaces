@@ -54,6 +54,10 @@
       @media screen and (max-width: 767px) {
         flex: 1 1 50%;
       }
+      span {
+        font-size: 85%;
+        color: #8a8a8a;
+      }
     }
   }
 
@@ -83,9 +87,14 @@
       color: #4a4a4a;
       &:after {
         font-family: FontAwesome;
+        content: "\f056";
+        color: #a94442;
+        margin-left: 10px;
+      }
+      &.col4-item-check:after {
+        font-family: FontAwesome;
         content: "\f00c";
         color: forestgreen;
-        margin-left: 10px;
       }
       @media screen and (min-width: 992px) {
         &:nth-child(8n-7),

@@ -186,43 +186,38 @@ get_header(); ?>
       <div class="col-xs-12">
 
         <div class="m-entry-4col-no-bg">
-<?php
-  $space_type = (isset($entry['14']) ? $entry['14']:''); //checkboxes
-  $days_open = (isset($entry['15']) ? $entry['15']:''); //checkboxes
-  $open_hours = (isset($entry['16']) ? $entry['16']:'');
-  $membership = (isset($entry['17']) ? $entry['17']:''); //checkbox
-  $offer_tours = (isset($entry['18']) ? $entry['18']:'');
-  $under_18 = (isset($entry['19']) ? $entry['19']:''); //checkbox
-  $sell_consumables = (isset($entry['82']) ? $entry['82']:''); //checkboxes
-  $members = (isset($entry['37']) ? $entry['37']:''); //checkboxes
-  $busiest = (isset($entry['38']) ? $entry['38']:''); //checkboxes
-  $non_members = (isset($entry['39']) ? $entry['39']:''); //checkboxes
-  $recruit = (isset($entry['40']) ? $entry['40']:''); //checkboxes
-  $minor_members = (isset($entry['41']) ? $entry['41']:''); //checkbox
-  $membership_packages = (isset($entry['42']) ? $entry['42']:''); //checkboxes
-  $student_discount = (isset($entry['43']) ? $entry['43']:''); //checkboxes
-  $member_spaces = (isset($entry['44']) ? $entry['44']:''); //checkboxes
-  $member_events = (isset($entry['45']) ? $entry['45']:''); //checkboxes
-  $kitchen = (isset($entry['46']) ? $entry['46']:''); //checkboxes
-  $event_space = (isset($entry['47']) ? $entry['47']:''); //checkboxes
-  $community_engagement = (isset($entry['48']) ? $entry['48']:''); //checkboxes
-  $community_building = (isset($entry['49']) ? $entry['49']:''); //checkboxes
-  $space_age = (isset($entry['51']) ? $entry['51']:''); //checkboxes
-  $area_type = (isset($entry['52']) ? $entry['52']:''); //checkboxes
-  $zoned = (isset($entry['53']) ? $entry['53']:''); //checkboxes
-  $space_size = (isset($entry['54']) ? $entry['54']:'');
-  $management = (isset($entry['55']) ? $entry['55']:''); //checkboxes
-  $board = (isset($entry['56']) ? $entry['56']:''); //checkboxes
-  $incorporated = (isset($entry['57']) ? $entry['57']:''); //checkboxes
-  $nonprofit = (isset($entry['58']) ? $entry['58']:''); //checkboxes
-  $associated = (isset($entry['59']) ? $entry['59']:''); //checkboxes
-  $associated_co = (isset($entry['60']) ? $entry['60']:''); //checkboxes
-  $funding = (isset($entry['61']) ? $entry['61']:''); //checkboxes ?>
 
-          <?php if ($space_type=='Yes'){?><div class="m-entry-4col-item"></div><?php } ?>
-          <?php if ($space_size != ''){?><div class="m-entry-4col-item"><?php echo $space_size; ?></div><?php } ?>
-          <?php if ($offer_tours != ''){?><div class="m-entry-4col-item"><?php echo $offer_tours; ?></div><?php } ?>
+          <?php if ($space_type != ''){?><div class="m-entry-4col-item"><?php echo $space_type; ?></div><?php } ?>
+          <?php if ($days_open != ''){?><div class="m-entry-4col-item"><?php echo $days_open; ?></div><?php } ?>
           <?php if ($open_hours != ''){?><div class="m-entry-4col-item"><?php echo $open_hours; ?></div><?php } ?>
+          <?php if ($membership != ''){?><div class="m-entry-4col-item"><?php echo $membership; ?></div><?php } ?>
+          <?php if ($offer_tours != ''){?><div class="m-entry-4col-item"><?php echo $offer_tours; ?></div><?php } ?>
+          <?php if ($under_18 != ''){?><div class="m-entry-4col-item">Under 18 allowed?<br /><span><?php echo $under_18; ?></span></div><?php } ?>
+          <?php if ($sell_consumables != ''){?><div class="m-entry-4col-item"><?php echo $sell_consumables; ?></div><?php } ?>
+          <?php if ($members != ''){?><div class="m-entry-4col-item"><?php echo $members; ?></div><?php } ?>
+          <?php if ($busiest != ''){?><div class="m-entry-4col-item"><?php echo $busiest; ?></div><?php } ?>
+          <?php if ($non_members != ''){?><div class="m-entry-4col-item"><?php echo $non_members; ?></div><?php } ?>
+          <?php if ($recruit != ''){?><div class="m-entry-4col-item"><?php echo $recruit; ?></div><?php } ?>
+          <?php if ($minor_members != ''){?><div class="m-entry-4col-item"><?php echo $minor_members; ?></div><?php } ?>
+          <?php if ($membership_packages != ''){?><div class="m-entry-4col-item"><?php echo $membership_packages; ?></div><?php } ?>
+          <?php if ($student_discount != ''){?><div class="m-entry-4col-item"><?php echo $student_discount; ?></div><?php } ?>
+          <?php if ($member_spaces != ''){?><div class="m-entry-4col-item"><?php echo $member_spaces; ?></div><?php } ?>
+          <?php if ($member_events != ''){?><div class="m-entry-4col-item"><?php echo $member_events; ?></div><?php } ?>
+          <?php if ($kitchen != ''){?><div class="m-entry-4col-item"><?php echo $kitchen; ?></div><?php } ?>
+          <?php if ($event_space != ''){?><div class="m-entry-4col-item"><?php echo $event_space; ?></div><?php } ?>
+          <?php if ($community_engagement != ''){?><div class="m-entry-4col-item"><?php echo $community_engagement; ?></div><?php } ?>
+          <?php if ($community_building != ''){?><div class="m-entry-4col-item"><?php echo $community_building; ?></div><?php } ?>
+          <?php if ($space_age != ''){?><div class="m-entry-4col-item"><?php echo $space_age; ?></div><?php } ?>
+          <?php if ($area_type != ''){?><div class="m-entry-4col-item"><?php echo $area_type; ?></div><?php } ?>
+          <?php if ($zoned != ''){?><div class="m-entry-4col-item"><?php echo $zoned; ?></div><?php } ?>
+          <?php if ($space_size != ''){?><div class="m-entry-4col-item"><?php echo $space_size; ?></div><?php } ?>
+          <?php if ($management != ''){?><div class="m-entry-4col-item"><?php echo $space_size; ?></div><?php } ?>
+          <?php if ($board != ''){?><div class="m-entry-4col-item"><?php echo $management; ?></div><?php } ?>
+          <?php if ($incorporated != ''){?><div class="m-entry-4col-item"><?php echo $incorporated; ?></div><?php } ?>
+          <?php if ($nonprofit != ''){?><div class="m-entry-4col-item"><?php echo $nonprofit; ?></div><?php } ?>
+          <?php if ($associated != ''){?><div class="m-entry-4col-item"><?php echo $associated; ?></div><?php } ?>
+          <?php if ($associated_co != ''){?><div class="m-entry-4col-item"><?php echo $associated_co; ?></div><?php } ?>
+          <?php if ($funding != ''){?><div class="m-entry-4col-item"><?php echo $funding; ?></div><?php } ?>
 
         </div>
 
@@ -238,16 +233,16 @@ get_header(); ?>
 
         <div class="m-entry-4col-alt-bg">
 
-          <?php if ($hand_tools=='Yes'){?><div class="m-entry-4col-item">Basic Hand Tools</div><?php } ?>
-          <?php if ($power_tools=='Yes'){?><div class="m-entry-4col-item">Basic Power Tools</div><?php } ?>
-          <?php if ($elec_tools=='Yes'){?><div class="m-entry-4col-item">Basic Electric Tools</div><?php } ?>
-          <?php if ($computers=='Yes'){?><div class="m-entry-4col-item">Computers</div><?php } ?>
-          <?php if ($cnc=='Yes'){?><div class="m-entry-4col-item">CNC</div><?php } ?>
-          <?php if ($printing3d=='Yes'){?><div class="m-entry-4col-item">3D Printing</div><?php } ?>
-          <?php if ($lasercutter=='Yes'){?><div class="m-entry-4col-item">Laser Cutter</div><?php } ?>
-          <?php if ($vinylcutter=='Yes'){?><div class="m-entry-4col-item">Vinyl Cutter</div><?php } ?>
-          <?php if ($waterjet=='Yes'){?><div class="m-entry-4col-item">Waterjet</div><?php } ?>
-          <?php if ($pcrtools=='Yes'){?><div class="m-entry-4col-item">PCR Tools (Biotech)</div><?php } ?>
+          <div class="m-entry-4col-item <?php if($hand_tools=='Yes'){echo 'col4-item-check';} ?>">Basic Hand Tools</div>
+          <div class="m-entry-4col-item <?php if($power_tools=='Yes'){echo 'col4-item-check';} ?>">Basic Power Tools</div>
+          <div class="m-entry-4col-item <?php if($elec_tools=='Yes'){echo 'col4-item-check';} ?>">Basic Electric Tools</div>
+          <div class="m-entry-4col-item <?php if($computers=='Yes'){echo 'col4-item-check';} ?>">Computers</div>
+          <div class="m-entry-4col-item <?php if($cnc=='Yes'){echo 'col4-item-check';} ?>">CNC</div>
+          <div class="m-entry-4col-item <?php if($printing3d=='Yes'){echo 'col4-item-check';} ?>">3D Printing</div>
+          <div class="m-entry-4col-item <?php if($lasercutter=='Yes'){echo 'col4-item-check';} ?>">Laser Cutter</div>
+          <div class="m-entry-4col-item <?php if($vinylcutter=='Yes'){echo 'col4-item-check';} ?>">Vinyl Cutter</div>
+          <div class="m-entry-4col-item <?php if($waterjet=='Yes'){echo 'col4-item-check';} ?>">Waterjet</div>
+          <div class="m-entry-4col-item <?php if($pcrtools=='Yes'){echo 'col4-item-check';} ?>">PCR Tools (Biotech)</div>
 
         </div>
 
