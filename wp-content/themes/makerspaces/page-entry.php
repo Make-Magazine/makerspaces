@@ -204,16 +204,16 @@ get_header(); ?>
 
         <div class="m-entry-4col-alt-bg">
 
-          <?php if ($hand_tools != ''){?><div class="m-entry-4col-item"><?php echo $hand_tools; ?></div><?php } ?>
-          <?php if ($power_tools != ''){?><div class="m-entry-4col-item"><?php echo $power_tools; ?></div><?php } ?>
-          <?php if ($elec_tools != ''){?><div class="m-entry-4col-item"><?php echo $elec_tools; ?></div><?php } ?>
-          <?php if ($computers != ''){?><div class="m-entry-4col-item"><?php echo $computers; ?></div><?php } ?>
-          <?php if ($cnc != ''){?><div class="m-entry-4col-item"><?php echo $cnc; ?></div><?php } ?>
-          <?php if ($printing3d != ''){?><div class="m-entry-4col-item"><?php echo $printing3d; ?></div><?php } ?>
-          <?php if ($lasercutter != ''){?><div class="m-entry-4col-item"><?php echo $lasercutter; ?></div><?php } ?>
-          <?php if ($vinylcutter != ''){?><div class="m-entry-4col-item"><?php echo $vinylcutter; ?></div><?php } ?>
-          <?php if ($waterjet != ''){?><div class="m-entry-4col-item"><?php echo $waterjet; ?></div><?php } ?>
-          <?php if ($pcrtools != ''){?><div class="m-entry-4col-item"><?php echo $pcrtools; ?></div><?php } ?>
+          <?php if ($hand_tools=='Yes'){?><div class="m-entry-4col-item">Basic Hand Tools</div><?php } ?>
+          <?php if ($power_tools=='Yes'){?><div class="m-entry-4col-item">Basic Power Tools</div><?php } ?>
+          <?php if ($elec_tools=='Yes'){?><div class="m-entry-4col-item">Basic Electric Tools</div><?php } ?>
+          <?php if ($computers=='Yes'){?><div class="m-entry-4col-item">Computers</div><?php } ?>
+          <?php if ($cnc=='Yes'){?><div class="m-entry-4col-item">CNC</div><?php } ?>
+          <?php if ($printing3d=='Yes'){?><div class="m-entry-4col-item">3D Printing</div><?php } ?>
+          <?php if ($lasercutter=='Yes'){?><div class="m-entry-4col-item">Laser Cutter</div><?php } ?>
+          <?php if ($vinylcutter=='Yes'){?><div class="m-entry-4col-item">Vinyl Cutter</div><?php } ?>
+          <?php if ($waterjet=='Yes'){?><div class="m-entry-4col-item">Waterjet</div><?php } ?>
+          <?php if ($pcrtools=='Yes'){?><div class="m-entry-4col-item">PCR Tools (Biotech)</div><?php } ?>
 
         </div>
 
@@ -229,14 +229,14 @@ get_header(); ?>
 
         <div class="m-entry-4col-alt-bg">
 
-          <?php if ($woodworking != ''){?><div class="m-entry-4col-item"><?php echo $woodworking; ?></div><?php } ?>
-          <?php if ($metalworking != ''){?><div class="m-entry-4col-item"><?php echo $metalworking; ?></div><?php } ?>
-          <?php if ($textiles != ''){?><div class="m-entry-4col-item"><?php echo $textiles; ?></div><?php } ?>
-          <?php if ($silkscreening != ''){?><div class="m-entry-4col-item"><?php echo $silkscreening; ?></div><?php } ?>
-          <?php if ($autoshop != ''){?><div class="m-entry-4col-item"><?php echo $autoshop; ?></div><?php } ?>
-          <?php if ($blacksmithing != ''){?><div class="m-entry-4col-item"><?php echo $blacksmithing; ?></div><?php } ?>
-          <?php if ($ceramics != ''){?><div class="m-entry-4col-item"><?php echo $ceramics; ?></div><?php } ?>
-          <?php if ($audio_visual != ''){?><div class="m-entry-4col-item"><?php echo $audio_visual; ?></div><?php } ?>
+          <?php if ($woodworking=='Yes'){?><div class="m-entry-4col-item">Woodworking</div><?php } ?>
+          <?php if ($metalworking=='Yes'){?><div class="m-entry-4col-item">Metalworking</div><?php } ?>
+          <?php if ($textiles=='Yes'){?><div class="m-entry-4col-item">Textiles</div><?php } ?>
+          <?php if ($silkscreening=='Yes'){?><div class="m-entry-4col-item">Silkscreening</div><?php } ?>
+          <?php if ($autoshop=='Yes'){?><div class="m-entry-4col-item">Autoshop</div><?php } ?>
+          <?php if ($blacksmithing=='Yes'){?><div class="m-entry-4col-item">Blacksmithing</div><?php } ?>
+          <?php if ($ceramics=='Yes'){?><div class="m-entry-4col-item">Ceramics/Glass</div><?php } ?>
+          <?php if ($audio_visual=='Yes'){?><div class="m-entry-4col-item">Audio/Visual </div><?php } ?>
           <?php if ($others_facilities != ''){?><div class="m-entry-4col-item"><?php echo $others_facilities; ?></div><?php } ?>
 
         </div>
