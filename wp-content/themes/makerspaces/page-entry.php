@@ -25,6 +25,8 @@
   $city = (isset($entry['11']) ? $entry['11']:'');
   $state = (isset($entry['12']) ? $entry['12']:'');
   $zip = (isset($entry['13']) ? $entry['13']:'');
+  $gmap_address = $city . $state . $zip;
+  $gmap_address = str_replace(' ', '+', $gmap_address);
 
   //About Space
   $space_type = (isset($entry['14']) ? $entry['14']:''); //checkboxes
@@ -129,7 +131,12 @@ get_header(); ?>
 
       <div class="col-xs-12 col-sm-5 col-md-6">
 
-        <img src="/wp-content/themes/makerspaces/img/demo-entry-image.png" alt="Makerspace entry featured image" class="img-responsive" />
+        <iframe
+          width="100%"
+          height="250"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA8KtBVyg7JjpNP683fbd-9x7inmdbV-4M&q=<?php echo $gmap_address; ?>" allowfullscreen>
+        </iframe>
 
       </div>
 
@@ -160,18 +167,17 @@ get_header(); ?>
 
           <div class="row">
 
-            <div class="col-xs-6">
+            <div class="col-xs-11">
 
               <!-- <h2><strong>Community Center Work</strong></h2> -->
-              <p><strong>Address: </strong>street address?</br><?php echo $city; ?>, <?php echo $state; ?> <?php echo $zip; ?></p>
+              <p><strong>Address: </strong><?php echo $city; ?>, <?php echo $state; ?> <?php echo $zip; ?></p>
               <?php if ($contact_phone != ''){?><p><strong>Phone:</strong> <?php echo $contact_phone; ?></p><?php } ?>
               <?php if ($contact_email != ''){?><p><strong>Email:</strong> <?php echo $contact_email; ?></p><?php } ?>
 
             </div>
 
-            <div class="col-xs-6">
+            <div class="col-xs-1">
 
-              <img class="img-responsive pull-right" src="http://lorempixel.com/output/transport-q-g-100-100-10.jpg" />
 
             </div>
 
@@ -429,6 +435,7 @@ get_header(); ?>
             </div>
           <?php } ?>
 
+
         </div>
 
       </div>
@@ -443,15 +450,61 @@ get_header(); ?>
 
         <div class="m-entry-2col-alt-bg">
 
-          <div class="m-entry-4col-item">info 1</div>
-          <div class="m-entry-4col-item">info 2</div>
-          <div class="m-entry-4col-item">info 3</div>
-          <div class="m-entry-4col-item">info 4</div>
-          <div class="m-entry-4col-item">info 5</div>
-          <div class="m-entry-4col-item">info 6</div>
-          <div class="m-entry-4col-item">info 7</div>
-          <div class="m-entry-4col-item">info 8</div>
-          <div class="m-entry-4col-item">info 9</div>
+          <?php if ($offer_classes != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does the Makerspace offer classes?</span>
+              <span class="col2-item-r"><?php echo $offer_classes; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($equip_classes != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does the Makerspace offer classes on how to use its equipment?Are classes required in order to use the equipment in the Makerspace?</span>
+              <span class="col2-item-r"><?php echo $equip_classes; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($required_classes != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Are classes required in order to use the equipment in the Makerspace?</span>
+              <span class="col2-item-r"><?php echo $required_classes; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($skill_classes != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does the Makerspace offer skill building workshops or classes outside of equipment aptitude?</span>
+              <span class="col2-item-r"><?php echo $skill_classes; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($minor_classes != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Are classes available for young adults under the age of 18?</span>
+              <span class="col2-item-r"><?php echo $minor_classes; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($class_price != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">What is the price range for classes?</span>
+              <span class="col2-item-r"><?php echo $class_price; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($class_quantity != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">How many classes does your Makerspace offer on average per month?</span>
+              <span class="col2-item-r"><?php echo $class_quantity; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($finding_instructors != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Do you find it difficult to find instructors (or instructors of appropriate caliber)?</span>
+              <span class="col2-item-r"><?php echo $finding_instructors; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($feedback != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Based on feedback you have received how would you rate customer satisfaction in the classes and/or workshops offered by the Makerspace?</span>
+              <span class="col2-item-r"><?php echo $feedback; ?></span>
+            </div>
+          <?php } ?>
+
 
         </div>
 
@@ -467,15 +520,30 @@ get_header(); ?>
 
         <div class="m-entry-2col-alt-bg">
 
-          <div class="m-entry-4col-item">info 1</div>
-          <div class="m-entry-4col-item">info 2</div>
-          <div class="m-entry-4col-item">info 3</div>
-          <div class="m-entry-4col-item">info 4</div>
-          <div class="m-entry-4col-item">info 5</div>
-          <div class="m-entry-4col-item">info 6</div>
-          <div class="m-entry-4col-item">info 7</div>
-          <div class="m-entry-4col-item">info 8</div>
-          <div class="m-entry-4col-item">info 9</div>
+          <?php if ($safty_waiver != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does your Makerspace have a required safety waiver?</span>
+              <span class="col2-item-r"><?php echo $safty_waiver; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($safty_equip != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Who provides safety equipment (goggles, welding gloves & jackets, ear protection, etc.) for each area of your makerspace?</span>
+              <span class="col2-item-r"><?php echo $safty_equip; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($safty_training != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does the Makerspace provide basic safety training or orientation for new users?</span>
+              <span class="col2-item-r"><?php echo $safty_training; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($safty_informal != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">How formalized would you consider the safety training for the Makerspace?</span>
+              <span class="col2-item-r"><?php echo $safty_informal; ?></span>
+            </div>
+          <?php } ?>
 
         </div>
 
