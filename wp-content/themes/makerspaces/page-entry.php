@@ -163,7 +163,7 @@ get_header(); ?>
             <div class="col-xs-6">
 
               <!-- <h2><strong>Community Center Work</strong></h2> -->
-              <p><strong>Address:</strong> ?street address?</br><?php echo $city; ?>, <?php echo $state; ?> <?php echo $zip; ?></p>
+              <p><strong>Address: </strong>street address?</br><?php echo $city; ?>, <?php echo $state; ?> <?php echo $zip; ?></p>
               <?php if ($contact_phone != ''){?><p><strong>Phone:</strong> <?php echo $contact_phone; ?></p><?php } ?>
               <?php if ($contact_email != ''){?><p><strong>Email:</strong> <?php echo $contact_email; ?></p><?php } ?>
 
@@ -189,37 +189,37 @@ get_header(); ?>
 
         <div class="m-entry-4col-no-bg">
 
-          <?php if ($space_type != ''){?><div class="m-entry-4col-item">How would you best classify the physical context of the Makerspace?<br /><span><?php echo $space_type; ?></span></div><?php } ?>
-          <?php if ($days_open != ''){?><div class="m-entry-4col-item">What days is the Makerspace open?<br /><span><?php echo $days_open; ?></span></div><?php } ?>
-          <?php if ($open_hours != ''){?><div class="m-entry-4col-item"><?php echo $open_hours; ?></div><?php } ?>
+          <?php if ($space_type != ''){?><div class="m-entry-4col-item">How would you best classify the physical context of the Makerspace?<br /><p><?php echo $space_type; ?></p></div><?php } ?>
+          <?php if ($days_open != ''){?><div class="m-entry-4col-item">What days is the Makerspace open?<br /><p><?php echo $days_open; ?></p></div><?php } ?>
+          <?php if ($open_hours != ''){?><div class="m-entry-4col-item">What are the Makerspace's hours of operation?<br /><p><?php echo $open_hours; ?></p></div><?php } ?>
           <?php if ($membership != ''){?><div class="m-entry-4col-item"><?php echo $membership; ?></div><?php } ?>
-          <?php if ($offer_tours != ''){?><div class="m-entry-4col-item">Do you offer tours or host any regular "open to the public" events<br /><span><?php echo $offer_tours; ?></span></div><?php } ?>
-          <?php if ($under_18 != ''){?><div class="m-entry-4col-item">Under 18 allowed?<br /><span><?php echo $under_18; ?></span></div><?php } ?>
-          <?php if ($sell_consumables != ''){?><div class="m-entry-4col-item"><?php echo $sell_consumables; ?></div><?php } ?>
-          <?php if ($members != ''){?><div class="m-entry-4col-item">How many members or users do you have at this time?<br /><span><?php echo $members; ?></span></div><?php } ?>
-          <?php if ($busiest != ''){?><div class="m-entry-4col-item">When is your Makerspace the busiest?<br /><span><?php echo $busiest; ?></span></div><?php } ?>
-          <?php if ($non_members != ''){?><div class="m-entry-4col-item">Is your space ever open to non-members?<br /><span><?php echo $non_members; ?></span></div><?php } ?>
-          <?php if ($recruit != ''){?><div class="m-entry-4col-item">Do you actively recruit new members?<br /><span><?php echo $recruit; ?></span></div><?php } ?>
-          <?php if ($minor_members != ''){?><div class="m-entry-4col-item">Can a member be under the age of 18?<br /><span><?php echo $minor_members; ?></span></div><?php } ?>
-          <?php if ($membership_packages != ''){?><div class="m-entry-4col-item">Do you have different membership packages or only one level of membership?<br /><span><?php echo $membership_packages; ?></span></div><?php } ?>
-          <?php if ($student_discount != ''){?><div class="m-entry-4col-item">Do you offer a discounted student membership?<br /><span><?php echo $student_discount; ?></span></div><?php } ?>
-          <?php if ($member_spaces != ''){?><div class="m-entry-4col-item">Can members rent office or work space within the Makerspace to run a small business?<br /><span><?php echo $member_spaces; ?></span></div><?php } ?>
-          <?php if ($member_events != ''){?><div class="m-entry-4col-item">Can members use the space to host an event?<br /><span><?php echo $member_events; ?></span></div><?php } ?>
-          <?php if ($kitchen != ''){?><div class="m-entry-4col-item">Does the Makerspace have a kitchen?<br /><span><?php echo $kitchen; ?></span></div><?php } ?>
-          <?php if ($event_space != ''){?><div class="m-entry-4col-item">Does the Makerspace have any kind of designated event space?<br /><span><?php echo $event_space; ?></span></div><?php } ?>
-          <?php if ($community_engagement != ''){?><div class="m-entry-4col-item">Do you have any kind of outreach program to encourage growth in membership and community engagement?<br /><span><?php echo $community_engagement; ?></span></div><?php } ?>
-          <?php if ($community_building != ''){?><div class="m-entry-4col-item">What kind of community building events (if any) do you offer?<br /><span><?php echo $community_building; ?></span></div><?php } ?>
-          <?php if ($space_age != ''){?><div class="m-entry-4col-item">How long has your Makerspace been in operation?<br /><span><?php echo $space_age; ?></div><?php } ?>
-          <?php if ($area_type != ''){?><div class="m-entry-4col-item">Is the location of your shop urban, suburban or rural?<br /><span><?php echo $area_type; ?></span></div><?php } ?>
-          <?php if ($zoned != ''){?><div class="m-entry-4col-item">How is your Makerspace location zoned?<br /><span><?php echo $zoned; ?></span></div><?php } ?>
-          <?php if ($space_size != ''){?><div class="m-entry-4col-item">How big is your current space?<br /><span><?php echo $space_size; ?></span></div><?php } ?>
-          <?php if ($management != ''){?><div class="m-entry-4col-item">Who controls the management and maintenance of the space?<br /><span><?php echo $management; ?></span></div><?php } ?>
-          <?php if ($board != ''){?><div class="m-entry-4col-item">If you have a board of directors, how many directors do you have?<br /><span><?php echo $board; ?></span></div><?php } ?>
-          <?php if ($incorporated != ''){?><div class="m-entry-4col-item">Is your Makerspace incorporated?<br /><span><?php echo $incorporated; ?></span></div><?php } ?>
-          <?php if ($nonprofit != ''){?><div class="m-entry-4col-item">If your Makerspace is a non-profit, are you a separate 501(c)3 or do you have a fiscal sponsor?<br /><span><?php echo $nonprofit; ?></span></div><?php } ?>
-          <?php if ($associated != ''){?><div class="m-entry-4col-item">Is the makerspace associated with or hosted by a separate organization?<br /><span><?php echo $associated; ?></span></div><?php } ?>
-          <?php if ($associated_co != ''){?><div class="m-entry-4col-item">If yes, what type of organization?<br /><span><?php echo $associated_co; ?></span></div><?php } ?>
-          <?php if ($funding != ''){?><div class="m-entry-4col-item">Do you have sources of funding for the makerspace in addition to member or usage fees?<br /><span><?php echo $funding; ?></span></div><?php } ?>
+          <?php if ($offer_tours != ''){?><div class="m-entry-4col-item">Do you offer tours or host any regular "open to the public" events?<br /><p><?php echo $offer_tours; ?></p></div><?php } ?>
+          <?php if ($under_18 != ''){?><div class="m-entry-4col-item">Under 18 allowed?<br /><p><?php echo $under_18; ?></p></div><?php } ?>
+          <?php if ($sell_consumables != ''){?><div class="m-entry-4col-item">Do you offer or sell consumables?<br /><p><?php echo $sell_consumables; ?></p></div><?php } ?>
+          <?php if ($members != ''){?><div class="m-entry-4col-item">How many members or users do you have at this time?<br /><p><?php echo $members; ?></p></div><?php } ?>
+          <?php if ($busiest != ''){?><div class="m-entry-4col-item">When is your Makerspace the busiest?<br /><p><?php echo $busiest; ?></p></div><?php } ?>
+          <?php if ($non_members != ''){?><div class="m-entry-4col-item">Is your space ever open to non-members?<br /><p><?php echo $non_members; ?></p></div><?php } ?>
+          <?php if ($recruit != ''){?><div class="m-entry-4col-item">Do you actively recruit new members?<br /><p><?php echo $recruit; ?></p></div><?php } ?>
+          <?php if ($minor_members != ''){?><div class="m-entry-4col-item">Can a member be under the age of 18?<br /><p><?php echo $minor_members; ?></p></div><?php } ?>
+          <?php if ($membership_packages != ''){?><div class="m-entry-4col-item">Do you have different membership packages or only one level of membership?<br /><p><?php echo $membership_packages; ?></p></div><?php } ?>
+          <?php if ($student_discount != ''){?><div class="m-entry-4col-item">Do you offer a discounted student membership?<br /><p><?php echo $student_discount; ?></p></div><?php } ?>
+          <?php if ($member_spaces != ''){?><div class="m-entry-4col-item">Can members rent office or work space within the Makerspace to run a small business?<br /><p><?php echo $member_spaces; ?></p></div><?php } ?>
+          <?php if ($member_events != ''){?><div class="m-entry-4col-item">Can members use the space to host an event?<br /><p><?php echo $member_events; ?></p></div><?php } ?>
+          <?php if ($kitchen != ''){?><div class="m-entry-4col-item">Does the Makerspace have a kitchen?<br /><p><?php echo $kitchen; ?></p></div><?php } ?>
+          <?php if ($event_space != ''){?><div class="m-entry-4col-item">Does the Makerspace have any kind of designated event space?<br /><p><?php echo $event_space; ?></p></div><?php } ?>
+          <?php if ($community_engagement != ''){?><div class="m-entry-4col-item">Do you have any kind of outreach program to encourage growth in membership and community engagement?<br /><p><?php echo $community_engagement; ?></p></div><?php } ?>
+          <?php if ($community_building != ''){?><div class="m-entry-4col-item">What kind of community building events (if any) do you offer?<br /><p><?php echo $community_building; ?></p></div><?php } ?>
+          <?php if ($space_age != ''){?><div class="m-entry-4col-item">How long has your Makerspace been in operation?<br /><p><?php echo $space_age; ?></p></div><?php } ?>
+          <?php if ($area_type != ''){?><div class="m-entry-4col-item">Is the location of your shop urban, suburban or rural?<br /><p><?php echo $area_type; ?></p></div><?php } ?>
+          <?php if ($zoned != ''){?><div class="m-entry-4col-item">How is your Makerspace location zoned?<br /><p><?php echo $zoned; ?></p></div><?php } ?>
+          <?php if ($space_size != ''){?><div class="m-entry-4col-item">How big is your current space?<br /><p><?php echo $space_size; ?></p></div><?php } ?>
+          <?php if ($management != ''){?><div class="m-entry-4col-item">Who controls the management and maintenance of the space?<br /><p><?php echo $management; ?></p></div><?php } ?>
+          <?php if ($board != ''){?><div class="m-entry-4col-item">If you have a board of directors, how many directors do you have?<br /><p><?php echo $board; ?></p></div><?php } ?>
+          <?php if ($incorporated != ''){?><div class="m-entry-4col-item">Is your Makerspace incorporated?<br /><p><?php echo $incorporated; ?></p></div><?php } ?>
+          <?php if ($nonprofit != ''){?><div class="m-entry-4col-item">If your Makerspace is a non-profit, are you a separate 501(c)3 or do you have a fiscal sponsor?<br /><p><?php echo $nonprofit; ?></p></div><?php } ?>
+          <?php if ($associated != ''){?><div class="m-entry-4col-item">Is the makerspace associated with or hosted by a separate organization?<br /><p><?php echo $associated; ?></p></div><?php } ?>
+          <?php if ($associated_co != ''){?><div class="m-entry-4col-item">If yes, what type of organization?<br /><p><?php echo $associated_co; ?></p></div><?php } ?>
+          <?php if ($funding != ''){?><div class="m-entry-4col-item">Do you have sources of funding for the makerspace in addition to member or usage fees?<br /><p><?php echo $funding; ?></p></div><?php } ?>
 
         </div>
 
@@ -284,10 +284,150 @@ get_header(); ?>
 
         <div class="m-entry-2col-alt-bg">
 
-          <div class="m-entry-2col-item">
-            <span class="col2-item-l"></span>
-            <span class="col2-item-r"></span>
-          </div>
+          <?php if ($members != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">How many members or users do you have at this time?</span>
+              <span class="col2-item-r"><?php echo $members; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($busiest != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">When is your Makerspace the busiest?</span>
+              <span class="col2-item-r"><?php echo $busiest; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($non_members != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Is your space ever open to non-members?</span>
+              <span class="col2-item-r"><?php echo $non_members; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($recruit != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Do you actively recruit new members?</span>
+              <span class="col2-item-r"><?php echo $recruit; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($minor_members != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Can a member be under the age of 18?</span>
+              <span class="col2-item-r"><?php echo $minor_members; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($membership_packages != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Do you have different membership packages or only one level of membership?</span>
+              <span class="col2-item-r"><?php echo $membership_packages; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($student_discount != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Do you offer a discounted student membership?</span>
+              <span class="col2-item-r"><?php echo $student_discount; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($member_spaces != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Can members rent office or work space within the Makerspace to run a small business?</span>
+              <span class="col2-item-r"><?php echo $member_spaces; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($member_events != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Can members use the space to host an event?</span>
+              <span class="col2-item-r"><?php echo $member_events; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($kitchen != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does the Makerspace have a kitchen?</span>
+              <span class="col2-item-r"><?php echo $kitchen; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($event_space != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Does the Makerspace have any kind of designated event space?</span>
+              <span class="col2-item-r"><?php echo $event_space; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($community_engagement != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Do you have any kind of outreach program to encourage growth in membership and community engagement?</span>
+              <span class="col2-item-r"><?php echo $community_engagement; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($community_building != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">What kind of community building events (if any) do you offer?</span>
+              <span class="col2-item-r"><?php echo $community_building; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($space_age != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">How long has your Makerspace been in operation?</span>
+              <span class="col2-item-r"><?php echo $space_age; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($area_type != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Is the location of your shop urban, suburban or rural?</span>
+              <span class="col2-item-r"><?php echo $area_type; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($zoned != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">How is your Makerspace location zoned?</span>
+              <span class="col2-item-r"><?php echo $zoned; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($space_size != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">How big is your current space?</span>
+              <span class="col2-item-r"><?php echo $space_size; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($management != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Who controls the management and maintenance of the space?</span>
+              <span class="col2-item-r"><?php echo $management; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($board != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">If you have a board of directors, how many directors do you have?</span>
+              <span class="col2-item-r"><?php echo $board; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($incorporated != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Is your Makerspace incorporated?</span>
+              <span class="col2-item-r"><?php echo $incorporated; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($nonprofit != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">If your Makerspace is a non-profit, are you a separate 501(c)3 or do you have a fiscal sponsor?</span>
+              <span class="col2-item-r"><?php echo $nonprofit; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($associated != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Is the makerspace associated with or hosted by a separate organization?</span>
+              <span class="col2-item-r"><?php echo $associated; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($associated_co != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">If yes, what type of organization?</span>
+              <span class="col2-item-r"><?php echo $associated_co; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($funding != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Do you have sources of funding for the makerspace in addition to member or usage fees?</span>
+              <span class="col2-item-r"><?php echo $funding; ?></span>
+            </div>
+          <?php } ?>
 
         </div>
 
