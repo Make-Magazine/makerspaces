@@ -338,16 +338,16 @@ get_header(); ?>
               <span class="col2-item-r"><?php echo $member_spaces; ?></span>
             </div>
           <?php } ?>
-          <?php if ($member_events != ''){ ?>
-            <div class="m-entry-2col-item">
-              <span class="col2-item-l">Can members use the space to host an event?</span>
-              <span class="col2-item-r"><?php echo $member_events; ?></span>
-            </div>
-          <?php } ?>
           <?php if ($kitchen != ''){ ?>
             <div class="m-entry-2col-item">
               <span class="col2-item-l">Does the Makerspace have a kitchen?</span>
               <span class="col2-item-r"><?php echo $kitchen; ?></span>
+            </div>
+          <?php } ?>
+          <?php if ($member_events != ''){ ?>
+            <div class="m-entry-2col-item">
+              <span class="col2-item-l">Can members use the space to host an event?</span>
+              <span class="col2-item-r"><?php echo $member_events; ?></span>
             </div>
           <?php } ?>
           <?php if ($event_space != ''){ ?>
