@@ -110,7 +110,6 @@
   $survey_feedback = (isset($entry['87']) ? $entry['87']:''); //checkboxes
   $gotoentry = (isset($entry['88']) ? $entry['88']:''); //checkboxes
 
-
 get_header(); ?>
 
 <div class="makerspace-entry">
