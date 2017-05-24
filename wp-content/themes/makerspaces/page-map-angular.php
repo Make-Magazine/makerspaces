@@ -14,7 +14,7 @@ get_header(); ?>
         <h2>We put together a world-wide directory for Makers to connect:</h2>
       </div>
       <div class="col-xs-12 col-md-3 col-lg-3">
-        <a href="" class="btn btn-info btn-block">ADD YOUR OWN MAKERSPACE! <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        <a href="/register" class="btn btn-info btn-block">ADD YOUR OWN MAKERSPACE! <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         <p>By adding your makerspace to this listing, you not only become part of our searchable database for Makers seeking like-minded people in their area but you also contribute to our study of the Makers Movement as a whole.</p>
       </div>
     </div>
