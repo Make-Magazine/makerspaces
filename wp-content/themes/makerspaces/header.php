@@ -49,14 +49,28 @@
 
           <p class="hidden-xs">Stay in the loop with our newsletter</p>
         </div>
-
+        <?php
+          $isSecure = "http://";
+          if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+            $isSecure = "https://";
+          }
+        ?>
         <!-- Newlsetter signup -->
         <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
-          <form class="form-inline">
+          <form class="form-inline sub-form whatcounts-signup" action="http://whatcounts.com/bin/listctrl" method="POST">
+            <input type="hidden" name="slid_1" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerSpaces Newsletter -->
+            <input type="hidden" name="slid_2" value="6B5869DC547D3D46941051CC68679543" /><!-- Maker Media Newsletter -->
+            <input type="hidden" name="multiadd" value="1" />
+            <input type="hidden" name="cmd" value="subscribe" />
+            <input type="hidden" name="custom_source" value="makerspace-header" />
+            <input type="hidden" name="custom_incentive" value="none" />
+            <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
+            <input type="hidden" id="format_mime" name="format" value="mime" />
+            <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="YOUR EMAIL">
+              <input type="email" class="form-control" required placeholder="YOUR EMAIL">
             </div>
-            <button type="submit" class="btn btn-lt-blue">SIGN UP</button>
+            <input type="submit" value="SIGN UP" class="btn btn-lt-blue">
           </form>
         </div>
 
