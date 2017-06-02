@@ -58,7 +58,7 @@
         <!-- Newlsetter signup -->
         <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
           <form class="form-inline sub-form whatcounts-signup" action="http://whatcounts.com/bin/listctrl" method="POST">
-            <input type="hidden" name="slid_1" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerSpaces Newsletter -->
+            <input type="hidden" name="slid_1" value="6B5869DC547D3D46BAC2803C6034F0BE" /><!-- MakerSpaces Newsletter -->
             <input type="hidden" name="slid_2" value="6B5869DC547D3D46941051CC68679543" /><!-- Maker Media Newsletter -->
             <input type="hidden" name="multiadd" value="1" />
             <input type="hidden" name="cmd" value="subscribe" />
