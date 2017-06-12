@@ -4,7 +4,7 @@
  *
  * @package _makerspaces
  */
- 
+
  /**
   * Store the theme's directory path and uri in constants
   */
@@ -43,7 +43,7 @@ function _makerspaces_setup() {
 	 * Enable support for Post Formats
 	*/
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
-	
+
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
@@ -90,17 +90,7 @@ function _makerspaces_scripts() {
 
 	// Map page only
   if (is_page_template('page-map-angular.php')) {
-    wp_enqueue_script( 'faires-global-map-scripts', get_stylesheet_directory_uri() . '/includes/js/angular/makerspaces-map-app.js',
-      array('angularjs', 'ordinal-filter', 'angular-utils-pagination')
-    );
-    wp_enqueue_script( 'angular-utils-pagination', get_stylesheet_directory_uri() . '/bower_components/angularUtils-pagination/dirPagination.js',
-      array('angularjs')
-    );
-    wp_enqueue_script( 'ordinal-filter', get_stylesheet_directory_uri() . '/bower_components/angularjs-ordinal-filter/ordinal-browser.js',
-      array('angularjs')
-    );
-    wp_enqueue_script( 'angularjs', get_stylesheet_directory_uri() . '/bower_components/angular/angular.min.js'
-    );
+
   }
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
