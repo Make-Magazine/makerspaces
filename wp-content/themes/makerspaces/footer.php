@@ -24,10 +24,12 @@
 			<div class="col-sm-6 col-md-3">
 				<h4>Explore Making</h4>
 				<ul class="list-unstyled">
-					<li><a href="//makezine.com/" target="_blank">Make: News &amp; Projects</a></li>
-					<li><a href="//www.makershed.com" target="_blank">Maker Shed</a></li>
-					<li><a href="//makerfaire.com">Maker Faire</a></li>
-					<li><a href="https://readerservices.makezine.com/mk/default.aspx?utm_source=makercamp.com&utm_medium=brand+bar&utm_campaign=explore+all+of+make&pc=MK&pk=M5BMCP" target="_blank">Subscribe to Make:</a></li>											
+					<li><a href="//makezine.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Make: News &amp; Projects</a></li>
+          <li><a href="//makerfaire.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Faire</a></li>
+          <li><a href="https://makershare.com/?utm_source=spaces.makerspace.com&utm_medium=footer" target="_blank">Maker Share</a></li>
+          <li><a href="//www.makershed.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Shed</a></li>
+          <li><a href="//makercamp.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Camp</a></li>
+          <li><a href="//readerservices.makezine.com/mk/default.aspx?pc=MK&pk=M6GMKZ?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Get the Magazine</a></li>										
 				</ul>
 			</div>
 			<div class="col-sm-6 col-md-3">
@@ -149,10 +151,12 @@
 					<div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="//makezine.com/" target="_blank">Make: News &amp; Projects</a></li>
-								<li><a href="//makerfaire.com" target="_blank">Maker Faire</a></li>
-								<li><a href="//www.makershed.com" target="_blank">Maker Shed</a></li>
-								<li><a href="https://help.makercamp.com/hc/en-us">Maker Camp Help Page</a></li>
+                <li><a href="//makezine.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Make: News &amp; Projects</a></li>
+                <li><a href="//makerfaire.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Faire</a></li>
+                <li><a href="https://makershare.com/?utm_source=spaces.makerspace.com&utm_medium=footer" target="_blank">Maker Share</a></li>
+                <li><a href="//www.makershed.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Shed</a></li>
+                <li><a href="//makercamp.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Camp</a></li>
+                <li><a href="//readerservices.makezine.com/mk/default.aspx?pc=MK&pk=M6GMKZ?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Get the Magazine</a></li>
 							</ul>
 						</div>
 					</div>
