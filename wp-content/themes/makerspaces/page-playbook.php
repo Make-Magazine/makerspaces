@@ -100,8 +100,8 @@ get_header(); ?>
         <p><strong>Resources</strong><br />
           helpful lists, forms, and templates</p>
 
-        <p class="small">We welcome your <a href="#" target="_blank">feedback</a> on the kinds of things we should add to this Playbook, what you think we get right and wrong, and any changes you'd make in general.</p>
-      </div>
+<!--         <p class="small">We welcome your <a href="#" target="_blank">feedback</a> on the kinds of things we should add to this Playbook, what you think we get right and wrong, and any changes you'd make in general.</p>
+ -->      </div>
 
     </div>
 
