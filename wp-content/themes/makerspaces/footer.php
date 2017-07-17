@@ -13,11 +13,10 @@
 			<div class="col-sm-6 col-md-3">
 				<a href="/"><img class="footer_logo img-responsive" src="<?php echo get_template_directory_uri() . '/img/Make_logo.svg' ?>"  alt="Makerspaces logo"></a>
 				<ul class="list-unstyled">
-					<li><a href="//makezine.com/projects">Make: Projects</a></li>
-					<li><a href="//makezine.com/category/workshop/3d-printing-workshop/?post_type=projects">3D Printing Projects</a></li>
-					<li><a href="//makezine.com/category/technology/arduino/?post_type=projects">Arduino Projects</a></li>
-					<li><a href="//makezine.com/category/technology/raspberry-pi/?post_type=projects">Raspberry Pi Projects</a></li>
-					<li><a href="//help.makercamp.com/hc/en-us" target="_blank">Maker Camp Help Page</a></li>
+					<li><a href="//makezine.com/projects/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Make: Projects</a></li>
+					<li><a href="//makezine.com/category/workshop/3d-printing-workshop/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">3D Printing Projects</a></li>
+					<li><a href="//makezine.com/category/technology/arduino/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Arduino Projects</a></li>
+					<li><a href="//makezine.com/category/technology/raspberry-pi/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Raspberry Pi Projects</a></li>
 				</ul>
 			</div>
 
@@ -40,6 +39,7 @@
 					<li><a href="//makermedia.com/work-with-us/job-openings" target="_blank">Careers</a></li>
 					<li><a href="//help.makermedia.com/hc/en-us" target="_blank">Help</a></li>
 					<li><a href="//makermedia.com/privacy" target="_blank">Privacy</a></li>
+          <li><a href="http://makezine.com/join/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Newsletters</a></li>
 				</ul>
 			</div>
 
@@ -47,10 +47,10 @@
 				<h4 class="stay-connected">Follow Us</h4>
         <div class="social-network-container">
           <ul class="social-network social-circle">
-              <li><a href="https://www.facebook.com/makemagazine?_rdr" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://twitter.com/make" class="icoTwitter" title="Twitter"><i class="fa fa-twitter" target="_blank"></i></a></li>
-              <li><a href="https://instagram.com/makemagazine/" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" target="_blank"></i></a></li>
-              <li><a href="https://plus.google.com/communities/107377046073638428310" class="icoGoogle-plus" title="Google+"><i class="fa fa-google-plus" target="_blank"></i></a></li>
+            <li><a href="https://www.facebook.com/makemagazine?_rdr" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/make" class="icoTwitter" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com/makemagazine/" class="icoInstagram" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://plus.google.com/communities/107377046073638428310" class="icoGoogle-plus" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
           </ul>    
         </div>
         <div class="clearfix"></div>
@@ -89,10 +89,10 @@
 				<h4 class="stay-connected">Follow Us</h4>
         <div class="social-network-container">
           <ul class="social-network social-circle">
-              <li><a href="https://www.facebook.com/makemagazine?_rdr" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://twitter.com/make" class="icoTwitter" title="Twitter"><i class="fa fa-twitter" target="_blank"></i></a></li>
-              <li><a href="https://instagram.com/makemagazine/" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" target="_blank"></i></a></li>
-              <li><a href="https://plus.google.com/communities/107377046073638428310" class="icoGoogle-plus" title="Google+"><i class="fa fa-google-plus" target="_blank"></i></a></li>
+            <li><a href="https://www.facebook.com/makemagazine?_rdr" class="icoFacebook" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/make" class="icoTwitter" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com/makemagazine/" class="icoInstagram" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://plus.google.com/communities/107377046073638428310" class="icoGoogle-plus" title="Google+" target="_blank"><i class="fa fa-google-plus"></i></a></li>
           </ul>    
         </div>
         <div class="clearfix"></div>
@@ -133,10 +133,10 @@
 					<div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="//makezine.com/" target="_blank">Make: News &amp; Projects</a></li>
-								<li><a href="//makerfaire.com">Maker Faire</a></li>
-								<li><a href="//www.makershed.com" target="_blank">Maker Shed</a></li>
-								<li><a href="https://readerservices.makezine.com/mk/default.aspx?utm_source=makercamp.com&utm_medium=brand+bar&utm_campaign=explore+all+of+make&pc=MK&pk=M5BMCP" target="_blank">Subscribe to Make:</a></li>						
+                <li><a href="//makezine.com/projects/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Make: Projects</a></li>
+                <li><a href="//makezine.com/category/workshop/3d-printing-workshop/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">3D Printing Projects</a></li>
+                <li><a href="//makezine.com/category/technology/arduino/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Arduino Projects</a></li>
+                <li><a href="//makezine.com/category/technology/raspberry-pi/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Raspberry Pi Projects</a></li>					
 							</ul>
 						</div>
 					</div>
@@ -151,11 +151,11 @@
 					<div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-                <li><a href="//makezine.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Make: News &amp; Projects</a></li>
-                <li><a href="//makerfaire.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Faire</a></li>
+                <li><a href="http://makezine.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Make: News &amp; Projects</a></li>
+                <li><a href="http://makerfaire.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Faire</a></li>
                 <li><a href="https://makershare.com/?utm_source=spaces.makerspace.com&utm_medium=footer" target="_blank">Maker Share</a></li>
                 <li><a href="//www.makershed.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Shed</a></li>
-                <li><a href="//makercamp.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Camp</a></li>
+                <li><a href="http://makercamp.com/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Maker Camp</a></li>
                 <li><a href="//readerservices.makezine.com/mk/default.aspx?pc=MK&pk=M6GMKZ?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Get the Magazine</a></li>
 							</ul>
 						</div>
@@ -176,6 +176,7 @@
 								<li><a href="//makermedia.com/work-with-us/job-openings" target="_blank">Careers</a></li>
 								<li><a href="//help.makermedia.com/hc/en-us" target="_blank">Help</a></li>
 								<li><a href="//makermedia.com/privacy" target="_blank">Privacy</a></li>
+                <li><a href="http://makezine.com/join/?utm_source=spaces.makerspace.com&utm_campaign=footer">Newsletters</a></li>
 							</ul>
 						</div>
 					</div>
