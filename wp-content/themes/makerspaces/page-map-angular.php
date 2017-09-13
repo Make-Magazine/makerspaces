@@ -26,7 +26,7 @@ get_header(); ?>
 
         <div class="posts-feeds-wrapper">
           <?php
-          $rss = fetch_feed('http://makezine.com/tag/makerspaces/feed/');
+          $rss = fetch_feed('https://makezine.com/tag/makerspaces/feed/');
           if (!is_wp_error($rss)) :
             $maxitems = $rss -> get_item_quantity(5); //gets latest 5 items, this can be changed to suit your requirements
             $rss_items = $rss -> get_items(0, $maxitems);
@@ -74,7 +74,7 @@ get_header(); ?>
 
         <div class="posts-feeds-wrapper">
           <?php
-          $rss = fetch_feed('http://makezine.com/projects/feed/');
+          $rss = fetch_feed('https://makezine.com/projects/feed/');
           if (!is_wp_error($rss)) :
             $maxitems = $rss -> get_item_quantity(5); //gets latest 5 items, this can be changed to suit your requirements
             $rss_items = $rss -> get_items(0, $maxitems);

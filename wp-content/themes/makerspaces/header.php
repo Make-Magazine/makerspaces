@@ -63,7 +63,7 @@
         ?>
         <!-- Newlsetter signup -->
         <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
-          <form class="form-inline sub-form whatcounts-signup" action="http://whatcounts.com/bin/listctrl" method="POST">
+          <form class="form-inline sub-form whatcounts-signup" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
             <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
             <input type="hidden" name="custom_list_makermedia" value="yes" />
             <input type="hidden" name="custom_list_makerpro" value="yes" />

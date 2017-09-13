@@ -44,7 +44,7 @@ get_header(); ?>
             $isSecure = "https://";
           }
         ?>
-        <form class="playbook-sub-form" action="http://whatcounts.com/bin/listctrl" method="POST">
+        <form class="playbook-sub-form" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
           <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
           <input type="hidden" name="custom_list_makermedia" value="yes" />
           <input type="hidden" name="custom_list_makerpro" value="yes" />

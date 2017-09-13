@@ -39,7 +39,7 @@
 					<li><a href="//makermedia.com/work-with-us/job-openings" target="_blank">Careers</a></li>
 					<li><a href="//help.makermedia.com/hc/en-us" target="_blank">Help</a></li>
 					<li><a href="//makermedia.com/privacy" target="_blank">Privacy</a></li>
-          <li><a href="http://makezine.com/join/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Newsletters</a></li>
+          <li><a href="//makezine.com/join/?utm_source=spaces.makerspace.com&utm_campaign=footer" target="_blank">Newsletters</a></li>
 				</ul>
 			</div>
 
@@ -64,7 +64,7 @@
 					?>
 					<h4>Sign Up</h4>
 					<p>Stay inspired and get fresh updates</p>
-          <form class="sub-form whatcounts-signup" action="http://whatcounts.com/bin/listctrl" method="POST">
+          <form class="sub-form whatcounts-signup" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
             <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
             <input type="hidden" name="custom_list_makermedia" value="yes" />
             <input type="hidden" name="custom_list_makerpro" value="yes" />
@@ -105,7 +105,7 @@
 					?>
 					<h4>Sign Up</h4>
 					<p>Stay inspired and get fresh updates</p>
-          <form class="sub-form whatcounts-signup1m" action="http://whatcounts.com/bin/listctrl" method="POST">
+          <form class="sub-form whatcounts-signup1m" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
             <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
             <input type="hidden" name="custom_list_makermedia" value="yes" />
             <input type="hidden" name="custom_list_makerpro" value="yes" />

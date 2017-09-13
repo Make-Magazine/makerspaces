@@ -16,7 +16,7 @@ get_header(); ?>
 
   </div>
 
-  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="<?php echo get_template_directory_uri() ?>/includes/js/min/map2.js"></script>
 
 <?php get_footer(); ?>
