@@ -64,7 +64,7 @@
 					?>
 					<h4>Sign Up</h4>
 					<p>Stay inspired and get fresh updates</p>
-          <form class="sub-form whatcounts-signup" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
+          <form class="sub-form whatcounts-signup1f" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
             <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
             <input type="hidden" name="custom_list_makermedia" value="yes" />
             <input type="hidden" name="custom_list_makerpro" value="yes" />
@@ -208,6 +208,20 @@
   </div>
 
 </div> <!-- .main-content -->
+
+<div class="nl-thx" style="display:none;">
+  <div class="col-sm-4 hidden-xs nl-modal">
+    <span class="fa-stack fa-4x">
+    <i class="fa fa-circle-thin fa-stack-2x"></i>
+    <i class="fa fa-thumbs-o-up fa-stack-1x"></i>
+    </span>
+  </div>
+  <div class="col-sm-8 col-xs-12 nl-modal">
+    <h3>Awesome!</h3>
+    <p>Thanks for signing up. Please check your email to confirm.</p>
+  </div>
+  <div class="clearfix"></div>
+</div>
 
 <?php wp_footer(); ?>
 
