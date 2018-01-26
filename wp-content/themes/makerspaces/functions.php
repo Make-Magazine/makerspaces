@@ -86,7 +86,7 @@ function _makerspaces_scripts() {
 	// load scripts
 	wp_enqueue_script( '_makerspaces-bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery') );
 	wp_enqueue_script( '_makerspaces-fancyboxjs', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js', array( 'jquery' ), false, true );
-	wp_enqueue_script( '_makerspaces-scripts', THEME_DIR_URI . '/includes/js/min/scripts.min.js?v=1.2', array('jquery') );
+	wp_enqueue_script( '_makerspaces-scripts', THEME_DIR_URI . '/includes/js/min/scripts.min.js?v=1.3', array('jquery') );
 
 	// Map page only
   if (is_page_template('page-map-angular.php')) {
