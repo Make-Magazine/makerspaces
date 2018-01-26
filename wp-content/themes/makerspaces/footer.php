@@ -65,15 +65,14 @@
 					<h4>Sign Up</h4>
 					<p>Stay inspired and get fresh updates</p>
           <form class="sub-form whatcounts-signup1f" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
-            <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
-            <input type="hidden" name="custom_list_makermedia" value="yes" />
-            <input type="hidden" name="custom_list_makerpro" value="yes" />
+            <input type="hidden" name="slid" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerPro -->
             <input type="hidden" name="cmd" value="subscribe" />
             <input type="hidden" name="custom_source" value="makerspace-footer" />
             <input type="hidden" name="custom_incentive" value="none" />
             <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
             <input type="hidden" id="format_mime" name="format" value="mime" />
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
+            <div id="recapcha-footer-desktop" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
             <div class="mz-form-horizontal">
               <input name="email" placeholder="Enter your Email" required type="email"><br>
               <input value="GO" class="btn-cyan" type="submit">
@@ -106,15 +105,14 @@
 					<h4>Sign Up</h4>
 					<p>Stay inspired and get fresh updates</p>
           <form class="sub-form whatcounts-signup1m" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
-            <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
-            <input type="hidden" name="custom_list_makermedia" value="yes" />
-            <input type="hidden" name="custom_list_makerpro" value="yes" />
+            <input type="hidden" name="slid" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerPro -->
             <input type="hidden" name="cmd" value="subscribe" />
             <input type="hidden" name="custom_source" value="makerspace-footer" />
             <input type="hidden" name="custom_incentive" value="none" />
             <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
             <input type="hidden" id="format_mime" name="format" value="mime" />
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
+            <div id="recapcha-footer-mobile" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
             <div class="mz-form-horizontal">
               <input name="email" placeholder="Enter your Email" required type="email"><br>
               <input value="GO" class="btn-cyan" type="submit">
@@ -222,6 +220,12 @@
   </div>
   <div class="clearfix"></div>
 </div>
+<div class="nl-modal-error" style="display:none;">
+    <div class="col-xs-12 nl-modal padtop">
+        <p class="lead">The reCAPTCHA box was not checked. Please try again.</p>
+    </div>
+    <div class="clearfix"></div>
+</div>
 
 <?php wp_footer(); ?>
 
@@ -237,6 +241,8 @@
 // 		'page': location.pathname + location.search + location.hash
 // 	});
 </script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
 </body>
 </html>

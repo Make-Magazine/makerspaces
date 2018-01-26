@@ -45,15 +45,14 @@ get_header(); ?>
           }
         ?>
         <form class="playbook-sub-form" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
-          <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
-          <input type="hidden" name="custom_list_makermedia" value="yes" />
-          <input type="hidden" name="custom_list_makerpro" value="yes" />
+          <input type="hidden" name="slid" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerPro -->
           <input type="hidden" name="cmd" value="subscribe" />
           <input type="hidden" name="custom_source" value="makerspace-playbook" />
           <input type="hidden" name="custom_incentive" value="playbookPDF" />
           <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
           <input type="hidden" id="format_mime" name="format" value="mime" />
           <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
+          <div id="recapcha-playbook" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
           <input name="name" placeholder="YOUR NAME" required type="name"><br>
           <input name="email" placeholder="YOUR EMAIL" required type="email"><br>
           <input value="REQUEST A FREE COPY" class="btn btn-lt-blue btn-block" type="submit">

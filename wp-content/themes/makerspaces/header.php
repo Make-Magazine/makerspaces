@@ -64,15 +64,14 @@
         <!-- Newlsetter signup -->
         <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
           <form class="form-inline sub-form whatcounts-signup" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
-            <input type="hidden" name="slid" value="6B5869DC547D3D4690C43FE9E066FBC6" /><!-- Confirmation -->
-            <input type="hidden" name="custom_list_makermedia" value="yes" />
-            <input type="hidden" name="custom_list_makerpro" value="yes" />
+            <input type="hidden" name="slid" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerPro -->
             <input type="hidden" name="cmd" value="subscribe" />
             <input type="hidden" name="custom_source" value="makerspace-header" />
             <input type="hidden" name="custom_incentive" value="none" />
             <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
             <input type="hidden" id="format_mime" name="format" value="mime" />
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
+            <div id="recapcha-header" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
             <div class="form-group">
               <input type="email" class="form-control" required placeholder="YOUR EMAIL">
             </div>
