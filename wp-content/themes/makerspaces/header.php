@@ -71,7 +71,7 @@
             <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
             <input type="hidden" id="format_mime" name="format" value="mime" />
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
-            <div id="recapcha-header" class="g-recaptcha" style="transform:scale(0.5);-webkit-transform:scale(0.5);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
+            <div id="recapcha-header" class="g-recaptcha" style="transform:scale(0.5);-webkit-transform:scale(0.5);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-38px;"></div>
             <div class="form-group">
               <input type="email" class="form-control" required placeholder="YOUR EMAIL">
             </div>
