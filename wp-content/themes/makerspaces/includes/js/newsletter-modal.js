@@ -1,12 +1,12 @@
 jQuery(document).ready( function( $ ) {
   var recaptchaKey = '6Lffo0EUAAAAABhGRLPk751JrmCLqR5bvUR9RYZJ';
-  var recaptchaFooterDesk;
+  var recaptchaFootDesk;
   var recaptchaFooterMob;
   var recaptchaHeader;
   var recaptchaPlaybook;
   onloadCallback = function() {
     if ( jQuery('#recapcha-footer-desktop').length ) {
-      recaptchaFooterDesk = grecaptcha.render('recapcha-footer-desktop', {
+      recaptchaFootDesk = grecaptcha.render('recapcha-footer-desktop', {
         'sitekey' : recaptchaKey
       });
     }

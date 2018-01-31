@@ -63,7 +63,7 @@
         ?>
         <!-- Newlsetter signup -->
         <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
-          <form class="form-inline sub-form whatcounts-signup" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
+          <form class="whatcounts-signup form-inline sub-form" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
             <input type="hidden" name="slid" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerPro -->
             <input type="hidden" name="cmd" value="subscribe" />
             <input type="hidden" name="custom_source" value="makerspace-header" />
@@ -73,7 +73,7 @@
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
             <div id="recapcha-header" class="g-recaptcha" style="transform:scale(0.5);-webkit-transform:scale(0.5);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-38px;"></div>
             <div class="form-group">
-              <input type="email" class="form-control" required placeholder="YOUR EMAIL">
+              <input name="email" type="email" class="form-control" required placeholder="YOUR EMAIL">
             </div>
             <input type="submit" value="SIGN UP" class="btn btn-lt-blue">
           </form>
