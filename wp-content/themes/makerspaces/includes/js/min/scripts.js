@@ -29,7 +29,7 @@ jQuery( document ).ready( function( $ ) {
 ;//!!
 //!! includes/js/newsletter-modal.js
 jQuery(document).ready( function( $ ) {
-  var recaptchaKey = '6Lf_-kEUAAAAAHtDfGBAleSvWSynALMcgI1hc_tP';
+  var recaptchaKey = '6Lffo0EUAAAAABhGRLPk751JrmCLqR5bvUR9RYZJ';
   var recaptchaFootDesk;
   var recaptchaFooterMob;
   var recaptchaHeader;
