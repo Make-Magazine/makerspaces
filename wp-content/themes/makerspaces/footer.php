@@ -72,7 +72,7 @@
             <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
             <input type="hidden" id="format_mime" name="format" value="mime" />
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
-            <div id="recapcha-footer-desktop" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
+            <div id="recapcha-footer-desktop" class="g-recaptcha" data-size="invisible"></div>
             <div class="mz-form-horizontal">
               <input name="email" placeholder="Enter your Email" required type="email"><br>
               <input value="GO" class="btn-cyan" type="submit">
@@ -112,7 +112,7 @@
             <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
             <input type="hidden" id="format_mime" name="format" value="mime" />
             <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
-            <div id="recapcha-footer-mobile" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;margin-bottom:-8px;"></div>
+            <div id="recapcha-footer-mobile" class="g-recaptcha" data-size="invisible"></div>
             <div class="mz-form-horizontal">
               <input name="email" placeholder="Enter your Email" required type="email"><br>
               <input value="GO" class="btn-cyan" type="submit">
