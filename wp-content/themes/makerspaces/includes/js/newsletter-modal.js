@@ -49,37 +49,37 @@ onloadCallback = function() {
 };
 //header desktop
 var onSubmitHeader = function(token) {
-  $.post('https://secure.whatcounts.com/bin/listctrl', $('.whatcounts-signup').serialize());
-  $('.nl-thx').trigger('click');
+  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.whatcounts-signup').serialize());
+  jQuery('.nl-thx').trigger('click');
 }
-$(document).on('submit', '.whatcounts-signup', function (e) {
+jQuery(document).on('submit', '.whatcounts-signup', function (e) {
   e.preventDefault();
   onSubmitHeader();
 });
 //footer desktop
 var onSubmitFooterDesk = function(token) {
-  $.post('https://secure.whatcounts.com/bin/listctrl', $('.whatcounts-signup1f').serialize());
-  $('.nl-thx').trigger('click');
+  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.whatcounts-signup1f').serialize());
+  jQuery('.nl-thx').trigger('click');
 }
-$(document).on('submit', '.whatcounts-signup1f', function (e) {
+jQuery(document).on('submit', '.whatcounts-signup1f', function (e) {
   e.preventDefault();
   onSubmitFooterDesk();
 });
 //footer mobile
 var onSubmitFooterMob = function(token) {
-  $.post('https://secure.whatcounts.com/bin/listctrl', $('.whatcounts-signup1m').serialize());
-  $('.nl-thx').trigger('click');
+  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.whatcounts-signup1m').serialize());
+  jQuery('.nl-thx').trigger('click');
 }
-$(document).on('submit', '.whatcounts-signup1m', function (e) {
+jQuery(document).on('submit', '.whatcounts-signup1m', function (e) {
   e.preventDefault();
   onSubmitFooterMob();
 });
 //playbook page
 var onSubmitPlaybook = function(token) {
-  $.post('https://secure.whatcounts.com/bin/listctrl', $('.playbook-sub-form').serialize());
-  $('.nl-thx').trigger('click');
+  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.playbook-sub-form').serialize());
+  jQuery('.nl-thx').trigger('click');
 }
-$(document).on('submit', '.playbook-sub-form', function (e) {
+jQuery(document).on('submit', '.playbook-sub-form', function (e) {
   e.preventDefault();
   onSubmitPlaybook();
 });
