@@ -183,3 +183,24 @@ form {
     text-align: center;
   }
 }
+
+// Google recatpcha modifications to make the team happy
+.uni-footer .grecaptcha-badge {
+  z-index: 99;
+  position: absolute !important;
+  right: -207px !important;
+  transform:scale(0.7);
+  -webkit-transform:scale(0.7);
+  transform-origin:0 0;
+  -webkit-transform-origin:0 0;
+  &:hover {
+    right: -77px !important;
+  }
+}
+.uni-footer {
+  position: relative;
+  overflow: hidden;
+  .social-foot-col {
+    position: unset;
+  }
+}
