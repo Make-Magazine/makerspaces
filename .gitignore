@@ -6,6 +6,7 @@
 *.swp
 Thumbs.db
 .gitignore
+last-mod
 
 # wordpress specific
 wp-config.php
