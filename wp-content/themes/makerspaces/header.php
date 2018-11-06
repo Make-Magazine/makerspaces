@@ -28,72 +28,76 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <!-- TOP BRAND BAR -->
-  <div class="hidden-xs top-header-bar-brand">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6 text-center">
-          <p class="header-make-img"><a href="https://makezine.com/?utm_source=spaces.makerspace.com/&utm_medium=brand+bar&utm_campaign=explore+all+of+make" target="_blank">Explore all of <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/make_logo.png" alt="Make: Magazine Logo" /></a></p>
-        </div>
-      </div>
-    </div>   
-  </div>
 
-  <!-- Header area -->
-  <header id="site-header">
-    <div class="container">
-      <div class="row">
 
-        <!-- LOGO & TAG LINE -->
-        <div class="col-sm-7 col-md-8 col-lg-9 logo-container">
-          <a href="/">
-            <img src="<?php echo get_template_directory_uri() . '/img/Make_logo.svg' ?>" class="img-responsive" alt="Make: magazine logo" />
-            <span>makerspaces</span>
-          </a>
+	<!-- Header area -->
+	<header id="universal-nav" class="universal-nav">
 
-          <p class="hidden-xs">Stay in the loop with our newsletter</p>
-        </div>
-        <?php
-          $isSecure = "http://";
-          if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-            $isSecure = "https://";
-          }
-        ?>
-        <!-- Newlsetter signup -->
-        <div class="col-sm-5 col-md-4 col-lg-3 header-newsletter hidden-xs">
-          <form class="whatcounts-signup form-inline sub-form" action="https://secure.whatcounts.com/bin/listctrl" method="POST">
-            <input type="hidden" name="slid" value="6B5869DC547D3D467B33E192ADD9BE4B" /><!-- MakerPro -->
-            <input type="hidden" name="cmd" value="subscribe" />
-            <input type="hidden" name="custom_source" value="makerspace-header" />
-            <input type="hidden" name="custom_incentive" value="none" />
-            <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
-            <input type="hidden" id="format_mime" name="format" value="mime" />
-            <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
-            <div id="recapcha-header" class="g-recaptcha" data-size="invisible"></div>
-            <div class="form-group">
-              <input name="email" type="email" class="form-control" required placeholder="YOUR EMAIL">
-            </div>
-            <input type="submit" value="SIGN UP" class="btn btn-lt-blue">
-          </form>
-        </div>
+		<?php // Nav Level 1 and Hamburger
+		  $username = 'makeco';
+		  $password = 'memberships';
+		  $context = stream_context_create(array(
+				'http' => array(
+					 'header'  => "Authorization: Basic " . base64_encode("$username:$password")
+				)
+		  ));
+		  if((class_exists('Jetpack') && Jetpack::is_staging_site()) || $_SERVER['SERVER_PORT'] == "8888") {
+			 // NOTE (ts): Ever wanted to test locally? here ya go... re-comment before you check in!
+			 //echo file_get_contents('./wp-content/themes/memberships/universal-nav/universal-topnav.html');
+			 echo file_get_contents('https://makeco.staging.wpengine.com/wp-content/themes/memberships/universal-nav/universal-topnav.html', false, $context);
+		  }else{
+			 echo file_get_contents('https://make.co/wp-content/themes/memberships/universal-nav/universal-topnav.html');
+		  }
+		?>
 
-        <!-- MENUS -->
-        <button type="button" class="visible-xs-block navbar-toggle" data-target="#menu-container" data-toggle="collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+	  <div id="nav-level-2" class="nav-level-2">
+		 <div class="container">
+			  <div class="nav-2-banner">
+			  <?php
+				 wp_nav_menu( array(
+					  'menu'              => 'secondary_universal_menu',
+					  'theme_location'    => 'secondary_universal_menu',
+					  'depth'             => 1,
+					  'container'         => '',
+					  'container_class'   => '',
+					  'link_before'       => '<span>',
+					  'link_after'        => '</span>',
+					  'menu_class'        => 'nav navbar-nav',
+					  'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+					  'walker'            => new wp_bootstrap_navwalker())
+				 );
+			  ?>
+			  </div>
+		 </div>
+	  </div><!-- .nav-level-2 -->
+	  <!--<div class="container search-container">
+		 <ul class="search-button">
+			  <li>
+				 <div id="sb-search" class="sb-search">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				 </div>
+			  </li>
+		 </ul>
+	  </div>-->
 
-      </div>
-    </div>
 
-    <div id="menu-container" class="collapse navbar-collapse">
+	  <div id="nav-flyout">
+		 <?php
+			  if(class_exists('Jetpack') && Jetpack::is_staging_site()) {
+				 echo file_get_contents('https://makeco.staging.wpengine.com/wp-content/themes/memberships/universal-nav/universal-megamenu.html', false, $context);
+			  }else{
+				 echo file_get_contents('https://make.co/wp-content/themes/memberships/universal-nav/universal-megamenu.html');
+			  }
+		 ?>
+	  </div>
+
+	</header>
+	<div class="nav-flyout-underlay"></div>
+
+    <!-- <div id="menu-container" class="collapse navbar-collapse">
       <div class="container">
         <?php
-          wp_nav_menu( array(
+          /*wp_nav_menu( array(
             'menu'              => 'Header main menu',
             'theme_location'    => 'primary_menu',
             'depth'             => 1,
@@ -102,11 +106,11 @@
             'menu_class'        => 'nav navbar-nav',
             'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
             'walker'            => new wp_bootstrap_navwalker())
-          );
+          );*/
         ?>
       </div>
-    </div>
-  </header>
+    </div> -->
+
 
 	<div class="main-content">
 

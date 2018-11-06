@@ -9,22 +9,20 @@ get_header(); ?>
 <div class="makerspaces-map-wrp" ng-app="makerSpacesApp" ng-strict-di>
   <div class="container">
     <div class="row map-header">
-      <div class="col-xs-12 col-md-9 col-lg-9">
-        <h1>Makerspaces represent the democratization of design, engineering, fabrication, and education.</h1>
-        <h2>We put together a world-wide directory for Makers to connect:</h2>
+      <div class="col-xs-12 col-sm-8 col-lg-9">
+        <h1>Makerspaces Directory</h1>
       </div>
-      <div class="col-xs-12 col-md-3 col-lg-3">
-        <a href="/register" class="btn btn-info btn-block">ADD YOUR OWN MAKERSPACE! <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-        <p>By adding your makerspace to this listing, you not only become part of our searchable database for Makers seeking like-minded people in their area but you also contribute to our study of the Makers Movement as a whole.</p>
+      <div class="col-xs-12 col-sm-4 col-lg-3">
+        <a href="/register" class="btn btn-info btn-block">Add your Makerspace <i class="fa fa-plus" aria-hidden="true"></i></a>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row map-app-container">
       <?php echo do_shortcode( '[makemap form="2" searchtext="Find a MakerSpace"]' );?>
-
-      <aside class="col-xs-12 col-md-3 col-lg-3">
-
-        <div class="posts-feeds-wrapper">
+    </div>
+	 
+	  <div class="row">
+        <div class="posts-feeds-wrapper col-xs-12 col-sm-6">
           <?php
           $rss = fetch_feed('https://makezine.com/tag/makerspaces/feed/');
           if (!is_wp_error($rss)) :
@@ -72,7 +70,7 @@ get_header(); ?>
           </ul>
         </div>
 
-        <div class="posts-feeds-wrapper">
+        <div class="posts-feeds-wrapper col-xs-12 col-sm-6">
           <?php
           $rss = fetch_feed('https://makezine.com/projects/feed/');
           if (!is_wp_error($rss)) :
@@ -120,8 +118,7 @@ get_header(); ?>
           </ul>
         </div>
 
-      </aside>
-    </div>
+	  </div>
   </div>
 </div>
 <?php get_footer(); ?>

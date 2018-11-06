@@ -1,0 +1,176 @@
+.makerspaces-map-wrp {
+   .map-header {
+		margin-top: 40px;
+		margin-bottom: 15px;
+		h1, h2 {
+			font-size: 32px;
+			line-height: 1.1em;
+			font-weight: 300;
+			margin-top: 0;
+			@media all and (max-width: 767px) {
+				font-size:22px;
+			}
+		}
+		.btn {
+			font-family: "Roboto Light", Helvetica, sans-serif;
+			color: #fff;
+			margin-bottom: 15px;
+			background-color: #005E9A;
+			border: none;
+			border-radius: 0px;
+			white-space: initial;
+			&:hover {
+				background-color: #69BAE1;
+			}
+			i {
+				padding-left: 15px;
+			}
+		}
+		p { line-height: 1.6em; }
+	}
+	
+	nav.map-filters-wrp {
+		background-color: #005E9A;
+		padding: 5px 15px;
+		z-index: 100;
+		width: 100%;
+		text-align: center;
+		h2 {
+			display: inline-block;
+			color: #fff;
+			font-size: 14px;
+			font-weight: 300;
+			margin: 6px 20px 0 0;
+		}
+		.searchbox input[type="text"] {
+			display: inline-block;
+			max-width: 200px;
+			padding-right: 23px;
+		}
+		.checkbox {
+			display: inline-block;
+			margin: 5px;
+			font-size: 14px;
+			line-height: 20px;
+			vertical-align: bottom;
+			.fa.fa-square-o, .fa.fa-check-square-o {
+				font-size: 1.5em;
+    			vertical-align: middle;
+			}
+			label {
+				padding-left: 0;
+				@media all and (min-width: 1200px) {
+					padding-left:20px;
+				}
+				@media all and (max-width: 991px) {
+					padding-left:7px;
+				}
+			}
+		}
+		@media all and (max-width: 767px) {
+			.searchbox {
+				display:flex;
+				input[type="text"] {
+					flex: 1;
+					max-width: initial;
+				}
+			}
+			.filters {
+				clear: both;
+				min-width: 200px;
+				float: left;
+				margin: 5px 0 -5px 0;
+			}
+		}
+	}
+	
+	#makerspaces-map {
+		height: 400px;
+		display: block;
+	}
+	
+	.faire-list-table {
+		border-top: solid 1px #3D7B98;
+		@media screen and (max-width: 767px) {
+			border: none;
+			border-top: solid 1px #3D7B98;
+		}
+		.table-striped {
+			.header {
+				font-size: 18px;
+			}
+			.row {
+				padding: 10px 0;
+				font-size: 16px;
+				font-family: "Roboto Light", Helvetica, sans-serif;
+				&:nth-child(even) {
+					background: #F8F8F8;
+				}
+			}
+		}
+		
+	}
+	.loading-spinner {
+		color: white;
+		padding: 190px;
+		font-size: 25px;
+		width: 100%;
+		text-align: center;
+		height: 400px;
+		background-color: #EBF0F3;
+	}
+	.faire-key-boxes {
+		display: flex;
+		font-size: 20px;
+		cursor: pointer;
+		justify-content: space-between;
+		color: white;
+		@media all and (max-width: 767px) {
+			flex-flow:column;
+			margin: 10px 0;
+		}
+		p {
+			font-size: 14px;
+			font-weight: 300;
+		}
+		div {
+			width: 24.5%;
+			border-radius: 5px;
+			padding: 10px;
+			margin: 10px 0 15px 0;
+			@media all and (max-width: 767px) {
+				width:100%;
+        		margin: 3px 0;
+			}
+		}
+		.flagship-key {
+			background-color: #D42410;
+			&:hover { background-color: #B62601; }
+		}
+		.featured-key {
+			background-color: #01A3E0;
+			&:hover { background-color: #358DC7; }
+		}
+		.mini-key {
+			background-color: #67D0F7;
+			&:hover { background-color: #69BAE1; }
+		}
+		.school-key {
+			background-color: #7ED321;
+			&:hover { background-color: #75BF04; }
+		}
+
+	}
+	.map-app-container {
+		margin-bottom: 20px;
+	}
+}
+
+#map-wrapper {
+	height: 500px;
+	width: 100vw;
+	#map-canvas {
+		height: 100%;
+		width: 100%
+	}
+}
