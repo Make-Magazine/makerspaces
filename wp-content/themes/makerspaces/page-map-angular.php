@@ -13,7 +13,7 @@ get_header(); ?>
         <h1>Makerspaces Directory</h1>
       </div>
       <div class="col-xs-12 col-sm-4 col-lg-3">
-        <a href="/register" class="btn btn-info btn-block">Add your Makerspace <i class="fa fa-plus" aria-hidden="true"></i></a>
+        <a href="/register" class="btn btn-info btn-block">Add your Makerspace <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
 

@@ -1,11 +1,14 @@
 .posts-feeds-wrapper {
 	margin-bottom: 50px;
 	text-align: left;
-	max-width: 265px;
+	max-width: 365px;
 	&:nth-child(2) {
 		float: right;
 	}
-	@media screen and (max-width: 540px) {
+	@media screen and (max-width: 767px) {
+		max-width: 280px;
+	}
+	@media screen and (max-width: 560px) {
 		max-width: 100%;
 	}
 	.feed-title {
