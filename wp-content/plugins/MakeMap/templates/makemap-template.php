@@ -71,21 +71,21 @@
               </div>-->
               <div class="cursor-pointer col-sm-3 hidden-xs" ng-click="sort='mmap_type';reverse=!reverse">TYPE
                 <span ng-show="sort == 'mmap_type'">
-                  <span ng-show="!reverse">^</span>
-                  <span ng-show="reverse">v</span>
+                  <span ng-show="!reverse"><i class="fa fa-chevron-up"></i></span>
+                  <span ng-show="reverse"><i class="fa fa-chevron-down"></i></span>
                 </span>
               </div>
               <div class="cursor-pointer col-sm-4 col-xs-6" ng-click="sort='mmap_eventname';reverse=!reverse">NAME
                 <span ng-show="sort == 'mmap_eventname'">
-                  <span ng-show="!reverse">^</span>
-                  <span ng-show="reverse">v</span>
+                  <span ng-show="!reverse"><i class="fa fa-chevron-up"></i></span>
+                  <span ng-show="reverse"><i class="fa fa-chevron-down"></i></span>
                 </span>
               </div>
               <div class="col-sm-3 col-xs-6">LOCATION</div>
               <div class="cursor-pointer col-sm-2 hidden-xs" ng-click="sort='mmap_country';reverse=!reverse">COUNTRY
                 <span ng-show="sort == 'mmap_country'">
-                  <span ng-show="!reverse">^</span>
-                  <span ng-show="reverse">v</span>
+                  <span ng-show="!reverse"><i class="fa fa-chevron-up"></i></span>
+                  <span ng-show="reverse"><i class="fa fa-chevron-down"></i></span>
                 </span>
               </div>
             </div>
