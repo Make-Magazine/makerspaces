@@ -92,7 +92,7 @@
             <div class="row" dir-paginate="(index, row) in $ctrl.faireMarkers | orderBy:sort:reverse | itemsPerPage: 20">
               <div class="col-sm-3 hidden-xs">{{row.mmap_type}}</div>
               <div class="col-sm-4 col-xs-6">
-                <a target="_blank" ng-if="row.mmap_url" href="{{row.mmap_url}}">{{row.mmap_eventname}}<div class="hidden-sm hidden-md hidden-lg hidden-xl">{{row.mmap_country}}</div></a><div class="hidden-sm hidden-md hidden-lg hidden-xl">{{row.mmap_type}}</div>
+                <a target="_blank" ng-if="row.mmap_url" href="{{row.mmap_url}}">{{row.mmap_eventname}}</a><div class="hidden-sm hidden-md hidden-lg hidden-xl">{{row.mmap_type}}</div>
                 <span ng-if="!row.mmap_url">{{row.mmap_eventname}}
 					 </span>
               </div>
