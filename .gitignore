@@ -58,11 +58,6 @@ wp-content/db
 /wp-includes
 /wp-content/index.php
 /wp-content/themes/twentyten
-/wp-content/themes/index.php
-/wp-content/plugins/index.php
-/wp-content/plugins/*
-!/wp-content/plugins/MakeMap
-/wp-content/plugins/MakeMap/js/*
 
 # large/disallowed file types
 # a CDN should be used for these
