@@ -26,8 +26,7 @@
   'use strict';
   angular.module('makerSpacesApp').factory('GMapsInitializer', ['$window', '$q',
     function($window, $q) {
-      // &key=AIzaSyBITa21JMkxsELmGoDKQ3owasOW48113w4
-      var asyncUrl = 'https://maps.googleapis.com/maps/api/js??v=3.exp&callback=googleMapsInitialized',
+      var asyncUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWsCdftU2vI9bkZcwLxGQwlYmNRnT2VM&v=3.exp&callback=googleMapsInitialized',
           mapsDefer = $q.defer();
       //Callback function - resolving promise after maps successfully loaded
       $window.googleMapsInitialized = mapsDefer.resolve;
