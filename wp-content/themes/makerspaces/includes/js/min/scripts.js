@@ -26,6 +26,7 @@ jQuery( document ).ready( function( $ ) {
 
   $( 'table#wp-calendar' ).addClass( 'table table-striped');
 });
+
 ;//!!
 //!! includes/js/newsletter-modal.js
 jQuery(document).ready( function( $ ) {
