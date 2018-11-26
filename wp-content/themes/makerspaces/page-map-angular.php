@@ -34,6 +34,13 @@ get_header(); ?>
               return $matches[1];
             }
           }
+			 
+			 // get just the text
+			 function get_summary($html) {
+				 $summary = preg_replace('/<a[^>]*>([\s\S]*?)<\/a[^>]*>/', '', $html);
+				 $summary = strip_tags(str_replace('The post  appeared first on .', '', $summary));
+				 return $summary;
+			 }
 
           //shortens description
           function shorten($string, $length) {
@@ -61,6 +68,7 @@ get_header(); ?>
               <div class="title">
                 <img src="<?php echo get_first_image_url($item -> get_content()); ?>" alt="Makerspace post featured image">
                 <p class="p-title"><?php echo esc_html($item -> get_title()); ?></p>
+					 <p class="hidden-sm hidden-xs"><?php echo get_summary($item -> get_content()); ?></p>
               </div>
             </li>
             <?php endforeach; ?>
