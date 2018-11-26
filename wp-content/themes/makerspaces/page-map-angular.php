@@ -9,20 +9,18 @@ get_header(); ?>
 <div class="makerspaces-map-wrp" ng-app="makerSpacesApp" ng-strict-di>
   <div class="container">
     <div class="row map-header">
-      <div class="col-xs-12 col-sm-8 col-lg-9">
+      <div class="col-xs-12 col-lg-12">
         <h1>Makerspaces Directory</h1>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-lg-3">
-        <a href="/register" class="btn btn-info btn-block">Add your Makerspace <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+			<p><?php echo the_content(); ?></p>
       </div>
     </div>
 
     <div class="row map-app-container">
-      <?php echo do_shortcode( '[makemap form="2" searchtext="Find a MakerSpace"]' );?>
+      <?php echo do_shortcode( '[makemap form="2" searchtext="Find a Makerspace"]' );?>
     </div>
 	 
 	  <div class="row">
-        <div class="posts-feeds-wrapper col-xs-12 col-sm-6">
+        <div class="posts-feeds-wrapper col-xs-12 col-sm-12">
           <?php
           $rss = fetch_feed('https://makezine.com/tag/makerspaces/feed/');
           if (!is_wp_error($rss)) :
@@ -50,7 +48,7 @@ get_header(); ?>
           }
           ?>
           <h3 class="feed-title">
-            <i class="fa fa-newspaper-o feed-icon"></i> Makerspace News
+            <i class="fa fa-newspaper-o feed-icon"></i> Makerspace News from Make:
           </h3>
           <ul class="posts-feeds">
             <?php
@@ -69,7 +67,7 @@ get_header(); ?>
             <a class="all-projects-title" href="http://makezine.com/tag/makerspaces/" target="_blank">See All News</a>
           </ul>
         </div>
-
+        <?php /*
         <div class="posts-feeds-wrapper col-xs-12 col-sm-6">
           <?php
           $rss = fetch_feed('https://makezine.com/projects/feed/');
@@ -116,7 +114,7 @@ get_header(); ?>
             <?php endforeach; ?>
             <a class="all-projects-title" href="http://makezine.com/tag/makerspaces/" target="_blank">See All Projects</a>
           </ul>
-        </div>
+        </div> */ ?>
 
 	  </div>
   </div>
