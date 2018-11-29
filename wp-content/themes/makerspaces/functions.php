@@ -74,7 +74,19 @@ add_action('wp_default_styles', 'my_wp_default_styles');
 /**
  * Enqueue scripts and styles
  */
+
+/* Login scripts */
+/* redirect wp-login.php to the auth0 login page */
+function load_auth0_js() {
+  //auth0
+  wp_enqueue_script('auth0', 'https://cdn.auth0.com/js/auth0/9.6.1/auth0.min.js', array(), false );
+  wp_enqueue_script('auth0Login', get_stylesheet_directory_uri() . '/auth0/js/auth0login.js', array(), false);
+}
+add_action( 'login_enqueue_scripts', 'load_auth0_js',10 );
+
 function _makerspaces_scripts() {
+	$my_theme = wp_get_theme();
+   $my_version = $my_theme->get('Version');
 	// Load styles
 	wp_enqueue_style( '_makerspaces-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
 	wp_enqueue_style( '_makerspaces-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, '4.7.0' );
@@ -88,13 +100,22 @@ function _makerspaces_scripts() {
 	// load scripts
 	wp_enqueue_script( '_makerspaces-bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery') );
 	wp_enqueue_script( '_makerspaces-fancyboxjs', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js', array( 'jquery' ), false, true );
-	wp_enqueue_script( '_makerspaces-scripts', THEME_DIR_URI . '/includes/js/min/scripts.min.js?v=1.6', array('jquery') );
+	//auth0
+   wp_enqueue_script('auth0', 'https://cdn.auth0.com/js/auth0/9.6.1/auth0.min.js', array(), false, true);
+	wp_enqueue_script( '_makerspaces-scripts', THEME_DIR_URI . '/includes/js/min/scripts.min.js', array('jquery'), $my_version, true );
 	wp_enqueue_script('universal', 'https://make.co/wp-content/themes/memberships/universal-nav/js/min/universal.min.js');
-
+	// need to localize scripts to use the admin-ajax.php
+   wp_localize_script('_makerspaces-scripts', 'ajax_object',
+	  array(
+			'ajax_url' => admin_url('admin-ajax.php'),
+			'home_url' => get_home_url(),
+			'logout_nonce' => wp_create_nonce('ajax-logout-nonce'),
+	  )
+	);
 	// Map page only
-  if (is_page_template('page-map-angular.php')) {
+	if (is_page_template('page-map-angular.php')) {
 
-  }
+	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -108,6 +129,48 @@ function _makerspaces_scripts() {
 }
 add_action( 'wp_enqueue_scripts', '_makerspaces_scripts' );
 
+
+/** Set up the Ajax Logout */
+add_action( 'wp_ajax_mm_wplogout',        'MM_wordpress_logout' );
+add_action( 'wp_ajax_nopriv_mm_wplogout', 'MM_wordpress_logout' );
+
+function MM_wordpress_logout(){
+    //check_ajax_referer( 'ajax-logout-nonce', 'ajaxsecurity' );
+    wp_logout();
+    ob_clean(); // probably overkill for this, but good habit
+    wp_send_json_success();
+}
+
+add_action( 'wp_ajax_mm_wplogin', 'MM_WPlogin' );
+add_action( 'wp_ajax_nopriv_mm_wplogin', 'MM_WPlogin' );
+
+/** Set up the Ajax WP Login */
+function MM_WPlogin(){
+  //check_ajax_referer( 'ajax-login-nonce', 'ajaxsecurity' );
+  global $wpdb; // access to the database
+
+  //use auth0 plugin to log people into wp
+  $a0_plugin  = new WP_Auth0();
+  $a0_options = WP_Auth0_Options::Instance();
+  $users_repo = new WP_Auth0_UsersRepo( $a0_options );
+  $users_repo->init();
+
+  $login_manager = new WP_Auth0_LoginManager( $users_repo, $a0_options );
+  $login_manager->init();
+
+  //get the user information passed from auth0
+  $userinput     = filter_input_array(INPUT_POST);
+  $userinfo      = (object) $userinput['auth0_userProfile'];
+  $userinfo->email_verified = true;
+  $access_token = filter_input(INPUT_POST, 'auth0_access_token', FILTER_SANITIZE_STRING);
+  $id_token     = filter_input(INPUT_POST, 'auth0_id_token', FILTER_SANITIZE_STRING);
+
+  if($login_manager->login_user( $userinfo, $id_token, $access_token)) {
+    wp_send_json_success();
+  }else{
+    wp_send_json_error();
+  }
+}
 
 
 /**
