@@ -163,13 +163,11 @@ window.addEventListener('load', function() {
         'auth0_access_token'  : access_token,
         'auth0_id_token'      : id_token
       };
-		console.log(data);
       jQuery.post(ajax_object.ajax_url, data, function(response) {
           
       	loginRedirect(); // everything went according to plan
 
       }).fail(function() {
-		  console.log(ajax_object);
         alert( "I'm sorry. We had an issue logging you into our system. Please try the login again." );
         if ( jQuery( '#authenticated-redirect' ).length ) { 
             jQuery( ".redirect-message" ).text("I'm sorry. We had an issue logging you into our system. Please try the login again.");
