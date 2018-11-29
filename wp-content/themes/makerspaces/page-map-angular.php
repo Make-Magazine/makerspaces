@@ -20,7 +20,8 @@ get_header(); ?>
     </div>
 	 
 	  <div class="row">
-        <div class="posts-feeds-wrapper col-xs-12 col-sm-12">
+		  <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+        <div class="posts-feeds-wrapper col-xs-12 col-sm-12 col-md-8 col-lg-8">
           <?php
           $rss = fetch_feed('https://makezine.com/tag/makerspaces/feed/');
           if (!is_wp_error($rss)) :
@@ -75,6 +76,7 @@ get_header(); ?>
             <a class="all-projects-title" href="http://makezine.com/tag/makerspaces/" target="_blank">See All News</a>
           </ul>
         </div>
+		  <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
         <?php /*
         <div class="posts-feeds-wrapper col-xs-12 col-sm-6">
           <?php
