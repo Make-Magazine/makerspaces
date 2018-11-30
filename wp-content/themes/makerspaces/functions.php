@@ -71,6 +71,49 @@ function my_wp_default_styles($styles) {
 add_action('wp_default_styles', 'my_wp_default_styles');
 
 
+/*
+   Set some CONST for universal assets (nav and footer)
+   enclosed in a function for safety
+   this needs to appear before the scripts/styles are enqueued 
+*/
+function set_universal_asset_constants() {
+   // Assume that we're in prod; only change if we are definitively in another
+   $universal_asset_env = 'make.co';
+   $universal_asset_proto = 'https://';
+   $universal_asset_user = false;
+   $universal_asset_pass = false;
+   $host = $_SERVER['HTTP_HOST'];
+   // dev environments
+   if(strpos($host, 'dev.') === 0) {
+      $universal_asset_env = 'dev.make.co';
+      $universal_asset_user = 'makecodev';
+      $universal_asset_pass = '8f86ba87';
+   }
+   // stage environments
+   else if(strpos($host, 'stage.') === 0) {
+      $universal_asset_env = 'stage.make.co';
+      $universal_asset_user = 'makecstage';
+      $universal_asset_pass = 'c2792563';
+   }
+   // legacy staging environments
+   else if(strpos($host, '.staging.wpengine.com') > -1) {
+      $universal_asset_env = 'makeco.staging.wpengine.com';
+      $universal_asset_user = 'makeco';
+      $universal_asset_pass = 'memberships';
+   }
+   // local environments
+   else if(strpos($host, ':8888') > -1) {
+      $universal_asset_env = 'makeco:8888'; // this will require that we use `makeco` as our local
+      $universal_asset_proto = 'http://';
+   }
+   // Set the important bits as CONSTANTS that can easily be used elsewhere
+   define('UNIVERSAL_ASSET_URL_PREFIX', $universal_asset_proto . $universal_asset_env);
+   define('UNIVERSAL_ASSET_USER', $universal_asset_user);
+   define('UNIVERSAL_ASSET_PASS', $universal_asset_pass);
+}
+set_universal_asset_constants();
+
+
 /**
  * Enqueue scripts and styles
  */
@@ -83,13 +126,13 @@ function _makerspaces_scripts() {
   wp_enqueue_style( '_makerspaces-font-heading', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700', array(), null, 'all' );
   wp_enqueue_style( '_makerspaces-fancybox-css', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/css/jquery.fancybox.min.css', array(), null, 'all' );
 	wp_enqueue_style( '_makerspaces-style', THEME_DIR_URI . '/includes/css/style.css?v=1.4' );
-	wp_enqueue_style('universal.css', 'https://make.co/wp-content/themes/memberships/universal-nav/css/universal.css');
+	wp_enqueue_style('universal.css', UNIVERSAL_ASSET_URL_PREFIX . '/wp-content/themes/memberships/universal-nav/css/universal.css');
 
 	// load scripts
 	wp_enqueue_script( '_makerspaces-bootstrapjs', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery') );
 	wp_enqueue_script( '_makerspaces-fancyboxjs', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( '_makerspaces-scripts', THEME_DIR_URI . '/includes/js/min/scripts.min.js?v=1.6', array('jquery') );
-	wp_enqueue_script('universal', 'https://make.co/wp-content/themes/memberships/universal-nav/js/min/universal.min.js');
+	wp_enqueue_script('universal', UNIVERSAL_ASSET_URL_PREFIX . '/wp-content/themes/memberships/universal-nav/js/min/universal.min.js', array(), $my_version, true);
 
 	// Map page only
   if (is_page_template('page-map-angular.php')) {
