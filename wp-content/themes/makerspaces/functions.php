@@ -118,14 +118,7 @@ set_universal_asset_constants();
  * Enqueue scripts and styles
  */
 
-/* Login scripts */
-/* redirect wp-login.php to the auth0 login page */
-function load_auth0_js() {
-  //auth0
-  wp_enqueue_script('auth0', 'https://cdn.auth0.com/js/auth0/9.6.1/auth0.min.js', array(), false );
-  wp_enqueue_script('auth0Login', get_stylesheet_directory_uri() . '/auth0/js/auth0login.js', array(), false);
-}
-add_action( 'login_enqueue_scripts', 'load_auth0_js',10 );
+
 
 function _makerspaces_scripts() {
 	$my_theme = wp_get_theme();
