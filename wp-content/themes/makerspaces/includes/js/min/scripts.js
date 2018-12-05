@@ -65,8 +65,8 @@ window.addEventListener('load', function() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
 
-    //hide logged in button and logout of wp and auth0
-    displayButtons();
+    //redirect to auth0 logout page
+    window.location.href = 'https://makermedia.auth0.com/v2/logout?returnTo='+templateUrl+ '&client_id='+AUTH0_CLIENT_ID;
   });
     
   function loginRedirect() {
