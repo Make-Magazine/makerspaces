@@ -26,6 +26,7 @@ class GravityView_Admin_View_Field extends GravityView_Admin_View_Item {
 			$field_info_items[] = array(
 				'value' => sprintf( __('Field ID: %s', 'gravityview'), $this->id ),
 			);
+
 		}
 
 		if( !empty( $this->item['desc'] ) ) {
@@ -40,11 +41,6 @@ class GravityView_Admin_View_Field extends GravityView_Admin_View_Item {
 				'class'	=> 'gv-sublabel'
 			);
 		}
-
-		$field_info_items[] = array(
-			'value'          => sprintf( __('Form ID: %s', 'gravityview' ), $this->form_id ),
-			'hide_in_picker' => true,
-		);
 
 		return $field_info_items;
 	}

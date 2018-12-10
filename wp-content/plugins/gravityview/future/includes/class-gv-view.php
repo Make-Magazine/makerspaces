@@ -313,37 +313,26 @@ class View implements \ArrayAccess {
 		 * Viewing a single entry.
 		 */
 		} else if ( $entry = $request->is_entry( $view->form ? $view->form->ID : 0 ) ) {
+			if ( $entry['status'] != 'active' ) {
+				gravityview()->log->notice( 'Entry ID #{entry_id} is not active', array( 'entry_id' => $entry->ID ) );
+				return __( 'You are not allowed to view this content.', 'gravityview' );
+			}
 
-			$entryset = $entry->is_multi() ? $entry->entries : array( $entry );
+			if ( apply_filters( 'gravityview_custom_entry_slug', false ) && $entry->slug != get_query_var( \GV\Entry::get_endpoint_name() ) ) {
+				gravityview()->log->error( 'Entry ID #{entry_id} was accessed by a bad slug', array( 'entry_id' => $entry->ID ) );
+				return __( 'You are not allowed to view this content.', 'gravityview' );
+			}
 
-			$custom_slug = apply_filters( 'gravityview_custom_entry_slug', false );
-			$ids = explode( ',', get_query_var( \GV\Entry::get_endpoint_name() ) );
-
-			$show_only_approved = $view->settings->get( 'show_only_approved' );
-
-			foreach ( $entryset as $e ) {
-
-				if ( 'active' !== $e['status'] ) {
-					gravityview()->log->notice( 'Entry ID #{entry_id} is not active', array( 'entry_id' => $e->ID ) );
+			if ( $view->settings->get( 'show_only_approved' ) && ! $is_admin_and_can_view ) {
+				if ( ! \GravityView_Entry_Approval_Status::is_approved( gform_get_meta( $entry->ID, \GravityView_Entry_Approval::meta_key ) )  ) {
+					gravityview()->log->error( 'Entry ID #{entry_id} is not approved for viewing', array( 'entry_id' => $entry->ID ) );
 					return __( 'You are not allowed to view this content.', 'gravityview' );
-				}
-
-				if ( $custom_slug && ! in_array( $e->slug, $ids ) ) {
-					gravityview()->log->error( 'Entry ID #{entry_id} was accessed by a bad slug', array( 'entry_id' => $e->ID ) );
-					return __( 'You are not allowed to view this content.', 'gravityview' );
-				}
-
-				if ( $show_only_approved && ! $is_admin_and_can_view ) {
-					if ( ! \GravityView_Entry_Approval_Status::is_approved( gform_get_meta( $e->ID, \GravityView_Entry_Approval::meta_key ) )  ) {
-						gravityview()->log->error( 'Entry ID #{entry_id} is not approved for viewing', array( 'entry_id' => $e->ID ) );
-						return __( 'You are not allowed to view this content.', 'gravityview' );
-					}
 				}
 			}
 
 			$error = \GVCommon::check_entry_display( $entry->as_entry(), $view );
 
-			if ( is_wp_error( $error ) ) {
+			if( is_wp_error( $error ) ) {
 				gravityview()->log->error( 'Entry ID #{entry_id} is not approved for viewing: {message}', array( 'entry_id' => $entry->ID, 'message' => $error->get_error_message() ) );
 				return __( 'You are not allowed to view this content.', 'gravityview' );
 			}
@@ -472,29 +461,29 @@ class View implements \ArrayAccess {
 	 *
 	 * @param \WP_Post $post GravityView CPT to get joins for
 	 *
-	 * @api
 	 * @since 2.0.11
 	 *
 	 * @return \GV\Join[] Array of \GV\Join instances
 	 */
 	public static function get_joins( $post ) {
-		$joins = array();
 
 		if ( ! gravityview()->plugin->supports( Plugin::FEATURE_JOINS ) ) {
 			gravityview()->log->error( 'Cannot get joined forms; joins feature not supported.' );
-			return $joins;
+			return array();
 		}
 
 		if ( ! $post || 'gravityview' !== get_post_type( $post ) ) {
 			gravityview()->log->error( 'Only "gravityview" post types can be \GV\View instances.' );
-			return $joins;
+			return array();
 		}
 
 		$joins_meta = get_post_meta( $post->ID, '_gravityview_form_joins', true );
 
 		if ( empty( $joins_meta ) ) {
-			return $joins;
+			return array();
 		}
+
+		$joins = array();
 
 		foreach ( $joins_meta as $meta ) {
 			if ( ! is_array( $meta ) || count( $meta ) != 4 ) {
@@ -506,8 +495,8 @@ class View implements \ArrayAccess {
 			$join    = GF_Form::by_id( $join );
 			$join_on = GF_Form::by_id( $join_on );
 
-			$join_column    = is_numeric( $join_column ) ? GF_Field::by_id( $join, $join_column ) : Internal_Field::by_id( $join_column );
-			$join_on_column = is_numeric( $join_on_column ) ? GF_Field::by_id( $join_on, $join_on_column ) : Internal_Field::by_id( $join_on_column );
+			$join_column    = is_numeric( $join_column ) ? GF_Field::by_id( $join, $join_column ) : Internal_Field( $join_column );
+			$join_on_column = is_numeric( $join_on_column ) ? GF_Field::by_id( $join_on, $join_on_column ) : Internal_Field( $join_on_column );
 
 			$joins [] = new Join( $join, $join_column, $join_on, $join_on_column );
 		}
@@ -520,34 +509,29 @@ class View implements \ArrayAccess {
 	 *
 	 * @since 2.0.11
 	 *
-	 * @api
-	 * @since 2.0
 	 * @param int $post_id ID of the View
 	 *
 	 * @return \GV\GF_Form[] Array of \GV\GF_Form instances
 	 */
-	public static function get_joined_forms( $post_id ) {
-		$forms = array();
+	public static function get_joined_forms( $post_id = 0 ) {
 
 		if ( ! gravityview()->plugin->supports( Plugin::FEATURE_JOINS ) ) {
 			gravityview()->log->error( 'Cannot get joined forms; joins feature not supported.' );
-			return $forms;
-		}
-
-		if ( ! $post_id || ! gravityview()->plugin->supports( Plugin::FEATURE_JOINS ) ) {
-			return $forms;
+			return array();
 		}
 
 		if ( empty( $post_id ) ) {
 			gravityview()->log->error( 'Cannot get joined forms; $post_id was empty' );
-			return $forms;
+			return array();
 		}
 
 		$joins_meta = get_post_meta( $post_id, '_gravityview_form_joins', true );
 
 		if ( empty( $joins_meta ) ) {
-			return $forms;
+			return array();
 		}
+
+		$forms_ids = array();
 
 		foreach ( $joins_meta  as $meta ) {
 			if ( ! is_array( $meta ) || count( $meta ) != 4 ) {
@@ -556,10 +540,10 @@ class View implements \ArrayAccess {
 
 			list( $join, $join_column, $join_on, $join_on_column ) = $meta;
 
-			$forms[] = GF_Form::by_id( $join_on );
+			$forms_ids [] = GF_Form::by_id( $join_on );
 		}
 
-		return $forms;
+		return ( !empty( $forms_ids) ) ? $forms_ids : null;
 	}
 
 	/**
@@ -844,23 +828,6 @@ class View implements \ArrayAccess {
 			$page = Utils::get( $parameters['paging'], 'current_page' ) ?
 				: ( ( ( $parameters['paging']['offset'] - $this->settings->get( 'offset' ) ) / $parameters['paging']['page_size'] ) + 1 );
 
-			/**
-			 * Cleanup duplicate field_filter parameters to simplify the query.
-			 */
-			$unique_field_filters = array();
-			foreach ( $parameters['search_criteria']['field_filters'] as $key => $filter ) {
-				if ( 'mode' === $key ) {
-					$unique_field_filters['mode'] = $filter;
-				} else if ( ! in_array( $filter, $unique_field_filters ) ) {
-					$unique_field_filters[] = $filter;
-				}
-			}
-			$parameters['search_criteria']['field_filters'] = $unique_field_filters;
-
-			if ( ! empty( $parameters['search_criteria']['field_filters'] ) ) {
-				gravityview()->log->notice( 'search_criteria/field_filters is not empty, third-party code may be using legacy search_criteria filters.' );
-			}
-
 			if ( gravityview()->plugin->supports( Plugin::FEATURE_GFQUERY ) ) {
 				/**
 				 * New \GF_Query stuff :)
@@ -886,8 +853,6 @@ class View implements \ArrayAccess {
 				 * @param \GV\Request $request The request object
 				 */
 				do_action_ref_array( 'gravityview/view/query', array( &$query, $this, $request ) );
-
-				gravityview()->log->debug( 'GF_Query parameters: ', array( 'data' => Utils::gf_query_debug( $query ) ) );
 
 				/**
 				 * Map from Gravity Forms entries arrays to an Entry_Collection.

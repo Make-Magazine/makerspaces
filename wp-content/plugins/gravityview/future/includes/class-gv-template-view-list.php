@@ -36,8 +36,8 @@ class View_List_Template extends View_Template {
 			'entry' => $entry,
 		) );
 
-		if ( $entry->is_multi() ) {
-			if ( ! $entry = $entry->from_field( $field ) ) {
+		if ( $entry instanceof Multi_Entry ) {
+			if ( ! $entry = Utils::get( $entry, $field->form_id ) ) {
 				return;
 			}
 			$form = GF_Form::by_id( $field->form_id );

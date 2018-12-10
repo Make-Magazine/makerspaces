@@ -192,7 +192,7 @@ class Entry_Collection extends Collection {
 			$this->merge( $callback[1]( $this->filters, $this->sorts, $offset ) );
 		}
 
-		$this->fetched = parent::count();
+		$this->fetched = $this->count();
 
 		return $this;
 	}
