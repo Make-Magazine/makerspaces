@@ -18,8 +18,34 @@ get_header(); ?>
     <div class="row map-app-container">
       <?php echo do_shortcode( '[makemap form="2" searchtext="Find a Makerspace"]' );?>
     </div>
-	 
-	  <div class="row">
+  </div>
+	
+  <div class="container-fluid light-blue">
+	  <div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>Join our global network of makerspaces</h4>
+					<a href="#"><button class="btn">Add your makerspace</button></a>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>See an error or need to update your info?</h4>
+					<a href="#"><button class="btn">Contact us</button></a>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>Get a free PDF guide on starting a makerspace</h4>
+					<a href="#"><button class="btn">Download the playbook</button></a>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>Start your own makerspace today</h4>
+					<a href="#"><button class="btn">Take the course</button></a>
+				</div>
+			</div>
+		</div>
+  </div>  
+	
+	<div class="container">
+		<div class="row">
+		  <h2>Makerspace News from <img src="https://make.co/wp-content/themes/memberships/img/make_logo.svg" /> magazine</h2>
 		  <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
         <div class="posts-feeds-wrapper col-xs-12 col-sm-12 col-md-8 col-lg-8">
           <?php
@@ -127,7 +153,6 @@ get_header(); ?>
         </div> */ ?>
 
 	  </div>
-  </div>
-</div>
+	</div>
 <?php get_footer(); ?>
 

@@ -1,31 +1,7 @@
 .makerspaces-map-wrp {
    .map-header {
 		margin-bottom: 15px;
-		h2 {
-			font-size: 32px;
-			line-height: 1.1em;
-			font-weight: 300;
-			margin-top: 0;
-			@media all and (max-width: 767px) {
-				font-size:22px;
-			}
-		}
-		.btn {
-			font-family: "Roboto Light", Helvetica, sans-serif;
-			color: #fff;
-			margin-bottom: 15px;
-			background-color: #005E9A; 
-			border: none;
-			border-radius: 0px;
-			white-space: initial;
-			&:hover {
-				background-color: #007dcd;
-			}
-			i {
-				padding-left: 15px;
-			}
-		}
-		p { line-height: 1.6em; }
+		p { line-height: 1.6em; text-align: center; }
 	}
 	
 	nav.map-filters-wrp {
@@ -40,7 +16,12 @@
 			color: #fff;
 			font-size: 18px;
 			font-weight: 100;
-			margin: 6px 20px 0 0;
+			margin: 6px 20px 0 15px;
+			@media all and (max-width: 767px) {
+				display: block;
+				padding: 5px;
+				width: 100%;
+			}
 		}
 		.searchbox input[type="text"] {
 			display: inline-block;
@@ -70,8 +51,7 @@
 			}
 		}
 		@media all and (max-width: 767px) {
-			.searchbox {
-				display:flex;
+			.searchbox {  
 				input[type="text"] {
 					flex: 1;
 					max-width: initial;
@@ -177,5 +157,41 @@
 	#map-canvas {
 		height: 100%;
 		width: 100%
+	}
+}
+
+.container-fluid.light-blue {
+	background: #e2f2fd;
+	text-align: center;
+	padding: 20px 0px 30px;
+	.makerspace-bottom-nav {
+		padding: 0 10px;
+		border-right: solid 1px #ccc;
+		@media all and (max-width: 988px) {
+			padding: 0 20px;
+			&:nth-of-type(2) {
+				border-right: 0px;
+			}
+		}
+		@media all and (max-width: 767px) { padding: 0px; }
+		&:first-of-type {
+			@media all and (min-width: 991px) {
+				padding-left: 0px;
+			}
+		}
+		&:last-of-type {
+			@media all and (min-width: 988px) {
+				padding-right: 0px;
+			}
+			border-right: 0px;
+		}
+	}
+	button {
+		color: #fff;
+		font-size: 18px;
+		background: #005e9a;
+		padding: 8px 15px;
+		margin-top: 5px;
+		margin-bottom: 15px;
 	}
 }
