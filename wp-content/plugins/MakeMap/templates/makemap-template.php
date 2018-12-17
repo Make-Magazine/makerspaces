@@ -10,7 +10,7 @@
               ng-model="$ctrl.filterText"
               ng-model-options="{debounce: 500}"
               ng-change="$ctrl.applyMapFilters()" />
-				 <h2>+ add yours</h2>
+				 <h2><a href="/register">+ add yours</a></h2>
           </div>
           <!-- Commenting out checkboxes till we need them again -->
 <!--           <div class="filters ng-cloak" ng-if="$ctrl.faireMarkers">

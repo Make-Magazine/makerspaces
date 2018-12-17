@@ -25,15 +25,15 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>Join our global network of makerspaces</h4>
-					<a href="#"><button class="btn blue-btn">Add your makerspace</button></a>
+					<a href="/register"><button class="btn blue-btn">Add your makerspace</button></a>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>See an error or need to update your info?</h4>
-					<a href="#"><button class="btn blue-btn">Contact us</button></a>
+					<a href="mailto:webmaster@makermedia.com"><button class="btn blue-btn">Contact us</button></a>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>Get a free PDF guide on starting a makerspace</h4>
-					<a href="#"><button class="btn blue-btn">Download the playbook</button></a>
+					<a href="/playbook"><button class="btn blue-btn">Download the playbook</button></a>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>Start your own makerspace today</h4>
