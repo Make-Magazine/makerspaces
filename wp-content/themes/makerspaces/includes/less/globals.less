@@ -28,7 +28,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 200;
   small {
     font-weight: 300;
   }
@@ -38,14 +38,13 @@ h1 {
 	margin-bottom: 15px;
 	font-size: 32px;
 	line-height: 1.1em;
-	font-weight: 300;
 	text-align: center;
 	@media all and (max-width: 767px) {
 		font-size:22px;
 	}
 }
 h2 {
-  font-size: 30px;
+	font-size: 30px;
 }
 h3 {
   font-size: 26px;
@@ -160,6 +159,21 @@ ol {
   &:visited {
     color: #fff;
   }
+}
+
+.blue-btn {
+	color: #fff;
+	font-size: 18px;
+	background: #005e9a;
+	padding: 8px 15px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	border: solid 1px #005e9a;
+	&:hover, &:visited, &:active, &:focus {
+		color: #005e9a;
+		background: #fff;
+	}
 }
 
 // Primary Call to Action button
