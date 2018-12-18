@@ -260,6 +260,10 @@ jQuery( document ).ready( function( $ ) {
 });
 
 ;//!!
+//!! includes/js/custom.js
+jQuery(document).ready(function(){
+    jQuery(".nav-community").addClass("active-site");
+});;//!!
 //!! includes/js/newsletter-modal.js
 jQuery(document).ready( function( $ ) {
   $(".nl-thx").fancybox({
