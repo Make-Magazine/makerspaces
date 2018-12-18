@@ -243,7 +243,7 @@
                 }
             }
 
-            if (!scope.maxSize) { scope.maxSize = 9; }
+            if (!scope.maxSize) { scope.maxSize = 6; }
             scope.autoHide = scope.autoHide === undefined ? true : scope.autoHide;
             scope.directionLinks = angular.isDefined(attrs.directionLinks) ? scope.$parent.$eval(attrs.directionLinks) : true;
             scope.boundaryLinks = angular.isDefined(attrs.boundaryLinks) ? scope.$parent.$eval(attrs.boundaryLinks) : false;
