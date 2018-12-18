@@ -216,7 +216,15 @@ function MM_WPlogin(){
   }
 }
 
-	
+// Making error logs for ajax to call
+add_action( 'wp_ajax_make_error_log', 'make_error_log' );
+add_action( 'wp_ajax_nopriv_make_error_log', 'make_error_log' );
+
+/** Set up the Ajax WP Login */
+function make_error_log(){
+  $error = filter_input(INPUT_POST, 'make_error', FILTER_SANITIZE_STRING);
+  error_log(print_r($error, TRUE));
+}
 	
 /**
  * Custom template tags for this theme.
