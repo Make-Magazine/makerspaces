@@ -34,10 +34,8 @@ get_header(); ?>
     <div class="row">
 
       <div class="col-xs-12 col-sm-6 playbook-page-body-l">
-
-        <p class="lead">The Makerspace Playbook guides those who are hoping to start a Makerspace at their school or in their community.</p>
-        <p class="lead playbook-cyan">Submit your name and email and we send you a free Makerspace Playbook PDF.</p>
-
+        <p class="lead">Are you planning to start a makerspace at your school or in your community? Let the Makerspace Playbook guide you with expert advice and helpful strategies to make it a success.</p>
+        <p class="lead">Enter your name and email to download the PDF for free.</p>
         <?php
           $isSecure = "http://";
           if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
@@ -54,7 +52,7 @@ get_header(); ?>
           <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
           <input name="name" placeholder="YOUR NAME" required type="name"><br>
           <input name="email" placeholder="YOUR EMAIL" required type="email"><br>
-          <input value="REQUEST A FREE COPY" class="btn btn-lt-blue btn-block" type="submit">
+          <input value="Download the Makerspace Playbook" class="btn btn-blue btn-block" type="submit">
         </form>
          <!-- reCaptcha element -->
          <div id="recaptcha" class="g-recaptcha"
@@ -62,8 +60,8 @@ get_header(); ?>
             data-callback="playbookSignup"
             data-size="invisible">
          </div>
-
-           
+		</div>
+		 
       <div class="col-xs-12 col-sm-6 playbook-page-body-r">
 
         <p>CONTENTS</p>
