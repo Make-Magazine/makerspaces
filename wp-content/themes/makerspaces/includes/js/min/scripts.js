@@ -195,7 +195,7 @@ jQuery( document ).ready( function( $ ) {
 ;//!!
 //!! includes/js/newsletter-modal.js
 jQuery(document).ready( function( $ ) {
-  $(".nl-thx").fancybox({
+  $(".fancybox-thx").fancybox({
     autoSize : false,
     width  : 400,
     autoHeight : true,
