@@ -7,7 +7,6 @@
 
 get_header(); ?>
 
-
 <div class="playbook-page">
 
   <div class="container">
@@ -133,8 +132,7 @@ get_header(); ?>
 
 </div>
 
-<a  target="_blank" style="display:none;" id="playbook_dl" href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf">Makerspace Playbook</a>
-
+<a target="_blank" style="display:none;" id="playbook_dl" href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf">Makerspace Playbook</a>
 
 
 <?php get_footer(); ?>

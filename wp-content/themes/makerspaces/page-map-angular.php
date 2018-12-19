@@ -37,7 +37,7 @@ get_header(); ?>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>Start your own makerspace today</h4>
-					<a href="#"><button class="btn blue-btn">Take the course</button></a>
+					<a href="https://learn.make.co/courses/starting-a-school-makerspace/info"><button class="btn blue-btn">Take the course</button></a>
 				</div>
 			</div>
 		</div>
