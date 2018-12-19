@@ -133,7 +133,7 @@ get_header(); ?>
 
 </div>
 
-<a  target="_blank" id="playbook_dl" href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf">Makerspace Playbook</a>
+<a  target="_blank" style="display:none;" id="playbook_dl" href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf">Makerspace Playbook</a>
 
 
 
