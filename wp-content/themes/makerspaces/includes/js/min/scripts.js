@@ -286,12 +286,15 @@ jQuery(document).ready( function( $ ) {
 function playbookSignup() {
 
 	jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.playbook-sub-form').serialize());
-
+   
    jQuery('.nl-thx').trigger('click');
+	
+	jQuery('#playbook_dl')[0].click()
 
 }
 
 jQuery(document).on('submit', '.playbook-sub-form', function (e) {
+	
   e.preventDefault();
   grecaptcha.execute();
 });

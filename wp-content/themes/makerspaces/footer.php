@@ -45,8 +45,7 @@
     </span>
   </div>
   <div class="col-sm-8 col-xs-12 nl-modal">
-    <h3>Awesome!</h3>
-    <p>Thanks for signing up. Please check your email to confirm.</p>
+    <h3>Your download should start automatically.</h3>
   </div>
   <div class="clearfix"></div>
 </div>

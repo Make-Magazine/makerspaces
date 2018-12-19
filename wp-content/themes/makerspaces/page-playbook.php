@@ -7,15 +7,17 @@
 
 get_header(); ?>
 
+
 <div class="playbook-page">
 
   <div class="container">
 
     <div class="row">
 
-      <div class="col-xs-12">
+      <div class="col-xs-12 playbook-header">
 
-        <h1><?php echo get_the_title(); ?></h1>        
+        <h1><?php echo get_the_title(); ?></h1>   
+		  <?php echo the_content(); ?>   
 
       </div>
 
@@ -50,9 +52,11 @@ get_header(); ?>
           <input type="hidden" name="custom_url" value="<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>" />
           <input type="hidden" id="format_mime" name="format" value="mime" />
           <input type="hidden" name="custom_host" value="<?php echo $_SERVER["HTTP_HOST"]; ?>" />
-          <input name="name" placeholder="YOUR NAME" required type="name"><br>
-          <input name="email" placeholder="YOUR EMAIL" required type="email"><br>
-          <input value="Download the Makerspace Playbook" class="btn btn-blue btn-block" type="submit">
+			 <label for="name">Your name</label>
+          <input name="name" placeholder="Enter your name" required type="name"><label for="email">Your email</label>
+          <input name="email" placeholder="Enter your email" required type="email"><br>
+          <input value="Download the Makerspace Playbook" class="btn blue-btn btn-block" type="submit">
+			  <i>You will receive occasional news which you can opt out of at any time.</i>
         </form>
          <!-- reCaptcha element -->
          <div id="recaptcha" class="g-recaptcha"
@@ -66,13 +70,13 @@ get_header(); ?>
 
         <p>CONTENTS</p>
         <p><strong>Beginnings</strong><br />
-          what we're doing and why, orgins of the Maker movement</p>
+          what we're doing and why, origins of the Maker movement</p>
 
         <p><strong>Places</strong><br />
           making a space more conducive to a community that makes together</p>
 
         <p><strong>Tools &amp; Materials</strong><br />
-          inventory, budgets, and strategies (see also High School Makerspace Tools & Materials: a companion document detailing the uses and costs of a fully stocked inventory for an in-school Makerspace.)</p>
+          inventory, budgets, and strategies (see also High School Makerspace Tools &amp; Materials: a companion document detailing the uses and costs of a fully stocked inventory for an in-school Makerspace.)</p>
 
         <p><strong>Safety</strong><br />
           planning for safety, signage, and common rules</p>
@@ -107,7 +111,30 @@ get_header(); ?>
     </div>
 
   </div>
+	
+	<div class="container-fluid light-blue">
+	  <div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-4 col-xs-12 makerspace-bottom-nav">
+					<h4>Join our global network of makerspaces</h4>
+					<a href="/register"><button class="btn blue-btn">Add your makerspace</button></a>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12 makerspace-bottom-nav">
+					<h4>See an error or need to update your info?</h4>
+					<a href="mailto:webmaster@makermedia.com"><button class="btn blue-btn">Contact us</button></a>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12 makerspace-bottom-nav">
+					<h4>Start your own makerspace today</h4>
+					<a href="#"><button class="btn blue-btn">Take the course</button></a>
+				</div>
+			</div>
+		</div>
+  </div>  
 
 </div>
+
+<a  target="_blank" id="playbook_dl" href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf">Makerspace Playbook</a>
+
+
 
 <?php get_footer(); ?>
