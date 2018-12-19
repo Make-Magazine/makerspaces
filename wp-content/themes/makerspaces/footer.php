@@ -46,7 +46,7 @@
   </div>
   <div class="col-sm-8 col-xs-12 nl-modal">
     <h3>Awesome!</h3>
-	 <p>Your download should start automatically. If not, <a href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf">click here</a> to access the PDF.</p>
+	 <p>Your download should start automatically. If not, <a href="/wp-content/themes/makerspaces/img/Makerspace-Playbook.pdf" target="_blank">click here</a> to access the PDF.</p>
   </div>
   <div class="clearfix"></div>
 </div>
