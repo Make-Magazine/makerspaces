@@ -5,6 +5,10 @@
   "version": "1.0.0",
   "private": true,
   "license": "UNLICENSED",
+  "repository": {
+     "type" : "git",
+     "url" : "https://github.com/Make-Magazine/makerspaces.git"
+  },
   "devDependencies": {
     "bootstrap-less": "^3.3.8",
     "grunt": "^0.4.5",
