@@ -111,19 +111,24 @@ window.addEventListener('load', function() {
       profileView.style.display = 'flex';
       getProfile();
 
-      //login redirect
-      if ( jQuery( '#authenticated-redirect' ).length ) { //are we on the authentication page?
-        if(localStorage.getItem('redirect_to')){    //redirect
-          var redirect_url = localStorage.getItem('redirect_to'); //retrieve redirect URL
-          localStorage.removeItem('redirect_to'); //unset after retrieved
-          location.href=redirect_url;
-        }else{  //redirect to home page
-          location.href=templateUrl;
-        }
-      }
+      //login to wordpress if not already
+      //check for wordpress cookie
+      if ( !jQuery( '.logged-in' ).length ) { // is the user logged in?
+        //wait .5 second for auth0 data to be returned from getProfile
+        setTimeout(function(){ WPlogin(); }, 0500); //login to wordpress
+      } else {
+          loginRedirect();
+		}
     } else {
       loginBtn.style.display = 'flex';
       profileView.style.display = 'none';
+		if ( jQuery( '.logged-in' ).length ) { // is the user logged in?
+        //logout of wordpress if not already
+        WPlogout();//login to wordpress
+      } else {
+        loginRedirect();
+      }
+
     }
   }
 
@@ -131,7 +136,8 @@ window.addEventListener('load', function() {
     var accessToken = localStorage.getItem('access_token');
 
     if (!accessToken) {
-      console.log('Access token must exist to fetch profile');
+       console.log('Access token must exist to fetch profile');
+		 errorMsg('Login without Access Token');
     }
 
     webAuth.client.userInfo(accessToken, function(err, profile) {
@@ -142,6 +148,56 @@ window.addEventListener('load', function() {
         document.querySelector('#profile-view img').style.display = "block";
 		  document.querySelector('#profile-view .profile-email').innerHTML = userProfile.email; 
       }
+    });
+  }
+	
+  function WPlogin(){
+    if (typeof userProfile !== 'undefined') {
+      var user_id      = userProfile.sub;
+      var access_token = localStorage.getItem('access_token');
+      var id_token     = localStorage.getItem('id_token');
+
+      //login to wordpress
+      var data = {
+        'action'              : 'mm_wplogin',
+        'auth0_userProfile'   : userProfile,
+        'auth0_access_token'  : access_token,
+        'auth0_id_token'      : id_token
+      };
+      jQuery.post(ajax_object.ajax_url, data, function(response) {
+			
+      	loginRedirect(); // everything went according to plan
+
+      }).fail(function() {
+        alert( "I'm sorry. We had an issue logging you into our system. Please try the login again." );
+		  errorMsg(userProfile.email + " had an issue logging in at the WP Login phase. That error is: " + JSON.stringify(error));
+        if ( jQuery( '#authenticated-redirect' ).length ) { 
+            jQuery( ".redirect-message" ).text("I'm sorry. We had an issue logging you into our system. Please try the login again.");
+            location.href=templateUrl;
+        }
+      });
+    }else{
+       if ( jQuery( '#authenticated-redirect' ).length ) {
+          errorMsg("Login failed for undefined user: " + userProfile.email + ". Timeout.");
+          alert("We're having trouble logging you in and ran out of time. Refresh the page and we'll try harder.");
+		    jQuery(".redirect-message").html("<a href='javascript:location.reload();'>Reload page</a>");
+      }
+    }
+  }
+
+  function WPlogout(){
+    //logout of wordpress
+    var data = {
+      'action': 'mm_wplogout'
+    };
+    if ( jQuery( '#wpadminbar' ).length ) {
+        jQuery( 'body' ).removeClass( 'adminBar' ).removeClass( 'logged-in' );
+        jQuery( '#wpadminbar' ).remove();
+        jQuery( '#mm-preview-settings-bar' ).remove();
+    }
+
+    jQuery.post(ajax_object.ajax_url, data, function(response) {
+      window.location.href = 'https://makermedia.auth0.com/v2/logout?returnTo='+templateUrl+ '&client_id='+AUTH0_CLIENT_ID;
     });
   }
 
@@ -155,7 +211,7 @@ window.addEventListener('load', function() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
         if(err.error!=='login_required'){
-          console.log(err);
+			  errorMsg(userProfile.email + " user had an issue logging in at the checkSession phase. That error was: " + JSON.stringify(err));
         }
       } else {
         setSession(result);
@@ -163,6 +219,15 @@ window.addEventListener('load', function() {
       displayButtons();
     }
   );
+	
+  function errorMsg(message) {
+	   var data = {
+       'action'       : 'make_error_log',
+       'make_error'   : message
+     };
+     jQuery.post(ajax_object.ajax_url, data, function(response) {});
+  }
+
 
 });;//!!
 //!! includes/js/bootstrap-wp.js
@@ -193,6 +258,10 @@ jQuery( document ).ready( function( $ ) {
 });
 
 ;//!!
+//!! includes/js/custom.js
+jQuery(document).ready(function(){
+    jQuery(".nav-community").addClass("active-site");
+});;//!!
 //!! includes/js/newsletter-modal.js
 jQuery(document).ready( function( $ ) {
   $(".fancybox-thx").fancybox({
@@ -216,69 +285,22 @@ jQuery(document).ready( function( $ ) {
 });
 
 
-var recaptchaKey = '6Lf_-kEUAAAAAHtDfGBAleSvWSynALMcgI1hc_tP';
-onloadCallback = function() {
-  if ( jQuery('#recapcha-footer-desktop').length ) {
-    grecaptcha.render('recapcha-footer-desktop', {
-      'sitekey' : recaptchaKey,
-      'callback' : onSubmitFooterDesk
-    });
-  }
-  if ( jQuery('#recapcha-footer-mobile').length ) {
-    grecaptcha.render('recapcha-footer-mobile', {
-      'sitekey' : recaptchaKey,
-      'callback' : onSubmitFooterMob
-    });
-  }
-  if ( jQuery('#recapcha-header').length ) {
-    grecaptcha.render('recapcha-header', {
-      'sitekey' : recaptchaKey,
-      'callback' : onSubmitHeader
-    });
-  }
-  if ( jQuery('#recapcha-playbook').length ) {
-    grecaptcha.render('recapcha-playbook', {
-      'sitekey' : recaptchaKey,
-      'callback' : onSubmitPlaybook
-    });
-  }
-};
-//header desktop
-var onSubmitHeader = function(token) {
-  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.whatcounts-signup').serialize());
-  jQuery('.nl-thx').trigger('click');
+function playbookSignup() {
+
+	jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.playbook-sub-form').serialize());
+   
+   jQuery('.nl-thx').trigger('click');
+	
+	jQuery('#playbook_dl')[0].click()
+
 }
-jQuery(document).on('submit', '.whatcounts-signup', function (e) {
-  e.preventDefault();
-  onSubmitHeader();
-});
-//footer desktop
-var onSubmitFooterDesk = function(token) {
-  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.whatcounts-signup1f').serialize());
-  jQuery('.nl-thx').trigger('click');
-}
-jQuery(document).on('submit', '.whatcounts-signup1f', function (e) {
-  e.preventDefault();
-  onSubmitFooterDesk();
-});
-//footer mobile
-var onSubmitFooterMob = function(token) {
-  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.whatcounts-signup1m').serialize());
-  jQuery('.nl-thx').trigger('click');
-}
-jQuery(document).on('submit', '.whatcounts-signup1m', function (e) {
-  e.preventDefault();
-  onSubmitFooterMob();
-});
-//playbook page
-var onSubmitPlaybook = function(token) {
-  jQuery.post('https://secure.whatcounts.com/bin/listctrl', jQuery('.playbook-sub-form').serialize());
-  jQuery('.nl-thx').trigger('click');
-}
+
 jQuery(document).on('submit', '.playbook-sub-form', function (e) {
+	
   e.preventDefault();
-  onSubmitPlaybook();
-});;//!!
+  grecaptcha.execute();
+});
+;//!!
 //!! includes/js/skip-link-focus-fix.js
 ( function() {
   var is_webkit = navigator.userAgent.toLowerCase().indexOf( 'webkit' ) > -1,

@@ -10,6 +10,7 @@
               ng-model="$ctrl.filterText"
               ng-model-options="{debounce: 500}"
               ng-change="$ctrl.applyMapFilters()" />
+				 <h2><a href="/register">+ add yours</a></h2>
           </div>
           <!-- Commenting out checkboxes till we need them again -->
 <!--           <div class="filters ng-cloak" ng-if="$ctrl.faireMarkers">
@@ -69,12 +70,6 @@
                   <span ng-show="reverse">v</span>
                 </span>
               </div>-->
-              <div class="cursor-pointer col-sm-3 hidden-xs" ng-click="sort='mmap_type';reverse=!reverse">TYPE
-                <span ng-show="sort == 'mmap_type'">
-                  <span ng-show="!reverse"><i class="fa fa-chevron-up"></i></span>
-                  <span ng-show="reverse"><i class="fa fa-chevron-down"></i></span>
-                </span>
-              </div>
               <div class="cursor-pointer col-sm-4 col-xs-6" ng-click="sort='mmap_eventname';reverse=!reverse">NAME
                 <span ng-show="sort == 'mmap_eventname'">
                   <span ng-show="!reverse"><i class="fa fa-chevron-up"></i></span>
@@ -93,9 +88,14 @@
                   <span ng-show="reverse"><i class="fa fa-chevron-down"></i></span>
                 </span>
               </div>
+					<div class="cursor-pointer col-sm-3 hidden-xs" ng-click="sort='mmap_type';reverse=!reverse">TYPE
+                <span ng-show="sort == 'mmap_type'">
+                  <span ng-show="!reverse"><i class="fa fa-chevron-up"></i></span>
+                  <span ng-show="reverse"><i class="fa fa-chevron-down"></i></span>
+                </span>
+              </div>
             </div>
             <div class="row" dir-paginate="(index, row) in $ctrl.faireMarkers | orderBy:sort:reverse | itemsPerPage: 20">
-              <div class="col-sm-3 hidden-xs">{{row.mmap_type}}</div>
               <div class="col-sm-4 col-xs-6">
                 <a target="_blank" ng-if="row.mmap_url" href="{{row.mmap_url}}">{{row.mmap_eventname}}</a><div class="hidden-sm hidden-md hidden-lg hidden-xl">{{row.mmap_type}}</div>
                 <span ng-if="!row.mmap_url">{{row.mmap_eventname}}
@@ -105,6 +105,7 @@
 					                              <div class="hidden-sm hidden-md hidden-lg hidden-xl">{{row.mmap_country}}</div>
 				  </div>
               <div class="col-sm-2 hidden-xs">{{row.mmap_country}}</div>
+				  <div class="col-sm-3 hidden-xs">{{row.mmap_type}}</div>
             </div>
           </div>
           <div class="text-center">
