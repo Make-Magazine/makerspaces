@@ -1,5 +1,4 @@
 window.addEventListener('load', function() {
-
   // buttons and event listeners
   /*    If the login button, logout button or profile view elements do not exist
    *    (such as on the admin and login pages) default to a 'fake' element
@@ -154,7 +153,7 @@ window.addEventListener('load', function() {
         'auth0_id_token'      : id_token
       };
       jQuery.post(ajax_object.ajax_url, data, function(response) {
-          
+			
       	loginRedirect(); // everything went according to plan
 
       }).fail(function() {
@@ -200,8 +199,7 @@ window.addEventListener('load', function() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
         if(err.error!=='login_required'){
-           console.log(err);
-			  errorMsg(userProfile.email + " had an issue logging in at the checkSession phase. That error was: " + JSON.stringify(err));
+			  errorMsg(userProfile.email + " user had an issue logging in at the checkSession phase. That error was: " + JSON.stringify(err));
         }
       } else {
         setSession(result);
