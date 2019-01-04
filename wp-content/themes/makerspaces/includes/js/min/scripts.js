@@ -168,7 +168,7 @@ window.addEventListener('load', function() {
 			
       	loginRedirect(); // everything went according to plan
 
-      }).fail(function() {
+      }).fail(function(xhr, status, error) {
         alert( "I'm sorry. We had an issue logging you into our system. Please try the login again." );
 		  errorMsg(userProfile.email + " had an issue logging in at the WP Login phase. That error is: " + JSON.stringify(error));
         if ( jQuery( '#authenticated-redirect' ).length ) { 
