@@ -2,19 +2,37 @@
   "name": "Makerspaces",
   "description": "WordPress Theme for Makerspaces.com",
   "author": "Maker Media",
-  "version": "1.0.0",
+  "version": "1.2.7",
   "private": true,
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Make-Magazine/makerspaces.git"
+  },
+  "scripts": {
+    "cachebust:update": "npm version patch",
+    "postcachebust:update": "npm run replace:version",
+    "replace:version": "replace-in-file '/Version\\: [0-9]\\.{0,1}[0-9]*\\.{0,1}[0-9]*/' 'Version: '\"$npm_package_version\" style.css --isRegex",
+    "less:compile": "lessc --source-map-less-inline --source-map-map-inline --line-numbers=comments includes/less/style.less includes/css/style.css",
+    "postless:compile": "npm run less:minify",
+    "less:minify": "cleancss -o includes/css/style.min.css includes/css/style.css --source-map",
+    "postless:minify": "rm includes/css/style.css",
+    "js:ms:uglify": "uglifyjs includes/js/*.js -o includes/js/min/scripts.min.js -c -m --source-map \"root='../../../', url='scripts.min.js.map'\"",
+    "js:ng:uglify": "THIS IS NO LONGER COMPILED HERE - IT WAS CONVERTED TO A PLUGIN - xuglifyjs 'includes/js/angular/makerspaces-map-app/makerSpacesApp.js' 'includes/js/angular/makerspaces-map-app/*.js' -o includes/js/angular/makerspaces-map-app.js -c -m --source-map \"root='../../', url='makerspaces-map-app.js.map'\"",
+    "onchange:less": "onchange 'includes/less/*.less' -- npm run less:compile",
+    "onchange:js:ms": "onchange 'includes/js/*.js' -- npm run js:ms:uglify",
+    "build": "npm-run-all js:ms:uglify less:compile",
+    "build:cachebust": "npm-run-all cachebust:update js:ms:uglify less:compile",
+    "dev": "npm-run-all build -p onchange:js:ms onchange:less"
+  },
   "devDependencies": {
     "bootstrap-less": "^3.3.8",
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^3.0.4",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-less": "^1.4.1",
-    "grunt-contrib-uglify": "^0.11.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-notify": "^0.2.20",
-    "matchdep": "^0.3.0"
+    "clean-css-cli": "^4.2.1",
+    "less": "^3.9.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^5.2.0",
+    "replace-in-file": "^3.4.2",
+    "uglify-js": "^3.4.9"
   },
   "dependencies": {}
 }
