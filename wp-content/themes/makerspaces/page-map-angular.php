@@ -29,7 +29,7 @@ get_header(); ?>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>See an error or need to update your info?</h4>
-					<a href="mailto:webmaster@makermedia.com"><button class="btn blue-btn">Contact us</button></a>
+               <a href="/edit-your-makerspace"><button class="btn blue-btn">Manage your listing</button></a>					
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
 					<h4>Get a free PDF guide on starting a makerspace</h4>
