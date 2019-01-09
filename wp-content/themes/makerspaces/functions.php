@@ -255,3 +255,19 @@ require THEME_DIR_PATH . '/includes/bootstrap-wp-navwalker.php';
  * Load the Makerspace entry page rules.
  */
 require THEME_DIR_PATH . '/includes/entry-rules.php';
+
+
+// This code modifies what text is displayed to the users when there are no entries for them to edit
+add_filter( 'gravityview/template/text/no_entries', 'modify_gravityview_no_entries_text', 10, 3 );
+
+/**
+ * Modify the text displayed when there are no entries. (Requires GravityView 2.0 or newer)
+ * @param string $existing_text The existing "No Entries" text
+ * @param bool $is_search  Is the current page a search result, or just a multiple entries screen?
+ * @param \GV\Template_Context $context The context.
+ */
+function modify_gravityview_no_entries_text( $existing_text, $is_search = false, $context = null ) {
+	$return = $existing_text."<br /><a href='/register'>Add a new Makerspace</a>";
+		
+	return $return;
+}
