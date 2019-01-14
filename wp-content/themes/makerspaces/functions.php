@@ -340,7 +340,8 @@ function update_entry($form, $entry_id, $original_entry) {
       $message .= '</table>';
 
       $to = 'webmaster@makermedia.com';
-      $subject = 'A makerspace has been updated';      
+      $subject = 'A makerspace has been updated';  
+      $headers = array('Content-Type: text/html; charset=UTF-8');
       wp_mail($to, $subject, $message);
    }
 }
