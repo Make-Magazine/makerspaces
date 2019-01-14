@@ -325,13 +325,13 @@ function update_entry($form, $entry_id, $original_entry) {
 
       // Build  table of changed items
       $message .= '<br/>'
-              . '<table>'
-              . ' <tr>'
-              . '    <td>Field Id</td>'
-              . '    <td>Field</td>'
-              . '    <td>Before</td>'
-              . '    <td>After</td>'
-              . ' </tr>';
+               . '<table>'
+               . ' <tr>'
+               . '    <td>Field Id</td>'
+               . '    <td>Field</td>'
+               . '    <td>Before</td>'
+               . '    <td>After</td>'
+               . ' </tr>';
 
       //process updates
       foreach ($updates as $update) {
