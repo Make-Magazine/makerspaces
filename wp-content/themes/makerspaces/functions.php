@@ -327,7 +327,7 @@ function update_entry($form, $entry_id, $orig_entry=array()) {
       $message .= '<br/>'
                . '<table>'
                . ' <tr>'
-               . '    <td>Field Id</td>'
+               . '    <td>Id</td>'
                . '    <td>Field</td>'
                . '    <td>Before</td>'
                . '    <td>After</td>'
