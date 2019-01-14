@@ -276,7 +276,7 @@ function modify_gravityview_no_entries_text($existing_text, $is_search = false, 
 // trigger an email to admin when an entry is updated via gravity view
 add_action('gform_after_update_entry', 'update_entry', 10, 3);
 
-function update_entry($form, $entry_id, $original_entry) {
+function update_entry($form, $entry_id, $orig_entry=array()) {
    error_log('Entry ' . $entry_id . ' updated');
    //get updated entry
    $updatedEntry = GFAPI::get_entry(esc_attr($entry_id));
