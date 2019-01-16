@@ -1,6 +1,6 @@
 
 
-
+.directory-container {
    .map-filters-wrp {
       background-color: #005E9A;
       padding: 12px 15px;
@@ -73,8 +73,36 @@
             margin: 5px 0 -5px 0;
          }
       }
+
+
+
    }
+
+
 
    .VueTables__search, .VueTables__limit, .VuePagination__count {
       display: none;
    }
+
+   // .VuePagination__pagination-item.page-item:nth-child(8) {
+   //    display: none;
+   // }
+   // .VuePagination__pagination-item.page-item:nth-child(9) {
+   //    display: none;
+   // }
+   // .VuePagination__pagination-item.page-item:nth-child(10) {
+   //    display: none;
+   // }
+   // .VuePagination__pagination-item.page-item:nth-child(11) {
+   //    display: none;
+   // }
+   // .VuePagination__pagination-item.page-item:nth-child(12) {
+   //    display: none;
+   // }
+
+   @media screen and (max-width: 767px) {
+      .table-responsive>.table>tbody>tr>td, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>td, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>thead>tr>th {
+         white-space: normal;
+      }
+   }
+}

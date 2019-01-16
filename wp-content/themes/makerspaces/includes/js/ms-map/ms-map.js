@@ -11,22 +11,34 @@ jQuery(document).ready(function() {
    var vm = new Vue({
       el: "#directory",
       data: {
-          columns: ['mmap_eventname', 'mmap_city', 'mmap_country', 'mmap_type'],
-          tableData: [],
-          options: {
-              headings: {
-               mmap_eventname: 'Name', 
-               mmap_city: 'Location', 
+         columns: ['mmap_eventname', 'physLoc', 'mmap_country', 'mmap_type'],
+         tableData: [],
+         options: {
+            headings: {
+               mmap_eventname: 'Name',
+               physLoc: 'Location', 
                mmap_country: 'Country', 
                mmap_type: 'Type'
-              }
-          },
-          filterVal: '',
-          map: null,
-          mapDefaultZoom: 2,
-          mapDefaultPos: {
-            lat: 29.1070772,
-            lng: -24.2299966
+            },
+            templates: {
+               physLoc: function (h, row, index) {
+                  return row.mmap_city + ', ' + row.mmap_state + ' (' + row.mmap_country +')';
+               }
+            },
+            columnsDisplay: {
+               mmap_eventname: 'Name', 
+               mmap_city: 'Location', 
+               mmap_country: 'desktop', 
+               mmap_type: 'desktop'
+            },
+            pagination: { chunk: 5 } // undocumented :(
+         },
+         filterVal: '',
+         map: null,
+         mapDefaultZoom: 2,
+         mapDefaultPos: {
+         lat: 29.1070772,
+         lng: -24.2299966
          },
           markers: ''
       },
@@ -44,6 +56,9 @@ jQuery(document).ready(function() {
                console.log(error);
                _self.loading = false;
             });
+      },
+      computed: {
+
       },
       mounted: function() {
          var _self = this;

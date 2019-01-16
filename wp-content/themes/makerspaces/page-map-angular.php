@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-   <div class="container" id="directory">
+   <div class="container directory-container" id="directory">
 
 
       <div class="row">
@@ -38,7 +38,9 @@ get_header(); ?>
 
       <div class="row">
          <div class="col-md-12">
-            <v-client-table :data="tableData" :columns="columns" :options="options" @row-click="onRowClick" ref="directoryGrid"></v-client-table>
+            <v-client-table :data="tableData" :columns="columns" :options="options" @row-click="onRowClick" ref="directoryGrid" :columns="['mmap_eventname', 'physLoc', 'mmap_country', 'mmap_type']">
+               <span slot="mmap_eventname" slot-scope="props"><a :href="props.row.mmap_url">{{ props.row.mmap_eventname }}</a></span>
+            </v-client-table>
          <div>
       </div>
 
