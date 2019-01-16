@@ -1,0 +1,80 @@
+
+
+
+   .map-filters-wrp {
+      background-color: #005E9A;
+      padding: 12px 15px;
+      z-index: 100;
+      width: 100%;
+      text-align: center;
+      label {
+         display: inline-block;
+         font-family: "Roboto Light";
+         color: #fff;
+         font-size: 18px;
+         font-weight: 100;
+         margin: 6px 20px 0 15px;
+         float: left;
+         input {
+            display: inline;
+            font-size: 16px;
+            max-width: 400px;
+         }
+         a { 
+            color: #fff;
+            &:hover, &:focus, &:active {
+               color: #ddd;
+               text-decoration: none;
+            }
+         }
+         @media all and (max-width: 767px) {
+            display: block;
+            padding: 5px;
+         }
+      }
+      .searchbox input[type="text"] {
+         display: inline-block;
+         font-size: 16px;
+         max-width: 400px;
+         padding-right: 23px;
+         height: 40px;
+      }
+      .checkbox {
+         display: inline-block;
+         margin: 5px;
+         font-size: 14px;
+         line-height: 20px;
+         vertical-align: bottom;
+         .fa.fa-square-o, .fa.fa-check-square-o {
+            font-size: 1.5em;
+            vertical-align: middle;
+         }
+         label {
+            padding-left: 0;
+            @media all and (min-width: 1200px) {
+               padding-left:20px;
+            }
+            @media all and (max-width: 991px) {
+               padding-left:7px;
+            }
+         }
+      }
+      @media all and (max-width: 767px) {
+         .searchbox {  
+            input[type="text"] {
+               flex: 1;
+               max-width: initial;
+            }
+         }
+         .filters {
+            clear: both;
+            min-width: 200px;
+            float: left;
+            margin: 5px 0 -5px 0;
+         }
+      }
+   }
+
+   .VueTables__search, .VueTables__limit, .VuePagination__count {
+      display: none;
+   }

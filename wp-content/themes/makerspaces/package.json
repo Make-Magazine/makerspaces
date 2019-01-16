@@ -21,18 +21,26 @@
     "js:ng:uglify": "THIS IS NO LONGER COMPILED HERE - IT WAS CONVERTED TO A PLUGIN - xuglifyjs 'includes/js/angular/makerspaces-map-app/makerSpacesApp.js' 'includes/js/angular/makerspaces-map-app/*.js' -o includes/js/angular/makerspaces-map-app.js -c -m --source-map \"root='../../', url='makerspaces-map-app.js.map'\"",
     "onchange:less": "onchange 'includes/less/*.less' -- npm run less:compile",
     "onchange:js:ms": "onchange 'includes/js/*.js' -- npm run js:ms:uglify",
+    "onchange:vue:map": "onchange './makerspaces-vue-map/src/' -- npm run js:makerspacemapdev:build",
     "build": "npm-run-all js:ms:uglify less:compile",
     "build:cachebust": "npm-run-all cachebust:update js:ms:uglify less:compile",
     "dev": "npm-run-all build -p onchange:js:ms onchange:less"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "bootstrap-less": "^3.3.8",
+    "browserify": "^16.2.3",
     "clean-css-cli": "^4.2.1",
+    "envify": "^4.1.0",
     "less": "^3.9.0",
     "npm-run-all": "^4.1.5",
     "onchange": "^5.2.0",
     "replace-in-file": "^3.4.2",
-    "uglify-js": "^3.4.9"
+    "uglify-js": "^3.4.9",
+    "vue": "^2.5.22",
+    "vueify": "^9.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue-tables-2": "^1.4.70"
+  }
 }
