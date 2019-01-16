@@ -31,6 +31,12 @@ jQuery(document).ready(function() {
                mmap_country: 'desktop', 
                mmap_type: 'desktop'
             },
+            columnsClasses: {
+               mmap_eventname: 'col-name',
+               physLoc: 'col-location', 
+               mmap_country: 'col-country', 
+               mmap_type: 'col-type'
+            },
             pagination: { chunk: 5 } // undocumented :(
          },
          filterVal: '',

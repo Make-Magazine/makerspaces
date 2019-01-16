@@ -137,7 +137,7 @@ function _makerspaces_scripts() {
   wp_enqueue_style( '_makerspaces-font-body', 'https://fonts.googleapis.com/css?family=Roboto:400,300,700,500', array(), null, 'all' );
   wp_enqueue_style( '_makerspaces-font-heading', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700', array(), null, 'all' );
   wp_enqueue_style( '_makerspaces-fancybox-css', 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/css/jquery.fancybox.min.css', array(), null, 'all' );
-	wp_enqueue_style( '_makerspaces-style', THEME_DIR_URI . '/includes/css/style.min.css', array(), false, false );
+	wp_enqueue_style( '_makerspaces-style', THEME_DIR_URI . '/includes/css/style.min.css', array(), $my_version, false );
 	wp_enqueue_style('universal.css', UNIVERSAL_ASSET_URL_PREFIX . '/wp-content/themes/memberships/universal-nav/css/universal.min.css');
 
 	// load scripts
@@ -164,7 +164,7 @@ function _makerspaces_scripts() {
       wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js', false, false, false);
       wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array('vue'), false, false);
       wp_enqueue_script('vue-table-2', 'https://cdn.jsdelivr.net/npm/vue-tables-2@1.4.70/dist/vue-tables-2.min.js', array('vue'), false, false);
-      wp_enqueue_script('vue-map', THEME_DIR_URI . '/includes/js/ms-map/ms-map.js', array(), false, false );
+      wp_enqueue_script('vue-map', THEME_DIR_URI . '/includes/js/ms-map/ms-map.js', array(), $my_version, false );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
