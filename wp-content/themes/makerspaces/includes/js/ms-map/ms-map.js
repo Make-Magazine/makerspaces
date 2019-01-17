@@ -11,14 +11,14 @@ jQuery(document).ready(function() {
    var vm = new Vue({
       el: "#directory",
       data: {
-         columns: ['mmap_eventname', 'physLoc', 'mmap_country', 'mmap_type'],
+         columns: ['mmap_eventname', 'physLoc', 'siteLink'],
          tableData: [],
          options: {
             headings: {
                mmap_eventname: 'Name',
                physLoc: 'Location', 
-               mmap_country: 'Country', 
-               mmap_type: 'Type'
+               //mmap_country: 'Country', 
+               siteLink: 'Link'
             },
             templates: {
                physLoc: function (h, row, index) {
@@ -28,14 +28,14 @@ jQuery(document).ready(function() {
             columnsDisplay: {
                mmap_eventname: 'Name', 
                mmap_city: 'Location', 
-               mmap_country: 'desktop', 
-               mmap_type: 'desktop'
+               //mmap_country: 'desktop', 
+               siteLink: 'Link'
             },
             columnsClasses: {
                mmap_eventname: 'col-name',
                physLoc: 'col-location', 
-               mmap_country: 'col-country', 
-               mmap_type: 'col-type'
+               //mmap_country: 'col-country', 
+               siteLink: 'col-link'
             },
             pagination: { chunk: 5 } // undocumented :(
          },

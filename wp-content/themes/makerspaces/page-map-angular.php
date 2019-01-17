@@ -25,7 +25,9 @@ get_header(); ?>
                <form action="" class="form-inline" @submit="filterOverride">
                   <div class="form-group">
                      <label for="filter">Find a Makerspace</label>
-                     <input class="form-control input-sm" type="search" id="filter" name="filter" ref="filterField" v-model="filterVal" @input="doFilter">
+                     <input class="form-control input-sm" type="search" id="filter" name="filter" ref="filterField" v-model="filterVal" @input="doFilter" placeholder="Name, Location">
+                  </div>
+                  <div class="admin-buttons">
                      <a class="btn btn-w-ghost" href="/register"><i class="fa fa-plus"></i> Add yours</a>
                      <a class="btn btn-w-ghost" href="/edit-your-makerspace"><i class="fa fa-pencil-square-o"></i> Manage</a>
                   </div>
@@ -38,8 +40,9 @@ get_header(); ?>
 
       <div class="row">
          <div class="col-md-12">
-            <v-client-table :data="tableData" :columns="columns" :options="options" @row-click="onRowClick" ref="directoryGrid" :columns="['mmap_eventname', 'physLoc', 'mmap_country', 'mmap_type']">
-               <span slot="mmap_eventname" slot-scope="props"><a :href="props.row.mmap_url">{{ props.row.mmap_eventname }}</a></span>
+            <v-client-table :data="tableData" :columns="columns" :options="options" @row-click="onRowClick" ref="directoryGrid">
+               <span slot="mmap_eventname" slot-scope="props">{{ props.row.mmap_eventname }}</span>
+               <span slot="siteLink" slot-scope="props"><a class="btn btn-primary" :href="props.row.mmap_url">Go To Site</a></span>
             </v-client-table>
          <div>
       </div>
@@ -53,8 +56,31 @@ get_header(); ?>
    </div>
 </div>
 
+<div class="container-fluid light-blue">
+	  <div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>Join our global network of makerspaces</h4>
+					<a href="/register"><button class="btn blue-btn">Add your makerspace</button></a>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>See an error or need to update your info?</h4>
+               <a href="/edit-your-makerspace"><button class="btn blue-btn">Manage your listing</button></a>					
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>Get a free PDF guide on starting a makerspace</h4>
+					<a href="/playbook"><button class="btn blue-btn">Download the playbook</button></a>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
+					<h4>Start your own makerspace today</h4>
+					<a href="https://learn.make.co/courses/starting-a-school-makerspace/info"><button class="btn blue-btn">Take the course</button></a>
+				</div>
+			</div>
+		</div>
+  </div>  
 
-<div class="container makerspace-news">
+
+   <div class="container makerspace-news">
 		<div class="row posts-feeds-wrapper">
 		  <h2>Makerspace News from <img class="logo" src="https://make.co/wp-content/themes/memberships/img/make_logo.svg" /> magazine</h2>
 
@@ -109,7 +135,7 @@ get_header(); ?>
             <?php endforeach; ?>
             <a class="all-projects-title" href="http://makezine.com/tag/makerspaces/" target="_blank"><button class="btn blue-btn">See more articles</button></a>
 	
-  
+         </div>
 	  </div>
 
 

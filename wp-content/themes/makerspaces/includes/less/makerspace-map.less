@@ -15,50 +15,33 @@
          font-weight: 100;
          margin: 6px 20px 0 15px;
          float: left;
-         input {
-            display: inline;
-            font-size: 16px;
-            max-width: 400px;
-         }
-         a { 
-            color: #fff;
-            &:hover, &:focus, &:active {
-               color: #ddd;
-               text-decoration: none;
-            }
-         }
-         @media all and (max-width: 767px) {
-            display: block;
-            padding: 5px;
-         }
+         // a { 
+         //    color: #fff;
+         //    &:hover, &:focus, &:active {
+         //       color: #ddd;
+         //       text-decoration: none;
+         //    }
+         // }
+         // @media all and (max-width: 767px) {
+         //    display: block;
+         //    padding: 5px;
+         // }
       }
-      .searchbox input[type="text"] {
-         display: inline-block;
+      input {
+         display: inline;
          font-size: 16px;
          max-width: 400px;
-         padding-right: 23px;
          height: 40px;
+         min-width: 320px;
       }
-      .checkbox {
-         display: inline-block;
-         margin: 5px;
-         font-size: 14px;
-         line-height: 20px;
-         vertical-align: bottom;
-         .fa.fa-square-o, .fa.fa-check-square-o {
-            font-size: 1.5em;
-            vertical-align: middle;
-         }
-         label {
-            padding-left: 0;
-            @media all and (min-width: 1200px) {
-               padding-left:20px;
-            }
-            @media all and (max-width: 991px) {
-               padding-left:7px;
-            }
-         }
-      }
+      // .searchbox input[type="text"] {
+      //    display: inline-block;
+      //    font-size: 16px;
+      //    max-width: 400px;
+      //    padding-right: 23px;
+      //    height: 40px;
+      // }
+
       @media all and (max-width: 767px) {
          .searchbox {  
             input[type="text"] {
@@ -66,29 +49,34 @@
                max-width: initial;
             }
          }
-         .filters {
-            clear: both;
-            min-width: 200px;
-            float: left;
-            margin: 5px 0 -5px 0;
+         // .filters {
+         //    clear: both;
+         //    min-width: 200px;
+         //    float: left;
+         //    margin: 5px 0 -5px 0;
+         // }
+      }
+      .admin-buttons {
+         float: right;
+         @media all and (max-width: 768px) {
+            float: none;
          }
       }
-
 
 
    }
 
    .col-name {
-      width: 30%;
+      width: 40%;
    }
    .col-location {
       width: 40%;
    } 
-   .col-country {
-      width: 20%;
-   } 
-   .col-type {
-      //width: 30%;
+   // .col-country {
+   //    width: 20%;
+   // } 
+   .col-link {
+      //width: 120px;
    }
 
 
