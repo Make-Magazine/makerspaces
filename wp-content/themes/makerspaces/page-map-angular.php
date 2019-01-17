@@ -13,6 +13,7 @@ get_header(); ?>
       <div class="row">
          <div class="col-md-12">
             <h1>Makerspaces Directory</h1>
+            <p><?php echo the_content(); ?></p>
          </div>
       </div>
 
@@ -41,8 +42,7 @@ get_header(); ?>
       <div class="row">
          <div class="col-md-12">
             <v-client-table :data="tableData" :columns="columns" :options="options" @row-click="onRowClick" ref="directoryGrid">
-               <span slot="mmap_eventname" slot-scope="props">{{ props.row.mmap_eventname }}</span>
-               <span slot="siteLink" slot-scope="props"><a class="btn btn-primary" :href="props.row.mmap_url">Go To Site</a></span>
+               <span slot="mmap_eventname" slot-scope="props"><a :href="props.row.mmap_url" target="_blank">{{ props.row.mmap_eventname }} <i class="fa fa-external-link"></i></a></span>
             </v-client-table>
          <div>
       </div>

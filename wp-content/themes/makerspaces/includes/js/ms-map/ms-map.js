@@ -11,31 +11,31 @@ jQuery(document).ready(function() {
    var vm = new Vue({
       el: "#directory",
       data: {
-         columns: ['mmap_eventname', 'physLoc', 'siteLink'],
+         columns: ['mmap_eventname', 'physLoc', 'mmap_country'],
          tableData: [],
          options: {
             headings: {
                mmap_eventname: 'Name',
                physLoc: 'Location', 
-               //mmap_country: 'Country', 
-               siteLink: 'Link'
+               mmap_country: 'Country'//, 
+               //siteLink: 'Link'
             },
             templates: {
                physLoc: function (h, row, index) {
-                  return row.mmap_city + ', ' + row.mmap_state + ' (' + row.mmap_country +')';
+                  return row.mmap_city + ', ' + row.mmap_state;
                }
             },
             columnsDisplay: {
                mmap_eventname: 'Name', 
                mmap_city: 'Location', 
-               //mmap_country: 'desktop', 
-               siteLink: 'Link'
+               mmap_country: 'desktop'//, 
+               //siteLink: 'Link'
             },
             columnsClasses: {
                mmap_eventname: 'col-name',
                physLoc: 'col-location', 
-               //mmap_country: 'col-country', 
-               siteLink: 'col-link'
+               mmap_country: 'col-country'//, 
+               //siteLink: 'col-link'
             },
             pagination: { chunk: 5 } // undocumented :(
          },
@@ -146,7 +146,7 @@ jQuery(document).ready(function() {
                lng: parseFloat(data.row.mmap_lng)
             };
             this.map.panTo(pos);
-            this.map.setZoom(10);
+            this.map.setZoom(16);
          },
          addMarkers: function() {
             // an attempt to clear the markers first for filtering, but not so good
