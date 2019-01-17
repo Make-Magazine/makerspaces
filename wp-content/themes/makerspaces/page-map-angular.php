@@ -6,57 +6,21 @@
  */
 
 get_header(); ?>
-
-   <div class="container directory-container" id="directory">
-
-
-      <div class="row">
-         <div class="col-md-12">
-            <h1>Makerspaces Directory</h1>
-            <p><?php echo the_content(); ?></p>
-         </div>
+<div class="makerspaces-map-wrp" ng-app="makerSpacesApp" ng-strict-di>
+  <div class="container">
+    <div class="row map-header">
+      <div class="col-xs-12 col-lg-12">
+        <h1>Makerspaces Directory</h1>
+			<p><?php echo the_content(); ?></p>
       </div>
+    </div>
 
-
-
-      <div class="row">
-         <div class="col-md-12">
-
-            <div class="map-filters-wrp">
-               <form action="" class="form-inline" @submit="filterOverride">
-                  <div class="form-group">
-                     <label for="filter">Find a Makerspace</label>
-                     <input class="form-control input-sm" type="search" id="filter" name="filter" ref="filterField" v-model="filterVal" @input="doFilter" placeholder="Name, Location">
-                  </div>
-                  <div class="admin-buttons">
-                     <a class="btn btn-w-ghost" href="/register"><i class="fa fa-plus"></i> Add yours</a>
-                     <a class="btn btn-w-ghost" href="/edit-your-makerspace"><i class="fa fa-pencil-square-o"></i> Manage</a>
-                  </div>
-               </form>
-            </div>
-
-            <div id="map" style="height: 768px;"></div>
-         </div>
-      </div>
-
-      <div class="row">
-         <div class="col-md-12">
-            <v-client-table :data="tableData" :columns="columns" :options="options" @row-click="onRowClick" ref="directoryGrid">
-               <span slot="mmap_eventname" slot-scope="props"><a :href="props.row.mmap_url" target="_blank">{{ props.row.mmap_eventname }} <i class="fa fa-external-link"></i></a></span>
-            </v-client-table>
-         <div>
-      </div>
-
-   </div>
-
-
-
-   
-<!-- for some reason we have these closing tags here, and if they're removed things break : ( -->
-   </div>
-</div>
-
-<div class="container-fluid light-blue">
+    <div class="row map-app-container">
+      <?php echo do_shortcode( '[makemap form="2" searchtext="Find a Makerspace"]' );?>
+    </div>
+  </div>
+	
+  <div class="container-fluid light-blue">
 	  <div class="container">
 			<div class="row">
 				<div class="col-md-3 col-sm-6 col-xs-12 makerspace-bottom-nav">
@@ -78,9 +42,8 @@ get_header(); ?>
 			</div>
 		</div>
   </div>  
-
-
-   <div class="container makerspace-news">
+	
+	<div class="container makerspace-news">
 		<div class="row posts-feeds-wrapper">
 		  <h2>Makerspace News from <img class="logo" src="https://make.co/wp-content/themes/memberships/img/make_logo.svg" /> magazine</h2>
 
@@ -135,13 +98,58 @@ get_header(); ?>
             <?php endforeach; ?>
             <a class="all-projects-title" href="http://makezine.com/tag/makerspaces/" target="_blank"><button class="btn blue-btn">See more articles</button></a>
 	
-         </div>
+  
 	  </div>
+	</div>
+</div>
+	
+	      <?php /*
+        <div class="posts-feeds-wrapper col-xs-12 col-sm-6">
+          <?php
+          $rss = fetch_feed('https://makezine.com/projects/feed/');
+          if (!is_wp_error($rss)) :
+            $maxitems = $rss -> get_item_quantity(5); //gets latest 5 items, this can be changed to suit your requirements
+            $rss_items = $rss -> get_items(0, $maxitems);
+          endif;
 
+          //grabs our post thumbnail image
+          function get_first_image_url_p($html) {
+            if (preg_match('/<img.+?src="(.+?)"/', $html, $matches)) {
+              return $matches[1];
+            }
+          }
 
-<!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWsCdftU2vI9bkZcwLxGQwlYmNRnT2VM&callback=initMap" async defer></script> -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWsCdftU2vI9bkZcwLxGQwlYmNRnT2VM></script> -->
+          //shortens description
+          function shorten_p($string, $length) {
+            $suffix = '&hellip;';
+            $short_desc = trim(str_replace(array("\r", "\n", "\t"), ' ', strip_tags($string)));
+            $desc = trim(substr($short_desc, 0, $length));
+            $lastchar = substr($desc, -1, 1);
+            if ($lastchar == '.' || $lastchar == '!' || $lastchar == '?')
+            $suffix = '';
+            $desc .= $suffix;
+            return $desc;
+          }
+          ?>
+          <h3 class="feed-title">
+            <i class="fa fa-newspaper-o feed-icon"></i> Latest Projects
+          </h3>
+          <ul class="posts-feeds">
+            <?php
+            if ($maxitems == 0) echo '<li>No items.</li>';
+            else foreach ( $rss_items as $item ) :
+            ?>
+            <li class="post-feed">
+              <a class="full-link" href="<?php echo esc_url($item -> get_permalink()); ?>" target="_blank"></a>
 
+              <div class="title">
+                <img src="<?php echo get_first_image_url_p($item -> get_content()); ?>" alt="Makerspace post featured image">
+                <p class="p-title"><?php echo esc_html($item -> get_title()); ?></p>
+              </div>
+            </li>
+            <?php endforeach; ?>
+            <a class="all-projects-title" href="http://makezine.com/tag/makerspaces/" target="_blank">See All Projects</a>
+          </ul>
+        </div> */ ?>
 <?php get_footer(); ?>
 

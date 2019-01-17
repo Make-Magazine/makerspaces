@@ -158,12 +158,12 @@ function _makerspaces_scripts() {
 	);
 
 	// Map page only
-	if (is_page_template('page-map-angular.php')) {
+	if (is_page_template('page-makerspaces-map.php')) {
       wp_enqueue_script('google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtWsCdftU2vI9bkZcwLxGQwlYmNRnT2VM', false, false, false);
       wp_enqueue_script('google-markers', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array('google-map'), false, false);
-      wp_enqueue_script('vue', 'https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js', false, false, false);
-      wp_enqueue_script('axios', 'https://unpkg.com/axios/dist/axios.min.js', array('vue'), false, false);
-      wp_enqueue_script('vue-table-2', 'https://cdn.jsdelivr.net/npm/vue-tables-2@1.4.70/dist/vue-tables-2.min.js', array('vue'), false, false);
+      wp_enqueue_script('vue', THEME_DIR_URI . '/includes/js/ms-map/vue.min.js', false, false, false);
+      wp_enqueue_script('axios', THEME_DIR_URI . '/includes/js/ms-map/axios.min.js', array('vue'), false, false);
+      wp_enqueue_script('vue-table-2', THEME_DIR_URI . '/includes/js/ms-map/vue-tables-2.min.js', array('vue'), false, false);
       wp_enqueue_script('vue-map', THEME_DIR_URI . '/includes/js/ms-map/ms-map.js', array(), $my_version, false );
 	}
 
