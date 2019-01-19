@@ -32,7 +32,7 @@ get_header(); ?>
                </form>
             </div>
 
-            <div id="map" style="height: 768px;"></div>
+            <div id="map" style="height: 40px;">Loading...</div>
          </div>
       </div>
 

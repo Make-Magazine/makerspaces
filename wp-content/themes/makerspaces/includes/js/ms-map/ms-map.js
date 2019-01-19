@@ -37,6 +37,17 @@ jQuery(document).ready(function() {
                mmap_country: 'col-country'//, 
                //siteLink: 'col-link'
             },
+            // filterByColumn: true,
+            // customFilters: [
+            //    {
+            //       name: 'physLoc',
+            //       callback: function (row, query) {
+            //          console.log(row, query);
+            //          return /query/.test(row.physLoc);
+            //          // return row.name[0] == query;
+            //       }
+            //    }
+            // ],
             pagination: { chunk: 5 } // undocumented :(
          },
          filterVal: '',
@@ -52,7 +63,7 @@ jQuery(document).ready(function() {
          var _self = this;
          axios.get('/wp-json/makemap/v1/mapdata/2')
             .then(function (response) {
-               console.log(response);
+               //console.log(response);
                _self.tableData = response.data.Locations;
                _self.detectBrowser();
                _self.getLocation();
@@ -60,14 +71,14 @@ jQuery(document).ready(function() {
             })
             .catch(function (error) {
                console.log(error);
-               _self.loading = false;
+               //_self.loading = false;
             });
       },
       computed: {
 
       },
       mounted: function() {
-         var _self = this;
+         //var _self = this;
          // jQuery.get( "/wp-json/makemap/v1/mapdata/2", function( data ) {
          //    _self.tableData = data.Locations;
          //    _self.detectBrowser();
@@ -135,6 +146,7 @@ jQuery(document).ready(function() {
          doFilter: function(data) {
             //console.log(data);
             this.$refs.directoryGrid.setFilter(this.filterVal);
+            //Event.$emit('vue-tables.filter::physLoc', this.filterVal);
             this.addMarkers();
          },
          filterOverride: function(data) {
