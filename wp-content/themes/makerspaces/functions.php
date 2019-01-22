@@ -345,3 +345,7 @@ function update_entry($form, $entry_id, $orig_entry=array()) {
       wp_mail($to, $subject, $message, $headers);
    }
 }
+
+// add gravity form edit capability to the subscriber role
+   global $wp_roles; // global class wp-includes/capabilities.php
+   $wp_roles->add_cap( 'subscriber', 'gravityforms_edit_entries' ); 
