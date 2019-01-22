@@ -347,5 +347,12 @@ function update_entry($form, $entry_id, $orig_entry=array()) {
 }
 
 // add gravity form edit capability to the subscriber role
-   global $wp_roles; // global class wp-includes/capabilities.php
-   $wp_roles->add_cap( 'subscriber', 'gravityforms_edit_entries' ); 
+function add_theme_caps() {
+    // gets the author role
+    $role = get_role( 'subscriber' );
+
+    // This only works, because it accesses the class instance.
+    // would allow the author to edit others' posts for current theme only
+    $role->add_cap( 'gravityforms_edit_entries' ); 
+}
+add_action( 'admin_init', 'add_theme_caps');
