@@ -64,6 +64,7 @@ jQuery(document).ready(function() {
          axios.get('/wp-json/makemap/v1/mapdata/2')
             .then(function (response) {
                //console.log(response);
+               _self.$refs.loadingIndicator.classList.add("hidden");
                _self.tableData = response.data.Locations;
                _self.detectBrowser();
                _self.getLocation();
@@ -71,6 +72,8 @@ jQuery(document).ready(function() {
             })
             .catch(function (error) {
                console.log(error);
+               _self.$refs.loadingIndicator.classList.add("hidden");
+               _self.$refs.errorIndicator.classList.remove("hidden");
                //_self.loading = false;
             });
       },
@@ -78,6 +81,7 @@ jQuery(document).ready(function() {
 
       },
       mounted: function() {
+         
          //var _self = this;
          // jQuery.get( "/wp-json/makemap/v1/mapdata/2", function( data ) {
          //    _self.tableData = data.Locations;
@@ -93,14 +97,15 @@ jQuery(document).ready(function() {
           
             if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
               mapdiv.style.width = '100%';
-              mapdiv.style.height = '200px';
+              mapdiv.style.height = '300px';
             } else {
               mapdiv.style.width = '100%';
               mapdiv.style.height = '400px';
             }
          },
          initMap: function() {
-            const element = document.getElementById('map')
+            this.$refs.mapTableWrapper.classList.remove("map-table-hidden");
+            const element = this.$refs.map; //document.getElementById('map')
             const options = {
                center: this.mapDefaultPos,
                zoom: this.mapDefaultZoom
