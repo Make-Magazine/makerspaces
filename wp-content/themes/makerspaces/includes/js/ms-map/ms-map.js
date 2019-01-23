@@ -66,6 +66,7 @@ jQuery(document).ready(function() {
                //console.log(response);
                _self.$refs.loadingIndicator.classList.add("hidden");
                _self.tableData = response.data.Locations;
+               _self.$refs.directoryGrid.setOrder('mmap_eventname', true);
                _self.detectBrowser();
                _self.getLocation();
                _self.initMap();
