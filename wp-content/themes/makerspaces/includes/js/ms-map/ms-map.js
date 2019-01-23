@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
    var vm = new Vue({
       el: "#directory",
       data: {
-         columns: ['mmap_eventname', 'physLoc', 'mmap_country'],
+         columns: ['mmap_eventname', 'physLoc', 'mmap_country', 'mmap_city', 'mmap_state'],
          tableData: [],
          options: {
             headings: {
@@ -27,8 +27,10 @@ jQuery(document).ready(function() {
             },
             columnsDisplay: {
                mmap_eventname: 'Name', 
-               mmap_city: 'Location', 
-               mmap_country: 'desktop'//, 
+               physLoc: 'Location',
+               mmap_country: 'desktop',
+               mmap_city: '', 
+               mmap_state: ''
                //siteLink: 'Link'
             },
             columnsClasses: {
