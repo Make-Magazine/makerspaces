@@ -26,11 +26,11 @@ jQuery(document).ready(function() {
                }
             },
             columnsDisplay: {
-               mmap_eventname: 'Name', 
-               physLoc: 'Location',
+               //mmap_eventname: 'Name', 
+               //physLoc: 'Location',
                mmap_country: 'desktop',
-               mmap_city: '', 
-               mmap_state: ''
+               //mmap_city: '', 
+               //mmap_state: ''
                //siteLink: 'Link'
             },
             columnsClasses: {
@@ -147,6 +147,7 @@ jQuery(document).ready(function() {
          },
          handleLocationError: function(browserHasGeolocation, infoWindow, pos) {
             // NOTE (ts): handle this event in some other way? putting a popup on the map isn't very helpful
+            console.error('User location check failed');
             // infoWindow.setPosition(pos);
             // infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
             // infoWindow.open(this.map);
