@@ -28,9 +28,18 @@
    }
 
    .map-header {
-      p {
-         text-align: center;
+      .admin-buttons {
+         float: right;
+         margin-top: -3em;
+         @media all and (max-width: 991px) {
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+         }
       }
+      // p {
+      //    text-align: center;
+      // }
    }
    .map-filters-wrp {
       background-color: #005E9A;
@@ -44,15 +53,16 @@
          color: #fff;
          font-size: 18px;
          font-weight: 100;
-         margin: 6px 20px 0 15px;
-         float: left;
+         margin: 0 20px 10px 0;
+         //float: left;
       }
       input {
          display: inline;
          font-size: 16px;
+         width: 100%;
          max-width: 400px;
          height: 40px;
-         min-width: 312px;
+         //min-width: 312px;
       }
 
       @media all and (max-width: 767px) {
@@ -63,17 +73,6 @@
             }
          }
       }
-      .admin-buttons {
-         float: right;
-         @media all and (max-width: 768px) {
-            float: none;
-            margin-top: 12px;
-         }
-         .btn {
-            font-size: 14px;
-         }
-      }
-
 
    }
 

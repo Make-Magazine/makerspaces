@@ -12,7 +12,11 @@ get_header(); ?>
       <div class="row map-header">
          <div class="col-md-12">
             <h1>Makerspaces Directory</h1>
-            <p><?php echo the_content(); ?></p>
+            <div class="admin-buttons">
+               <a class="btn btn-blue" href="/register"><i class="fa fa-plus"></i> Add yours</a>
+               <a class="btn btn-blue" href="/edit-your-makerspace"><i class="fa fa-pencil-square-o"></i> Manage</a>
+            </div>
+            <p><?php //echo the_content(); ?></p>
          </div>
       </div>
       <div class="message-container">
@@ -23,25 +27,21 @@ get_header(); ?>
 
          <div class="row">
             <div class="col-md-12">
-
-               <div class="map-filters-wrp">
-                  <form action="" class="form-inline" @submit="filterOverride">
-                     <div class="form-group">
-                        <label for="filter">Find a Makerspace</label>
-                        <input class="form-control input-sm" type="search" id="filter" name="filter" ref="filterField" v-model="filterVal" @input="doFilter" placeholder="Name, Location">
-                     </div>
-                     <div class="admin-buttons">
-                        <a class="btn btn-blue" href="/register"><i class="fa fa-plus"></i> Add yours</a>
-                        <a class="btn btn-blue" href="/edit-your-makerspace"><i class="fa fa-pencil-square-o"></i> Manage</a>
-                     </div>
-                  </form>
-               </div>
+               <div id="map" ref="map" style="height: 40px;"></div>
             </div>
          </div>
 
          <div class="row">
             <div class="col-md-12">
-               <div id="map" ref="map" style="height: 40px;"></div>
+
+               <div class="map-filters-wrp">
+                  <form action="" class="" @submit="filterOverride">
+                     <div class="">
+                        <label for="filter">Find a Makerspace</label>
+                        <input class="form-control input-sm" type="search" id="filter" name="filter" ref="filterField" v-model="filterVal" @input="doFilter" placeholder="Search by Name">
+                     </div>
+                  </form>
+               </div>
             </div>
          </div>
 
