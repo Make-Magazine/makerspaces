@@ -13,8 +13,8 @@ get_header(); ?>
          <div class="col-md-12">
             <h1>Makerspaces Directory</h1>
             <div class="admin-buttons">
-               <a class="btn btn-blue" href="/register"><i class="fa fa-plus"></i> Add yours</a>
-               <a class="btn btn-blue" href="/edit-your-makerspace"><i class="fa fa-pencil-square-o"></i> Manage</a>
+               <a class="btn btn-blue" href="/register">Add yours <i class="fa fa-plus"></i></a>
+               <a class="btn btn-blue" href="/edit-your-makerspace">Manage <i class="fa fa-pencil-square-o"></i></a>
             </div>
             <p><?php //echo the_content(); ?></p>
          </div>
