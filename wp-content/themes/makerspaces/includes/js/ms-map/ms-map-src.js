@@ -1,12 +1,8 @@
 
-
-
-
 jQuery(document).ready(function() {
-
-   Vue.use(VueTables.ClientTable, theme = 'bootstrap3');
+   
+   Vue.use(VueTables.ClientTable);
    Vue.use(VueTables.Event);
-   //Vue.use(axios);
 
    var vm = new Vue({
       el: "#directory",
@@ -17,8 +13,7 @@ jQuery(document).ready(function() {
             headings: {
                mmap_eventname: 'Name',
                physLoc: 'Location', 
-               mmap_country: 'Country'//, 
-               //siteLink: 'Link'
+               mmap_country: 'Country'
             },
             templates: {
                physLoc: function (h, row, index) {
@@ -26,30 +21,13 @@ jQuery(document).ready(function() {
                }
             },
             columnsDisplay: {
-               //mmap_eventname: 'Name', 
-               //physLoc: 'Location',
                mmap_country: 'desktop',
-               //mmap_city: '', 
-               //mmap_state: ''
-               //siteLink: 'Link'
             },
             columnsClasses: {
                mmap_eventname: 'col-name',
                physLoc: 'col-location', 
-               mmap_country: 'col-country'//, 
-               //siteLink: 'col-link'
+               mmap_country: 'col-country'
             },
-            // filterByColumn: true,
-            // customFilters: [
-            //    {
-            //       name: 'physLoc',
-            //       callback: function (row, query) {
-            //          console.log(row, query);
-            //          return /query/.test(row.physLoc);
-            //          // return row.name[0] == query;
-            //       }
-            //    }
-            // ],
             pagination: { chunk: 5 } // undocumented :(
          },
          filterVal: '',
@@ -65,7 +43,6 @@ jQuery(document).ready(function() {
          var _self = this;
          axios.get('/wp-json/makemap/v1/mapdata/2')
             .then(function (response) {
-               //console.log(response);
                _self.$refs.loadingIndicator.classList.add("hidden");
                _self.tableData = response.data.Locations;
                _self.$refs.directoryGrid.setOrder('mmap_eventname', true);
@@ -77,26 +54,12 @@ jQuery(document).ready(function() {
                console.log(error);
                _self.$refs.loadingIndicator.classList.add("hidden");
                _self.$refs.errorIndicator.classList.remove("hidden");
-               //_self.loading = false;
             });
-      },
-      computed: {
-
-      },
-      mounted: function() {
-         
-         //var _self = this;
-         // jQuery.get( "/wp-json/makemap/v1/mapdata/2", function( data ) {
-         //    _self.tableData = data.Locations;
-         //    _self.detectBrowser();
-         //    _self.getLocation();
-         //    _self.initMap();
-         // });
       },
       methods: {
          detectBrowser: function() {
-            var useragent = navigator.userAgent;
-            var mapdiv = document.getElementById("map");
+            var useragent = navigator.userAgent,
+               mapdiv = this.$refs.map;
           
             if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
               mapdiv.style.width = '100%';
@@ -108,7 +71,7 @@ jQuery(document).ready(function() {
          },
          initMap: function() {
             this.$refs.mapTableWrapper.classList.remove("map-table-hidden");
-            const element = this.$refs.map; //document.getElementById('map')
+            const element = this.$refs.map;
             const options = {
                center: this.mapDefaultPos,
                zoom: this.mapDefaultZoom
@@ -117,10 +80,8 @@ jQuery(document).ready(function() {
             this.addMarkers();
          },
          getLocation: function() {
-
             var infoWindow = new google.maps.InfoWindow,
                _self = this;
-
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
                navigator.geolocation.getCurrentPosition(
@@ -129,9 +90,6 @@ jQuery(document).ready(function() {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                      };
-                     // infoWindow.setPosition(pos);
-                     // infoWindow.setContent('Location found.');
-                     // infoWindow.open(map);
                      _self.map.setCenter(pos);
                      _self.map.setZoom(8);
                   },
@@ -143,7 +101,6 @@ jQuery(document).ready(function() {
                // Browser doesn't support Geolocation
                _self.handleLocationError(false, infoWindow, _self.map.getCenter());
             }
-
          },
          handleLocationError: function(browserHasGeolocation, infoWindow, pos) {
             // NOTE (ts): handle this event in some other way? putting a popup on the map isn't very helpful
@@ -153,9 +110,7 @@ jQuery(document).ready(function() {
             // infoWindow.open(this.map);
          },
          doFilter: function(data) {
-            //console.log(data);
             this.$refs.directoryGrid.setFilter(this.filterVal);
-            //Event.$emit('vue-tables.filter::physLoc', this.filterVal);
             this.addMarkers();
          },
          filterOverride: function(data) {
@@ -185,11 +140,9 @@ jQuery(document).ready(function() {
                   label: ''//labels[i % labels.length]
                });
                marker.addListener('click', function() {
-                  //console.log(location.mmap_eventname);
                   var myWindow = new google.maps.InfoWindow({
-                     content: '<div style=""><h4>'+location.mmap_eventname+'</h4><p><a href="'+location.mmap_url+'">'+location.mmap_url+'</a></p><p>'+location.mmap_type+'</p></div>'
+                     content: '<div style=""><h4>'+location.mmap_eventname+'</h4><p><a href="'+location.mmap_url+'" target="_blank">'+location.mmap_url+'</a></p><p>'+location.mmap_type+'</p></div>'
                   });
-
                   myWindow.open(this.map, marker);
                });
                return marker;
@@ -197,9 +150,6 @@ jQuery(document).ready(function() {
             //Add a marker clusterer to manage the markers.
             var markerCluster = new MarkerClusterer(this.map, this.markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
          }
-
       }
   });
-
 }); // end doc ready
-
