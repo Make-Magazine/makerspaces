@@ -1,71 +1,77 @@
-.makerspace-directory {
-  .gform_heading {
-    display: none;
-  }
-  h2 {
-    margin-bottom: 5px;
-    margin-top: 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ccc !important;
-  }
-}
-body .gform_wrapper .makerspace-directory .top_label div.ginput_container {
-  margin-top: 0px;
-}
 
-.gform_wrapper .makerspace-directory input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
-  font-size: inherit;
-  font-family: inherit;
-  padding: 5px 4px;
-  letter-spacing: normal;
-  height: 40px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-.gform_wrapper .makerspace-directory textarea {
-  font-size: inherit;
-  font-family: inherit;
-  padding: 5px 4px;
-  letter-spacing: normal;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
+.gform_wrapper .makerspace-directory {
 
-.gform_wrapper .makerspace-directory li.gfield ul.gfield_radio li input[type=radio]+input[type=text] {
-  height: 25px !important;
-}
+   .gform_heading {
+      display: none;
+   }
 
-body .gform_wrapper .makerspace-directory ul li.gfield {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  margin-top: 0;
-}
-.gform_wrapper form.makerspace-directory {
+   h2 {
+      margin-bottom: 5px;
+      margin-top: 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc !important;
+   }
 
-   label, label.gfield_label {
-      font-size: 12px;
+   .top_label div.ginput_container {
+      margin-top: 0px;
+   }
+
+   input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+      font-size: inherit;
+      font-family: inherit;
+      padding: 5px 4px;
+      letter-spacing: normal;
+      height: 40px;
+      padding: 6px 12px;
+      font-size: 16px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+   }
+
+   textarea {
+      font-size: inherit;
+      font-family: inherit;
+      padding: 5px 4px;
+      letter-spacing: normal;
+      padding: 6px 12px;
+      font-size: 16px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+   }
+
+   li.gfield ul.gfield_radio li input[type=radio]+input[type=text] {
+      height: 25px !important;
+   }
+
+   ul li.gfield {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-top: 0;
+   }
+
+   label, 
+   label.gfield_label,
+   .gfield_radio li label,
+   .gfield_checkbox li label {
+      font-size: 14px;
       font-weight: 400;
       .gfield_required {
          color: #EB002A;
@@ -98,7 +104,7 @@ body .gform_wrapper .makerspace-directory ul li.gfield {
          label::before{
             content: "";
             display: inline-block;
-            top: 1px;
+            top: 4px;
             height: 14px;
             width: 14px;
             margin-left: -19px;
@@ -107,12 +113,12 @@ body .gform_wrapper .makerspace-directory ul li.gfield {
          label::after {
             content: "";
             display: inline-block;
-            height: 4px;
-            width: 8px;
-            border-left: 1px solid #1987C7;
-            border-bottom: 1px solid #1987C7;
+            height: 5px;
+            width: 9px;
+            border-left: 2px solid #1987C7;
+            border-bottom: 2px solid #1987C7;
             left: 4px;
-            top: 5px;
+            top: 7px;
             transform: rotate(-45deg);
             margin-left: -20px;
          }
@@ -148,7 +154,7 @@ body .gform_wrapper .makerspace-directory ul li.gfield {
          label::before{
             content: "";
             display: inline-block;
-            top: 3px;
+            top: 5px;
             height: 13px;
             width: 13px;
             margin-left: -19px;
@@ -166,5 +172,3 @@ body .gform_wrapper .makerspace-directory ul li.gfield {
    }
 
 }
-
-
