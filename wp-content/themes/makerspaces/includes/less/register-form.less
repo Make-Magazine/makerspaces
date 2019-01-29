@@ -195,8 +195,12 @@
       border-color: #EB002A;
    }
 
+   li.gfield.gfield_error, li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+      margin-bottom: 0!important;
+   }
+
    .validation_message,
-   .gfield_description .validation_message {
+   .gfield_description.validation_message {
       color: #EB002A;
       padding-bottom: 0;
    }
@@ -205,6 +209,10 @@
       background-color: transparent;
       border: none;
       // margin-bottom: 0;
+   }
+   li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+   li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+      margin-top: 0;
    }
 
 }
