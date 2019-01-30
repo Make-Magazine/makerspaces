@@ -169,9 +169,10 @@
 .container-fluid.light-blue {
 	background: #e2f2fd;
 	text-align: center;
-	padding: 20px 0px 30px;
+   padding: 20px 0px 30px;
 	.makerspace-bottom-nav {
-		padding: 0 10px;
+      padding: 0 10px;
+      height: 100%;
 		&::after {
 			content: "";
 			background-image: url('/wp-content/themes/makerspaces/img/grey-pixel.gif');
@@ -187,16 +188,23 @@
 			font-weight: 300;
 			margin-bottom: 30px;
 			padding: 0 15px;
-		}
-		@media all and (max-width: 988px) {
-			padding: 0 20px;
+      }
+		@media all and (max-width: 991px) {
+         padding: 0 20px;
+         margin-bottom: 32px;
 			&:nth-of-type(2) {
 				&::after {
 					background-image: none;
 				}
 			}
 		}
-		@media all and (max-width: 767px) { padding: 0px; }
+		@media all and (max-width: 767px) { 
+         padding: 0px;
+         h4 {
+            height: auto;
+            margin-bottom: 12px;
+         }
+      }
 		&:first-of-type {
 			@media all and (min-width: 991px) {
 				padding-left: 0px;
