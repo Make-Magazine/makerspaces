@@ -318,9 +318,9 @@ foreach($mspaces as $row){
    foreach($insert_array as $insert){
       $meta_sql = "insert into wp_gf_entry_meta (`form_id`, `entry_id`, `meta_key`, `meta_value`) "
                                    . "   VALUES (5, $entry_id, $insert[0], $insert[0])";
-      echo $meta_sql.'<br/>';
+      //echo $meta_sql.'<br/>';
               
-      //$meta = $wpdb->get_results($meta_sql);
+      $meta = $wpdb->get_results($meta_sql);
    }
          
    //Copy the entry notes
