@@ -88,6 +88,37 @@
       background-color: #fff;
    }
 
+   // Styled File Upload input - TBD, work-in-progress... not super good
+   // label ~ .ginput_container.ginput_container_fileupload::after {
+   //    content: "Choose a File";
+   //    cursor: pointer;
+   //    position: relative;
+   //    top: -35px;
+   //    z-index: -1;
+   //    width: auto;
+   //    max-width: 140px;
+
+   //    background-color: #005E9A;
+   //    box-shadow: none;
+   //    border: thin white solid;
+   //    color: #fff;
+   //    border-radius: 0px;
+   //    text-transform: uppercase;
+   //    font-size: 14px;
+   //    font-weight: 300;
+   //    padding: 10px 20px;
+   // }
+   // label ~ .ginput_container.ginput_container_fileupload:hover::after {
+   //    background: #fff;
+   //    color: #005E9A;
+   //    border-color: #005E9A;
+   // }
+   // input[type="file"] {
+   //    opacity: 0;
+   //    padding: 16px;
+   //    cursor: pointer;
+   // }
+
    // Styled checkbox
    .ginput_container_checkbox ul.gfield_checkbox {
       li[class^="gchoice_"] {
@@ -114,11 +145,12 @@
          label::before{
             content: "";
             display: inline-block;
-            top: 4px;
-            height: 14px;
-            width: 14px;
+            top: 3px;
+            height: 16px;
+            width: 16px;
             margin-left: -21px;
-            border: 1px solid #1987C7;
+            border: 2px solid #1987C7;
+            border-radius: 2px;
          }
          label::after {
             content: "";
@@ -127,7 +159,7 @@
             width: 9px;
             border-left: 2px solid #1987C7;
             border-bottom: 2px solid #1987C7;
-            left: 2px;
+            left: 3px;
             top: 7px;
             transform: rotate(-45deg);
             margin-left: -20px;
@@ -164,11 +196,11 @@
          label::before{
             content: "";
             display: inline-block;
-            top: 5px;
-            height: 13px;
-            width: 13px;
+            top: 3px;
+            height: 16px;
+            width: 16px;
             margin-left: -21px;
-            border: 1px solid #1987C7;
+            border: 2px solid #1987C7;
             border-radius: 50%;
          }
          input[type=radio]:checked+label::before {
@@ -181,7 +213,7 @@
       }
    }
 
-
+   // Overrides for form error state
    div.validation_error {
       color: #EB002A;
       border-color: #EB002A;
@@ -213,6 +245,13 @@
    li.gfield.gfield_error.gfield_contains_required div.ginput_container,
    li.gfield.gfield_error.gfield_contains_required label.gfield_label {
       margin-top: 0;
+   }
+   
+
+   //li.gfield_error div.ginput_complex.ginput_container label,
+   li.gfield_error ul.gfield_checkbox,
+   li.gfield_error ul.gfield_radio {
+      color: #333;
    }
 
 }
