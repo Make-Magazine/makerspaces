@@ -3,7 +3,8 @@
  * This devscript will copy entries from form 2 (the old register form for makerspaces) into 
  * form 5 (the new register form for makerspaces)
  */
-
+echo 'Copy Register Form<br/>';
+include 'db_connect.php';
 
 // these fields are copied over as they are
 $fieldsToCopy = array(1,2,9,10,11, 12, 13, 89, 91, 92,93,86,84,87,15.1,15.2,15.3,15.4,15.5,15.6,15.7,15.8,15.11,16,65, 67, 68, 74, 66);
@@ -159,7 +160,7 @@ foreach($mspaces as $row){
    //loop thru the meta data from form 2
    foreach($meta_data as $meta){         
       $field_number = $meta->meta_key;
-      $meta_value = $row->meta_value;
+      $meta_value   = $meta->meta_value;
       if(in_array($field_number, $fieldsToCopy)){
          $insert_array[] = array($field_number, $meta_value);
       }else{
@@ -190,7 +191,7 @@ foreach($mspaces as $row){
                   
                   break;
                case '15.9':
-                  if($meta_value == 'Sunday') $insert_array[] = array($meta_key, 'Saturday');
+                  if($meta_value == 'Sunday') $insert_array[] = array('15.9', 'Saturday');
                   break;
                case '60':    
                   switch ($meta_value) {                   
@@ -317,7 +318,9 @@ foreach($mspaces as $row){
    foreach($insert_array as $insert){
       $meta_sql = "insert into wp_gf_entry_meta (`form_id`, `entry_id`, `meta_key`, `meta_value`) "
                                    . "   VALUES (5, $entry_id, $insert[0], $insert[0])";
-      $meta = $wpdb->get_results($meta_sql);
+      echo $meta_sql.'<br/>';
+              
+      //$meta = $wpdb->get_results($meta_sql);
    }
          
    //Copy the entry notes
