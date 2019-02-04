@@ -89,7 +89,8 @@ $result = $mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
             <td style="width:  3%">ID</td>
             <td style="width: 40%">Label</td>
             <td style="width:  3%">Type</td>
-            <td style="width: 40%">Options</td>
+            <td style="width: 30%">Options</td>
+            <td> Input Name</td>
             <td style="width:  3%">Admin Only</td>
             <td style="width:  3%">Req</td>
           </tr>
@@ -104,7 +105,7 @@ $result = $mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
 
       usort($jsonArray, "cmp");
       //   var_dump($jsonArray);
-      foreach($jsonArray as $field){
+      foreach($jsonArray as $field){         
         if($field['type'] != 'html' && $field['type'] != 'section' && $field['type'] != 'page'){
           //var_dump($field);
           $label = (isset($field['adminLabel']) && trim($field['adminLabel']) != '' ? $field['adminLabel'] : $field['label']);
@@ -138,6 +139,7 @@ $result = $mysqli->query($sql) or trigger_error($mysqli->error."[$sql]");
               }
               ?>
             </td>
+            <td><?php echo $field['inputName'];?></td>
             <td class="tcenter"><?php echo (isset($field['visibility']) && $field['visibility']=='administrative'?'<i class="fa fa-check" aria-hidden="true"></i>':'');?></td>
             <td class="tcenter"><?php echo ($field['isRequired']?'<i class="fa fa-check" aria-hidden="true"></i>':'');?></td>                      
           </tr>
