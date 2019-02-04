@@ -44,7 +44,7 @@ jQuery(document).ready(function () {
     created: function created() {
       var _self = this;
 
-      axios.get('/wp-json/makemap/v1/mapdata/2').then(function (response) {
+      axios.get('/wp-json/makemap/v1/mapdata/5').then(function (response) {
         _self.$refs.loadingIndicator.classList.add("hidden");
 
         _self.tableData = response.data.Locations;
