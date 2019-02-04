@@ -8,7 +8,7 @@
  */
 
 /**
- * Class WP_Auth0_Api_Change_Password to perform a client credentials grant.
+ * Class WP_Auth0_Api_Change_Password to update a user's password at Auth0.
  */
 class WP_Auth0_Api_Change_Password extends WP_Auth0_Api_Abstract {
 
@@ -18,12 +18,12 @@ class WP_Auth0_Api_Change_Password extends WP_Auth0_Api_Abstract {
 	const RETURN_ON_FAILURE = false;
 
 	/**
-	 * Required scope for API token.
+	 * Required scope for Management API token.
 	 */
 	const API_SCOPE = 'update:users';
 
 	/**
-	 * Decoded token received.
+	 * Decoded token received for the Management API.
 	 *
 	 * @var null|object
 	 */
