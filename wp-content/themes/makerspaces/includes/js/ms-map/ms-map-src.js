@@ -17,7 +17,11 @@ jQuery(document).ready(function() {
             },
             templates: {
                physLoc: function (h, row, index) {
-                  return row.mmap_city + ', ' + row.mmap_state;
+                  var text = row.mmap_city;
+                  if(row.mmap_state) {
+                     text += ', ' + row.mmap_state;
+                  }
+                  return text;
                }
             },
             columnsDisplay: {
