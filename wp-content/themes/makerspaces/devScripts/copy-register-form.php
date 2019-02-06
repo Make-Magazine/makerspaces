@@ -9,7 +9,7 @@ echo 'Copy Register Form<br/>';
 include 'db_connect.php';
 
 // these fields are copied over as they are
-$fieldsToCopy = array(1, 2, 9, 10, 13, 89, 91, 92, 93, 86, 84, 87, 15.1, 15.2, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.11, 16, 65, 67, 68, 74, 66);
+$fieldsToCopy = array(1, 2, 10, 13, 89, 91, 92, 93, 86, 84, 87, 15.1, 15.2, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.11, 16, 65, 67, 68, 74, 66);
 
 /*       Field calculations
   Field 15 "What days is the makerspace open?"
@@ -132,7 +132,7 @@ $fieldsToCopy = array(1, 2, 9, 10, 13, 89, 91, 92, 93, 86, 84, 87, 15.1, 15.2, 1
  */
 
 // These fields are copied over to different fields in form 5
-$copyWithMods = array("11", "12", "14", "15.9", "17", "20", "23", "25", "33", "34", "46", "49.1", "49.2", "49.3", "49.4", "49.5", "49.6", "49.7", "49.8", "49.9", "49.11", "49.12", "60", "70", "71", "72", "73", "75");
+$copyWithMods = array("11", "9", "12", "14", "15.9", "17", "20", "23", "25", "33", "34", "46", "49.1", "49.2", "49.3", "49.4", "49.5", "49.6", "49.7", "49.8", "49.9", "49.11", "49.12", "60", "70", "71", "72", "73", "75");
 
 // Pull all form 2 entris
 global $wpdb;
@@ -168,7 +168,15 @@ foreach ($mspaces as $row) {
       } else {
          if (in_array($field_number, $copyWithMods)) {
             switch ($field_number) {
-               case '11':      $insert_array[] = array('11', ucwords($meta_value));   break;
+               case '11':      
+                  $insert_array[] = array('11', ucwords($meta_value));   
+                  break;
+               case '9':      
+                  $pos = strpos($meta_value, '@');
+                  if ($pos !== false) {
+                     $insert_array[] = array('141', $meta_value);   
+                  }
+                  break;
                case '12':
                   if(strlen($meta_value)==2) $insert_array[] = array('12', strtoupper($meta_value));
                   switch (strtolower($meta_value)) {
