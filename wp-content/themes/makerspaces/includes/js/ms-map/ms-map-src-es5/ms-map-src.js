@@ -158,7 +158,7 @@ jQuery(document).ready(function () {
           });
           marker.addListener('click', function () {
             var myWindow = new google.maps.InfoWindow({
-              content: '<div style=""><h4>' + location.mmap_eventname + '</h4><p><a href="' + location.mmap_url + '" target="_blank">' + location.mmap_url + '</a></p><p>' + location.mmap_type + '</p></div>'
+              content: '<div style=""><h4>' + location.mmap_eventname + '</h4><p><a href="' + location.mmap_url + '" target="_blank">' + location.mmap_url + '</a></p></div>'
             });
             myWindow.open(this.map, marker);
           });
